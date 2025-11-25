@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # ada-2025-project-canada
 
 # Does the Snowball Effect Exist on Reddit? 
