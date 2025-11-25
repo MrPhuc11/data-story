@@ -6,4 +6,6 @@ navigation:
   - title: Home
     url: /
   - title: Test
-    url: /index.md
+    url: page
+  - title: Example
+    url: example
