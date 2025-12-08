@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Snowball Effect on Reddit
-subtitle: Canada <3
 ---
 
 <div class="title-background">
