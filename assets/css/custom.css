@@ -1,11 +1,13 @@
+/* Graph hero container */
 .graph-hero {
   position: relative;
   width: 100%;
-  height: 280px; /* adjust height if you want */
+  height: 280px; /* tweak the height if you like */
   overflow: hidden;
   border-bottom: 1px solid #e0e0e0;
 }
 
+/* Canvas fills the hero area */
 .graph-hero canvas {
   position: absolute;
   top: 0;
@@ -15,6 +17,7 @@
   display: block;
 }
 
+/* Text overlay (your title & subtitle) */
 .graph-hero-text {
   position: relative;
   z-index: 2;
@@ -25,7 +28,7 @@
   justify-content: center;
   text-align: center;
   padding: 0 1.5rem;
-  color: #ffffff; /* text over darkish background */
+  color: #ffffff; /* text color over darkish background */
 }
 
 .graph-hero-text h1 {
@@ -35,24 +38,24 @@
 
 .graph-hero-text p {
   font-size: 1rem;
-  max-width: 600px;
+  max-width: 650px;
   opacity: 0.9;
 }
 
-/* Optional: dark overlay to make text easier to read */
+/* Dark-ish overlay so the white text is readable */
 .graph-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
       circle at top left,
-      rgba(255, 255, 255, 0.05),
-      transparent 40%
+      rgba(255, 255, 255, 0.06),
+      transparent 45%
     ),
     radial-gradient(
       circle at bottom right,
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.85)
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.9)
     );
   z-index: 1;
 }
