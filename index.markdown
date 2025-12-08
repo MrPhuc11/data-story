@@ -3,6 +3,16 @@ layout: page
 title: Snowball Effect on Reddit
 ---
 
+<div class="graph-hero">
+  <canvas id="graph-hero-canvas"></canvas>
+  <div class="graph-hero-text">
+    <h1>Snowball Effect on Reddit</h1>
+    <p>Visualizing how discussions snowball and spread across Reddit threads.</p>
+  </div>
+</div>
+
+<script src="{{ site.baseurl }}/assets/js/graph-hero.js"></script>
+
 ## 1. Catchy example
 
 ## 2. PLOT Visu of the data
