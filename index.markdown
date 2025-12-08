@@ -16,6 +16,15 @@ Here is a plot of the clusters in embedding space
 
 ## 4. PLOT Interactions between clusters
 
+This is a plot of the interactions between clusters
+
+<div class="flourish-embed flourish-sankey" data-src="visualisation/26700217">
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
+  <noscript>
+    <img src="https://public.flourish.studio/visualisation/26700217/thumbnail" width="100%" alt="sankey visualization" />
+  </noscript>
+</div>
+
 ## 5. Defining positivity / Negativity score
 
 PLOT: regression?
