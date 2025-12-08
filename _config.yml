@@ -26,7 +26,7 @@ baseurl: "/data-story"     # ATTENTION: ton nom de repo avec un slash devant
 url: "https://mrphuc11.github.io"
 twitter_username: jekyllrb
 github_username: mrphuc11  # facultatif, mais autant le mettre
-theme: minima
+theme: beautiful-jekyll-theme
 plugins:
   - jekyll-feed
 
