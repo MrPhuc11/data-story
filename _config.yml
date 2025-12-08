@@ -22,17 +22,44 @@ title: Snowball Effect
 email: phuc-hung.truong@epfl.ch
 description: >-
   Write an awesome description for your new site here...
-baseurl: "/data-story"     # ATTENTION: ton nom de repo avec un slash devant
+baseurl: "/data-story" # ATTENTION: ton nom de repo avec un slash devant
 url: "https://mrphuc11.github.io"
 twitter_username: jekyllrb
-github_username: mrphuc11  # facultatif, mais autant le mettre
+github_username: mrphuc11 # facultatif, mais autant le mettre
 remote_theme: daattali/beautiful-jekyll@6.0.1
 
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
 
+###############################################
+# --- List of links in the navigation bar --- #
+###############################################
 
+navbar-links:
+  About Me: "aboutme"
+  Resources:
+    - Beautiful Jekyll: "https://beautifuljekyll.com"
+    - Learn markdown: "https://www.markdowntutorial.com/"
+  Author's home: "https://deanattali.com"
+
+######################################
+# --- Colours / background image --- #
+######################################
+
+# Personalize the colours in your website. Colour values can be any valid CSS colour
+
+page-col: "#FFFFFF"
+text-col: "#404040"
+link-col: "#008AFF"
+hover-col: "#0085A1"
+navbar-col: "#DE3163"
+navbar-text-col: "#404040"
+navbar-border-col: "#DDDDDD"
+footer-col: "#EAEAEA"
+footer-text-col: "#777777"
+footer-link-col: "#404040"
+footer-hover-col: "#0085A1"
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
