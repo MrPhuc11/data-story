@@ -5,7 +5,7 @@ subtitle: Canada <3
 ---
 
 <div class="title-background">
-    <img src="Images/snowball.png" style="display: block; margin: 0 auto; width: 100%;"/>
+    <img src="Images/monet_magpie.png" style="display: block; margin: 0 auto; width: 100%;"/>
 </div>
 &nbsp;
 
