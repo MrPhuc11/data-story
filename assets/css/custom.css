@@ -1,23 +1,21 @@
-/* Graph hero container */
+/* Give the header some height and style */
+
 .graph-hero {
   position: relative;
   width: 100%;
-  height: 280px; /* tweak the height if you like */
+  height: 280px; /* you can change this */
   overflow: hidden;
   border-bottom: 1px solid #e0e0e0;
 }
 
-/* Canvas fills the hero area */
 .graph-hero canvas {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
 }
 
-/* Text overlay (your title & subtitle) */
 .graph-hero-text {
   position: relative;
   z-index: 2;
@@ -28,7 +26,7 @@
   justify-content: center;
   text-align: center;
   padding: 0 1.5rem;
-  color: #ffffff; /* text color over darkish background */
+  color: #ffffff;
 }
 
 .graph-hero-text h1 {
@@ -42,7 +40,7 @@
   opacity: 0.9;
 }
 
-/* Dark-ish overlay so the white text is readable */
+/* Optional overlay to make text readable */
 .graph-hero::before {
   content: "";
   position: absolute;
