@@ -10,6 +10,10 @@ In this project, we aim to investigate whether such an effect exists within Redd
 
 ## 3. PLOT Clustering plot
 
+Here is a plot of the clusters in embedding space
+
+![t-SNE clusters]({{ site.baseurl }}/Images/tsne_plot.png)
+
 ## 4. PLOT Interactions between clusters
 
 ## 5. Defining positivity / Negativity score
