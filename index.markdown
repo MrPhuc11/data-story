@@ -17,6 +17,7 @@ title: Snowball Effect on Reddit
         <p>“The more I live, the more I regret how little I know.”</p>
         <span class="author">— Claude Monet</span>
     </div>
+
 </div>
 
 <style>
@@ -110,7 +111,7 @@ This is a plot of the share of positive hyperlinks over time
 <div class="flourish-embed flourish-chart" data-src="visualisation/26714353">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
-    <img src="https://public.flourish.studio/visualisation/26714353/thumbnail" width="100%" alt="chart visualization" />
+    <img src="https://public.flourish.studio/visualisation/26714353/thumbnail" width="80%" alt="chart visualization" />
   </noscript>
 </div>
 
