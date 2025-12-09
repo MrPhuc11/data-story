@@ -93,15 +93,15 @@
 }
 
 /* -------------------------------
-   MONET QUOTE OVER IMAGE
+   MONET QUOTE HERO (FINAL VERSION)
 --------------------------------*/
 
 /* Container aligned with the image */
 .monet-quote-hero {
   position: relative;
-  width: 80%;              /* same as image */
-  height: 160px;           /* height of quote area */
-  margin: -110px auto 40px;/* pull it up over the bottom of the painting */
+  width: 80%;              /* same width as the img */
+  height: 160px;           /* height of the quote area */
+  margin: -110px auto 40px;/* pull it up onto the Monet painting */
   overflow: hidden;
   pointer-events: none;
 }
@@ -131,20 +131,11 @@
   margin-top: 0.4rem;
 }
 
-/* Darken the bottom of the painting a bit so the text is readable */
-.monet-quote-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.65),
-      rgba(0, 0, 0, 0.0)
-  );
-  z-index: 1;
-}
 
-/* Simple snow effect using radial-gradients (pure CSS, no SCSS) */
+/* -------------------------------
+   SNOW EFFECT (light, simple)
+--------------------------------*/
+
 .monet-quote-hero::after {
   content: "";
   position: absolute;
@@ -166,12 +157,7 @@
   z-index: 1;
 }
 
-/* Falling animation */
 @keyframes monet-snow {
-  0% {
-    transform: translateY(-40px);
-  }
-  100% {
-    transform: translateY(200px);
-  }
+  0% { transform: translateY(-40px); }
+  100% { transform: translateY(200px); }
 }
