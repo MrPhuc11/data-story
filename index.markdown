@@ -4,7 +4,7 @@ title: Snowball Effect on Reddit
 ---
 
 <div class="title-background">
-    <img src="Images/monet_magpie.jpg" style="display: block; margin: 0 auto; width: 100%;"/>
+    <img src="Images/monet_magpie.jpg" style="display: block; margin: 0 auto; width: 80%;"/>
 </div>
 &nbsp;
 
@@ -37,7 +37,7 @@ This is a plot of the interactions between clusters
 <div class="flourish-embed flourish-sankey" data-src="visualisation/26700217">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
-    <img src="https://public.flourish.studio/visualisation/26700217/thumbnail" width="100%" alt="sankey visualization" />
+    <img src="https://public.flourish.studio/visualisation/26700217/thumbnail" width="80%" alt="sankey visualization" />
   </noscript>
 </div>
 
@@ -52,7 +52,7 @@ This is a plot of the share of positive hyperlinks over time
 <div class="flourish-embed flourish-chart" data-src="visualisation/26714353">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
-    <img src="https://public.flourish.studio/visualisation/26714353/thumbnail" width="80%" alt="chart visualization" />
+    <img src="https://public.flourish.studio/visualisation/26714353/thumbnail" width="60%" alt="chart visualization" />
   </noscript>
 </div>
 
