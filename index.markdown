@@ -1,25 +1,13 @@
 ---
 layout: page
 title: Snowball Effect on Reddit
+subtitle: "The more I live, the more I regret how little I know.”
 ---
 
 <div class="title-background">
     <img src="Images/monet_magpie.jpg" style="display: block; margin: 0 auto; width: 80%;"/>
 </div>
 &nbsp;
-
-<div class="title-background">
-    <img src="Images/monet_magpie.jpg" style="display: block; margin: 0 auto; width: 80%;"/>
-</div>
-&nbsp;
-
-<div class="monet-quote-hero">
-  <div class="monet-quote-text">
-    “The more I live, the more I regret how little I know.”
-    <br><span class="author">— Claude Monet</span>
-  </div>
-</div>
-
 
 <div style="text-align: justify;">
 The snowball effect is a metaphor for a situation where something small and insignificant grows in size over time, much like a snowball rolling down a hill gathers more snow.
