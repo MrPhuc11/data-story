@@ -57,3 +57,121 @@
     );
   z-index: 1;
 }
+
+/* -------------------------------
+   MONET QUOTE HERO OVERLAY
+--------------------------------*/
+
+.monet-quote-hero {
+  position: relative;
+  width: 100%;
+  height: 220px; /* adjust for spacing */
+  margin-top: -160px; /* pulls quote up over the Monet painting */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Quote styling */
+.monet-quote-text {
+  position: absolute;
+  top: 40px;              /* adjust vertical placement */
+  width: 100%;
+  text-align: center;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 300;
+  color: white;
+  z-index: 20;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.monet-quote-text .author {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* -------------------------------
+   MONET QUOTE OVER IMAGE
+--------------------------------*/
+
+/* Container aligned with the image */
+.monet-quote-hero {
+  position: relative;
+  width: 80%;              /* same as image */
+  height: 160px;           /* height of quote area */
+  margin: -110px auto 40px;/* pull it up over the bottom of the painting */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Quote text */
+.monet-quote-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.9rem;
+  font-style: italic;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  z-index: 2;
+}
+
+.monet-quote-text .author {
+  font-size: 1.1rem;
+  font-style: normal;
+  opacity: 0.85;
+  margin-top: 0.4rem;
+}
+
+/* Darken the bottom of the painting a bit so the text is readable */
+.monet-quote-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.0)
+  );
+  z-index: 1;
+}
+
+/* Simple snow effect using radial-gradients (pure CSS, no SCSS) */
+.monet-quote-hero::after {
+  content: "";
+  position: absolute;
+  inset: -60px 0 0 0; /* start a bit above */
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.9) 50%, transparent),
+    radial-gradient(2px 2px at 30% 10%, rgba(255,255,255,0.7) 50%, transparent),
+    radial-gradient(3px 3px at 50% 25%, rgba(255,255,255,0.8) 50%, transparent),
+    radial-gradient(2px 2px at 70% 15%, rgba(255,255,255,0.85) 50%, transparent),
+    radial-gradient(2px 2px at 90% 30%, rgba(255,255,255,0.75) 50%, transparent),
+    radial-gradient(3px 3px at 20% 60%, rgba(255,255,255,0.8) 50%, transparent),
+    radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,0.7) 50%, transparent),
+    radial-gradient(3px 3px at 60% 55%, rgba(255,255,255,0.9) 50%, transparent),
+    radial-gradient(2px 2px at 80% 65%, rgba(255,255,255,0.8) 50%, transparent),
+    radial-gradient(2px 2px at 30% 90%, rgba(255,255,255,0.7) 50%, transparent);
+  background-size: 220px 220px;
+  animation: monet-snow 10s linear infinite;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* Falling animation */
+@keyframes monet-snow {
+  0% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(200px);
+  }
+}
