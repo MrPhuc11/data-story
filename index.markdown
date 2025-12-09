@@ -36,6 +36,15 @@ PLOT: regression?
 
 ## 6. PLOT Most positive and negative clusters by time
 
+This is a plot of the share of positive hyperlinks over time
+
+<div class="flourish-embed flourish-chart" data-src="visualisation/26714353">
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
+  <noscript>
+    <img src="https://public.flourish.studio/visualisation/26714353/thumbnail" width="100%" alt="chart visualization" />
+  </noscript>
+</div>
+
 ## 7. Matching
 
 1. within cluster
