@@ -8,25 +8,50 @@ title: Snowball Effect on Reddit
 </div>
 &nbsp;
 
-<div style="text-align: justify;">
+## “The more I live, the more I regret how little I know.”
 
-## “The more I live, the more I regret how little I know.” 
+<div style="text-align: justify;">
 
 The snowball effect is a metaphor for a situation where something small and insignificant grows in size over time, much like a snowball rolling down a hill gathers more snow.
 In this project, we aim to investigate whether such an effect exists within Reddit’s social network. Specifically, we examine how positive or negative links received by a targeted subreddit influence both its own behavior and the broader network’s response. First, we explore whether the sentiment of incoming links affects the sentiment of the outgoing links that the targeted subreddit sends during that period (does receiving negative attention make it more likely to link negatively to others, or does positive attention lead to more supportive interactions?). Next, we study how other subreddits respond to these interactions. When one subreddit links negatively to another, does this make additional subreddits to also link negatively to the same target? Conversely, does a positive link between two subreddits also attract more positive attention from others? Overall, we aim to see whether that first link triggers a snowball effect, amplifying positive or negative sentiment across both related and distant communities on Reddit.
+
 </div>
 
-## 2. PLOT Visu of the data
+## 2. Dataset
 
-## 3. PLOT Clustering plot
+The dataset we are working with is a network of subreddit-to-subreddit hyperlinks, extacted from posts that create hyperlinks from one subreddit to another. A hyperlink originates from a post in the source community and links to a post in the target community. Each hyperlink is annotated with the timestamp of the post, the sentiment of the source community post towards the target community post (−1 for negative and +1 for neutral or positive), and the text property vector of the source post.
+The hyperlink network covers the period from December 2013 to April 2017
 
-Here is a plot of the clusters in embedding space
+**The network is directed, signed, temporal, and attributed.**
+
+As a complement, we will utilize subreddit embeddings, vector representations of each subreddit. They were created such that community embeddings will be close together if similar users post on them.
+
+## 3. Clustering
+
+To make sense of the huge network, we can start by clustering subreddits into larger topical communities.
+
+Communities are defined as sets of tightly connected nodes. This can be confusing for our problem because a subreddit can also be called a "community", yet it represents only a single node in the Reddit graph.
+
+Modularity is a measure of how well a network is partitioned into groups (or communities). Given a partition of the network into groups.
+The Modularity of a partitioning S of graph G is :
+
+$$Q = \frac{1}{2m}\sum_{ij}({A_{ij} - \frac{k_ik_j}{2m}) \delta(c_i,c_j)} $$
+
+Where $A_{ij}$ is the edge weight between nodes $i$ and $j$, $k_i$ and $k_j$ are the sum of the weights of the edges attached to nodes $i$ and $j$, $2m$ is the sum of all the edge weights in the graph, $c_i$ and $c_j$ are the communities of the nodes and $\delta$ is an indicator function.
+
+The idea is to identify communities by maximizing modularity. To this end we can use the Leiden algorithm which is an improvement of the Louvain algorithm. It guarantees well-connected communities, converging towards a partition in which all subsets of all communities are locally optimally assigned and it is much faster than Louvain.
+Now we can visualize these clusters in the embedding space by using the subreddit embedings dataset. We can reduce the dimension of to 2D for visualization using PCA followed by t-SNE (t-distributed Stochastic Neighbor Embedding).
 
 ![t-SNE clusters]({{ site.baseurl }}/Images/tsne_plot.png)
 
-## 4. PLOT Interactions between clusters
+We use t-SNE to replicate Figure 1 from the original paper [1] and highlight nodes based on their cluster assignment.
+t-SNE converts similarities between data points to joint probabilities and tries to minimize the Kullback-Leibler divergence between the joint probabilities of the low-dimensional embedding and the high-dimensional data. We apply PCA before-hand because of the number pf features is initially very high.[2]
 
-This is a plot of the interactions between clusters
+This plot shows us how these topical groups of subreddits are organized in the embedding space. The embedding space is organized such that subreddits with similar users will lie close together.
+
+We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples. This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
+
+We can also analyse which clusters communicate the most between each other.
 
 <div class="flourish-embed flourish-sankey" data-src="visualisation/26700217">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -35,13 +60,19 @@ This is a plot of the interactions between clusters
   </noscript>
 </div>
 
-## 5. Defining positivity / Negativity score
+## 4. Sentiment Analysis
 
-PLOT: regression?
+What is the share of positive to negative hyperlinks and how can we define them?
+The data is manually labeled with a link sentiment of +/- 1.
 
-## 6. PLOT Most positive and negative clusters by time
+<div class="flourish-embed flourish-chart" data-src="visualisation/26769169">
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
+  <noscript>
+    <img src="https://public.flourish.studio/visualisation/26769169/thumbnail" width="100%" alt="chart visualization" />
+  </noscript>
+</div>
 
-This is a plot of the share of positive hyperlinks over time
+We can also see how the share of positive/neural hyperlinks evolves over time for each cluster.
 
 <div class="flourish-embed flourish-chart" data-src="visualisation/26714353">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -49,6 +80,23 @@ This is a plot of the share of positive hyperlinks over time
     <img src="https://public.flourish.studio/visualisation/26714353/thumbnail" width="60%" alt="chart visualization" />
   </noscript>
 </div>
+
+The issue with this classification is that it lacks precision. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
+
+- VADER positive
+- VADER negative
+- VADER compound
+- LIWC Posemo
+- LICW Negemo
+- LICW Anx
+- LICW Anger
+- LICW Sad
+
+The VADER and LICW scores are....
+
+We can use them to define a continuous sentiment score between -1 and 1, which allows us to quantify sentiment type (negative or positive) as well as strength.
+
+To do this we...
 
 ## 7. Matching
 
