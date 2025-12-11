@@ -17,7 +17,7 @@ In this project, we aim to investigate whether such an effect exists within Redd
 
 </div>
 
-## 2. Dataset
+## Dataset
 
 The dataset we are working with is a network of subreddit-to-subreddit hyperlinks, extacted from posts that create hyperlinks from one subreddit to another. A hyperlink originates from a post in the source community and links to a post in the target community. Each hyperlink is annotated with the timestamp of the post, the sentiment of the source community post towards the target community post (−1 for negative and +1 for neutral or positive), and the text property vector of the source post.
 The hyperlink network covers the period from December 2013 to April 2017
@@ -26,7 +26,7 @@ The hyperlink network covers the period from December 2013 to April 2017
 
 As a complement, we will utilize subreddit embeddings, vector representations of each subreddit. They were created such that community embeddings will be close together if similar users post on them.
 
-## 3. Clustering
+## Clustering
 
 To make sense of the huge network, we can start by clustering subreddits into larger topical communities.
 
@@ -35,7 +35,7 @@ Communities are defined as sets of tightly connected nodes. This can be confusin
 Modularity is a measure of how well a network is partitioned into groups (or communities). Given a partition of the network into groups.
 The Modularity of a partitioning S of graph G is :
 
-$$Q = \frac{1}{2m}\sum_{ij}({A_{ij} - \frac{k_ik_j}{2m}) \delta(c_i,c_j)} $$
+$$ Q = \frac{1}{2m}\sum*{ij}({A*{ij} - \frac{k_ik_j}{2m}) \delta(c_i,c_j)} $$
 
 Where $A_{ij}$ is the edge weight between nodes $i$ and $j$, $k_i$ and $k_j$ are the sum of the weights of the edges attached to nodes $i$ and $j$, $2m$ is the sum of all the edge weights in the graph, $c_i$ and $c_j$ are the communities of the nodes and $\delta$ is an indicator function.
 
@@ -68,7 +68,7 @@ The data is manually labeled with a link sentiment of +/- 1.
 <div class="flourish-embed flourish-chart" data-src="visualisation/26769169">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
-    <img src="https://public.flourish.studio/visualisation/26769169/thumbnail" width="100%" alt="chart visualization" />
+    <img src="https://public.flourish.studio/visualisation/26769169/thumbnail" width="70%" alt="chart visualization" />
   </noscript>
 </div>
 
@@ -77,7 +77,7 @@ We can also see how the share of positive/neural hyperlinks evolves over time fo
 <div class="flourish-embed flourish-chart" data-src="visualisation/26714353">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
-    <img src="https://public.flourish.studio/visualisation/26714353/thumbnail" width="60%" alt="chart visualization" />
+    <img src="https://public.flourish.studio/visualisation/26714353/thumbnail" width="50%" alt="chart visualization" />
   </noscript>
 </div>
 
