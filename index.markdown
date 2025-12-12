@@ -100,9 +100,11 @@ LIWC and VADER are lexicon-based tools for measuring sentiment and affect in tex
 
 We can use them to define a continuous sentiment score between -1 and 1, which allows us to quantify sentiment type (negative or positive) as well as strength.
 
-To do this we ..
+We combine the LIWC and VADER outputs into a single signed sentiment score using principal component analysis (PCA). PCA is applied directly to the LIWC and VADER features, and the first principal component, which captures the dominant shared variation across the lexicon-based measures, is used as a continuous sentiment axis. This signed score provides a compact measure of sentiment polarity and strength, enabling rapid assessment and comparison of sentiment intensity across posts.
 
 ![t-SNE clusters]({{ site.baseurl }}/Images/pca_sentiment.png)
+
+We see a large s
 
 ## 7. Matching
 
