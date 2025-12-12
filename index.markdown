@@ -89,7 +89,14 @@ The issue with this classification is that it lacks precision. We want to be abl
 - **VADER**: Positive, Negative, Compound
 - **LIWC**: Posemo, Negemo, Anx, Anger, Sad
 
-The VADER and LICW scores are....
+LIWC and VADER are lexicon-based tools for measuring sentiment and affect in text. LIWC computes normalized frequencies of words associated with psychological and emotional categories, such as negative emotion or anger, while VADER produces a continuous sentiment polarity score by combining word-level valence with rules for negation, intensifiers, and punctuation, making it well suited for social media text.
+
+<div class="flourish-embed flourish-radar" data-src="visualisation/26785304">
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
+  <noscript>
+    <img src="https://public.flourish.studio/visualisation/26785304/thumbnail" width="100%" alt="radar visualization" />
+  </noscript>
+</div>
 
 We can use them to define a continuous sentiment score between -1 and 1, which allows us to quantify sentiment type (negative or positive) as well as strength.
 
