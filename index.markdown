@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Snowball Effect on Reddit
+use_math: true
 ---
 
 <div class="title-background">
@@ -35,7 +36,9 @@ Communities are defined as sets of tightly connected nodes. This can be confusin
 Modularity is a measure of how well a network is partitioned into groups (or communities). Given a partition of the network into groups.
 The Modularity of a partitioning S of graph G is :
 
-$$ Q = \frac{1}{2m}\sum*{ij}({A*{ij} - \frac{k_ik_j}{2m}) \delta(c_i,c_j)} $$
+$$
+Q = \frac{1}{2m} \sum_{ij} \left( A_{ij} - \frac{k_i k_j}{2m} \right) \delta(c_i, c_j)
+$$
 
 Where $A_{ij}$ is the edge weight between nodes $i$ and $j$, $k_i$ and $k_j$ are the sum of the weights of the edges attached to nodes $i$ and $j$, $2m$ is the sum of all the edge weights in the graph, $c_i$ and $c_j$ are the communities of the nodes and $\delta$ is an indicator function.
 

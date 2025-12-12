@@ -57,3 +57,12 @@
     );
   z-index: 1;
 }
+
+/* Justify paragraph text across page content */
+.container-md p,
+.container-fluid p,
+.page-content p,
+.post-content p {
+  text-align: justify;
+  text-justify: inter-word;
+}
