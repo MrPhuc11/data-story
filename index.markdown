@@ -100,7 +100,9 @@ LIWC and VADER are lexicon-based tools for measuring sentiment and affect in tex
 
 We can use them to define a continuous sentiment score between -1 and 1, which allows us to quantify sentiment type (negative or positive) as well as strength.
 
-To do this we...
+To do this we ..
+
+![t-SNE clusters]({{ site.baseurl }}/Images/pca_sentiment.png)
 
 ## 7. Matching
 
