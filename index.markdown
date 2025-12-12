@@ -104,7 +104,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 
 ![t-SNE clusters]({{ site.baseurl }}/Images/pca_sentiment.png)
 
-We see a large s
+The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
 
 ## 7. Matching
 
