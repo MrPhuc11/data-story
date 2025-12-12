@@ -31,6 +31,14 @@ common-js:
 
   {{ content }}
 
+  {% if page.use_math or site.mathjax %}
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  {% endif %}
+
   {% include footer.html %}
 
   {% include footer-scripts.html %}
