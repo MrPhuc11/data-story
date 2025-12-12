@@ -86,14 +86,8 @@ We can also see how the share of positive/neural hyperlinks evolves over time fo
 
 The issue with this classification is that it lacks precision. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
 
-- VADER positive
-- VADER negative
-- VADER compound
-- LIWC Posemo
-- LICW Negemo
-- LICW Anx
-- LICW Anger
-- LICW Sad
+- **VADER**: Positive, Negative, Compound
+- **LIWC**: Posemo, Negemo, Anx, Anger, Sad
 
 The VADER and LICW scores are....
 
