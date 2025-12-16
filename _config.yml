@@ -36,6 +36,15 @@ plugins:
 
 navbar-links:
   About Me: "aboutme"
+  Sections:
+    - Data vis: "#plot-visu"
+    - Clustering: "#plot-clusters"
+    - Interactions: "#plot-interactions"
+    - Positivity score: "#positivity-score"
+    - Time trends: "#pos-neg-over-time"
+    - Matching: "#matching"
+    - Analysis 1: "#analysis-1"
+    - Analysis 2: "#analysis-2"
   Resources:
     - Dataset: "https://snap.stanford.edu/data/soc-RedditHyperlinks.html"
     - Repository: "https://github.com/epfl-ada/ada-2025-project-canada"
