@@ -15,7 +15,6 @@ use_math: true
 </div>
 &nbsp;
 
-<<<<<<< HEAD
 <img src="{{ site.baseurl }}/Images/reddit_logo.png" alt="reddit logo" style="display:block;margin:0 auto;max-width:180px;">
 
 <div style="text-align: justify;" markdown="1">
@@ -31,21 +30,11 @@ In this project, we aim to investigate whether such an effect exists within Redd
 ## 2. PLOT Visu of the data {#plot-visu}
 
 ## 3. PLOT Clustering plot {#plot-clusters}
-=======
-## “The more I live, the more I regret how little I know.”
-
-<div style="text-align: justify;">
-
-The snowball effect is a metaphor for a situation where something small and insignificant grows in size over time, much like a snowball rolling down a hill gathers more snow.
-In this project, we aim to investigate whether such an effect exists within Reddit’s social network. Specifically, we examine how positive or negative links received by a targeted subreddit influence both its own behavior and the broader network’s response. First, we explore whether the sentiment of incoming links affects the sentiment of the outgoing links that the targeted subreddit sends during that period (does receiving negative attention make it more likely to link negatively to others, or does positive attention lead to more supportive interactions?). Next, we study how other subreddits respond to these interactions. When one subreddit links negatively to another, does this make additional subreddits to also link negatively to the same target? Conversely, does a positive link between two subreddits also attract more positive attention from others? Overall, we aim to see whether that first link triggers a snowball effect, amplifying positive or negative sentiment across both related and distant communities on Reddit.
-
-</div>
 
 ## Dataset
 
 The dataset we are working with is a network of subreddit-to-subreddit hyperlinks, extacted from posts that create hyperlinks from one subreddit to another. A hyperlink originates from a post in the source community and links to a post in the target community. Each hyperlink is annotated with the timestamp of the post, the sentiment of the source community post towards the target community post (−1 for negative and +1 for neutral or positive), and the text property vector of the source post.
 The hyperlink network covers the period from December 2013 to April 2017
->>>>>>> 51f728fd6eb5f131873ae1754c2eb1f79c12f4ee
 
 **The network is directed, signed, temporal, and attributed.**
 
