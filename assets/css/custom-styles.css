@@ -58,6 +58,7 @@
   z-index: 1;
 }
 
+<<<<<<< HEAD
 /* Quote highlight */
 .quote-card {
   margin: 1.5rem auto;
@@ -87,4 +88,13 @@
   color: #4a5568;
   font-style: normal;
   letter-spacing: 0.02em;
+=======
+/* Justify paragraph text across page content */
+.container-md p,
+.container-fluid p,
+.page-content p,
+.post-content p {
+  text-align: justify;
+  text-justify: inter-word;
+>>>>>>> 51f728fd6eb5f131873ae1754c2eb1f79c12f4ee
 }

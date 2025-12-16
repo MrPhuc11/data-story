@@ -26,6 +26,12 @@ twitter_username: jekyllrb
 github_username: mrphuc11 # facultatif, mais autant le mettre
 remote_theme: daattali/beautiful-jekyll@6.0.1
 
+markdown: kramdown
+mathjax: true
+kramdown:
+  math_engine: mathjax
+  input: GFM
+
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
