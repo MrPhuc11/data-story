@@ -60,12 +60,9 @@ Now we can visualize these clusters in the embedding space by using the subreddi
 
 ![t-SNE clusters]({{ site.baseurl }}/Images/tsne_plot.png)
 
-<<<<<<< HEAD
 ## 4. PLOT Interactions between clusters {#plot-interactions}
-=======
 We use t-SNE to replicate Figure 1 from the original paper [1] and highlight nodes based on their cluster assignment.
 t-SNE converts similarities between data points to joint probabilities and tries to minimize the Kullback-Leibler divergence between the joint probabilities of the low-dimensional embedding and the high-dimensional data. We apply PCA before-hand because of the number pf features is initially very high.[2]
->>>>>>> 51f728fd6eb5f131873ae1754c2eb1f79c12f4ee
 
 This plot shows us how these topical groups of subreddits are organized in the embedding space. The embedding space is organized such that subreddits with similar users will lie close together.
 
@@ -80,25 +77,18 @@ We can also analyse which clusters communicate the most between each other.
   </noscript>
 </div>
 
-<<<<<<< HEAD
 ## 5. Defining positivity / Negativity score {#positivity-score}
-=======
-## 4. Sentiment Analysis
->>>>>>> 51f728fd6eb5f131873ae1754c2eb1f79c12f4ee
 
 What is the share of positive to negative hyperlinks and how can we define them?
 The data is manually labeled with a link sentiment of +/- 1.
 
-<<<<<<< HEAD
 ## 6. PLOT Most positive and negative clusters by time {#pos-neg-over-time}
-=======
 <div class="flourish-embed flourish-chart" data-src="visualisation/26769169">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
     <img src="https://public.flourish.studio/visualisation/26769169/thumbnail" width="70%" alt="chart visualization" />
   </noscript>
 </div>
->>>>>>> 51f728fd6eb5f131873ae1754c2eb1f79c12f4ee
 
 We can also see how the share of positive/neural hyperlinks evolves over time for each cluster.
 
@@ -109,9 +99,6 @@ We can also see how the share of positive/neural hyperlinks evolves over time fo
   </noscript>
 </div>
 
-<<<<<<< HEAD
-## 7. Matching {#matching}
-=======
 The issue with this classification is that it lacks precision. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
 
 - **VADER**: Positive, Negative, Compound
@@ -135,7 +122,6 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
 
 ## 7. Matching
->>>>>>> 51f728fd6eb5f131873ae1754c2eb1f79c12f4ee
 
 1. within cluster
 
