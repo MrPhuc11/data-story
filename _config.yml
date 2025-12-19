@@ -27,7 +27,6 @@ github_username: mrphuc11 # facultatif, mais autant le mettre
 remote_theme: daattali/beautiful-jekyll@6.0.1
 
 favicon: "/Images/favicon.ico"
-avatar: "/Images/favicon.png"
 
 markdown: kramdown
 mathjax: true
@@ -44,7 +43,7 @@ plugins:
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
+  About Us: "about"
   Sections:
     - Data vis: "#plot-visu"
     - Clustering: "#plot-clusters"

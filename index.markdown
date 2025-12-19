@@ -46,19 +46,23 @@ The dataset we are working with is a network of subreddit-to-subreddit hyperlink
 The hyperlink network covers the period from December 2013 to April 2017.
 <br>
 <br>
-<div class="dataset-buttons">
-  <a class="dataset-btn hot" href="https://snap.stanford.edu/data/soc-RedditHyperlinks.html" target="_blank" rel="noopener">
-    Hyperlinks dataset <span class="btn-emoji">🚀</span>
-  </a>
-  <a class="dataset-btn chill" href="https://snap.stanford.edu/data/web-RedditEmbeddings.html" target="_blank" rel="noopener">
-    Embeddings dataset <span class="btn-emoji">❄️</span>
-  </a>
-</div>
-<br>
 <b>The network is directed, signed, temporal, and attributed. </b>
 <br>
 <br>
 As a complement, we will utilize subreddit embeddings, vector representations of each subreddit. They were created such that community embeddings will be close together if similar users post on them.
+
+<div class="dataset-box">
+  <div class="dataset-cta">Check out the datasets here!</div>
+  <div class="dataset-buttons">
+    <a class="dataset-btn hot" href="https://snap.stanford.edu/data/soc-RedditHyperlinks.html" target="_blank" rel="noopener">
+      Hyperlinks dataset ⛄
+    </a>
+    <a class="dataset-btn chill" href="https://snap.stanford.edu/data/web-RedditEmbeddings.html" target="_blank" rel="noopener">
+      Embeddings dataset 🧊
+    </a>
+  </div>
+</div>
+<br>
 
 </div>
 
@@ -204,9 +208,15 @@ We can also see how the share of positive/neural hyperlinks evolves over time fo
 
 The issue with this classification is that it lacks precision. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
 
-<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
-<li><b>VADER</b>: Positive, Negative, Compound</li>
-<li><b>LIWC</b>: Posemo, Negemo, Anx, Anger, Sad</li>
+<div class="metric-grid">
+  <div class="metric-card">
+    <div class="metric-title">VADER</div>
+    <p class="metric-meta">Positive, Negative, Compound</p>
+  </div>
+  <div class="metric-card">
+    <div class="metric-title">LIWC</div>
+    <p class="metric-meta">Posemo, Negemo, Anx, Anger, Sad</p>
+  </div>
 </div>
 
 LIWC and VADER are lexicon-based tools for measuring sentiment and affect in text. LIWC computes normalized frequencies of words associated with psychological and emotional categories, such as negative emotion or anger, while VADER produces a continuous sentiment polarity score by combining word-level valence with rules for negation, intensifiers, and punctuation, making it well suited for social media text.
@@ -275,7 +285,7 @@ Match with different clusters?
 <div class="vertical-line"></div>
 <div class="slider-wrapper">
 <span class="label-flake" style="font-size: 12px;">◌</span>
-<input type="range" id="size-slider" min="10" max="80" value="25" oninput="updateSnowSize(this.value)">
+<input type="range" id="size-slider" min="10" max="80" value="16" oninput="updateSnowSize(this.value)">
 <span class="label-flake" style="font-size: 18px;">❄</span>
 </div>
 </div>
@@ -285,9 +295,8 @@ Match with different clusters?
 <style>
 #art-snow-bar {
 position: fixed;
-bottom: 30px;
-left: 50%;
-transform: translateX(-50%);
+bottom: 24px;
+right: 24px;
 display: flex;
 align-items: center;
 /* Artsy glass effect */
@@ -395,7 +404,7 @@ document.documentElement.style.setProperty('--snow-size', val + 'px');
 document.addEventListener("DOMContentLoaded", function () {
 const snowContainer = document.getElementById("snow");
 const flakeCount = 50; // Fewer flakes because they are larger and more detailed
-document.documentElement.style.setProperty('--snow-size', '25px');
+document.documentElement.style.setProperty('--snow-size', '16px');
 
 for (let i = 0; i < flakeCount; i++) {
 let flake = document.createElement("div");
