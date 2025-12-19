@@ -13,8 +13,6 @@ use_math: true
   </div>
 </section>
 
-
-
 <img src="{{ site.baseurl }}/Images/reddit_logo.png" alt="reddit logo" style="display:block;margin:0 auto;max-width:180px;">
 
 <div style="text-align: justify;" markdown="1">
@@ -22,11 +20,11 @@ use_math: true
 #provisoire : faudrait faire une intro un peu plus générale sur le réso reddit
 Reddit is a web of thousands of communities (subreddits) that constantly react to each other by sharing hyperlinks. Each link carries a tone: it can be supportive, neutral, or hostile, and those signals can ripple outward.
 
-
 <div id="monet-bd-story"></div>
 
 The snowball effect is a metaphor for a situation where something small and insignificant grows in size over time, much like a snowball rolling down a hill gathers more snow.
 In this project, we aim to investigate whether such an effect exists within Reddit's social network. Specifically, we examine how positive or negative links received by a targeted subreddit influence both its own behavior and the broader network's response. First, we explore whether the sentiment of incoming links affects the sentiment of the outgoing links that the targeted subreddit sends during that period (does receiving negative attention make it more likely to link negatively to others, or does positive attention lead to more supportive interactions?). Next, we study how other subreddits respond to these interactions. When one subreddit links negatively to another, does this make additional subreddits also link negatively to the same target? Conversely, does a positive link between two subreddits also attract more positive attention from others? Overall, we aim to see whether that first link triggers a snowball effect, amplifying positive or negative sentiment across both related and distant communities on Reddit.
+
 </div>
 
 ## Dataset
@@ -70,14 +68,34 @@ The idea is to identify communities by maximizing modularity.
    </details>
 </div>
 
-Now we can visualize these clusters in the embedding space by using the subreddit embedings dataset. We can reduce the dimension of to 2D for visualization using PCA followed by t-SNE (t-distributed Stochastic Neighbor Embedding).
+Here are the clusters we found.
+
+<div class="flourish-embed flourish-hierarchy" data-src="visualisation/26907809">
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
+  <noscript>
+    <img src="https://public.flourish.studio/visualisation/26907809/thumbnail" width="100%" alt="hierarchy visualization" />
+  </noscript>
+</div>
+
+Now we can visualize these clusters in the embedding space by using the subreddit embedings dataset. We can reduce the dimension of to 2D for visualization using PCA followed by t-SNE. This plot shows us how these topical groups of subreddits are organized in the embedding space. The embedding space is organized such that subreddits with similar users will lie close together.
 
 ![t-SNE clusters]({{ site.baseurl }}/Images/tsne_plot.png)
 
-We use t-SNE to replicate Figure 1 from the original paper [1] and highlight nodes based on their cluster assignment.
-t-SNE converts similarities between data points to joint probabilities and tries to minimize the Kullback-Leibler divergence between the joint probabilities of the low-dimensional embedding and the high-dimensional data. We apply PCA before-hand because of the number pf features is initially very high.[2]
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details open> 
+    <summary style = "font-size: 18px; cursor: pointer;"><b>How to plot embeddings?</b></summary>    
+  These vector embeddings are actually <b>300 dimensional</b>! That can make visualization hard, so we need to reduce the dimension first before we can see what the clusters look like, for this we can use <b>PCA</b>.
 
-This plot shows us how these topical groups of subreddits are organized in the embedding space. The embedding space is organized such that subreddits with similar users will lie close together.
+  <details open> 
+    <summary style = "font-size: 18px; cursor: pointer;"><b>PCA</b></summary>
+    PCA is ..
+   </details>
+  <details open> 
+    <summary style = "font-size: 18px; cursor: pointer;"><b>t-SNE</b></summary>    
+    t-SNE converts similarities between data points to joint probabilities and tries to minimize the Kullback-Leibler divergence between the joint probabilities of the low-dimensional embedding and the high-dimensional data.  We apply PCA before-hand because of the number of features is initially very high.
+   </details>
+  </details>
+</div>
 
 We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples. This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
 
@@ -135,8 +153,6 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 
 The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
 
-
-
 ## 7. Matching
 
 1. within cluster
@@ -170,7 +186,6 @@ Match with different clusters?
     2. Radius
     3. Duration
     4. Decay
-
 
 <div id="art-snow-bar">
 <button onclick="toggleSnow()" id="btn-toggle">
@@ -326,9 +341,3 @@ snowContainer.appendChild(flake);
 }
 });
 </script>
-
-
-
-
-
-
