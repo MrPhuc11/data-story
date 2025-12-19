@@ -404,3 +404,41 @@ header a, .navbar a, nav a {
   font-size: 1.05rem;
   line-height: 1.6;
 }
+
+.dataset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 1rem 0 2rem;
+}
+
+.dataset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  color: #0f172a;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.dataset-btn .btn-emoji {
+  font-size: 1.1rem;
+}
+
+.dataset-btn.hot {
+  background: linear-gradient(135deg, #ffb347, #ff6b6b);
+}
+
+.dataset-btn.chill {
+  background: linear-gradient(135deg, #9be7ff, #8fd3fe);
+}
+
+.dataset-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.02);
+}

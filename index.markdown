@@ -46,6 +46,15 @@ The dataset we are working with is a network of subreddit-to-subreddit hyperlink
 The hyperlink network covers the period from December 2013 to April 2017.
 <br>
 <br>
+<div class="dataset-buttons">
+  <a class="dataset-btn hot" href="https://snap.stanford.edu/data/soc-RedditHyperlinks.html" target="_blank" rel="noopener">
+    Hyperlinks dataset <span class="btn-emoji">🚀</span>
+  </a>
+  <a class="dataset-btn chill" href="https://snap.stanford.edu/data/web-RedditEmbeddings.html" target="_blank" rel="noopener">
+    Embeddings dataset <span class="btn-emoji">❄️</span>
+  </a>
+</div>
+<br>
 <b>The network is directed, signed, temporal, and attributed. </b>
 <br>
 <br>
@@ -104,7 +113,7 @@ Here are the clusters we found.
   </noscript>
 </div>
 
-<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+<div style="border-left: 4px solid #A7C7E7; font-size: 18px; background-color: #A7C7E7">
 Now we can visualize these clusters in the embedding space using the subreddit embeddings dataset. This plot lets us see how different topical groups of subreddits are arranged relative to each other. The idea behind the embedding space is simple: subreddits with similar users end up close together, while communities with very different audiences are farther apart.
 </div>
 
@@ -138,7 +147,9 @@ Now we can visualize these clusters in the embedding space using the subreddit e
     </p>
   </div>
 
-We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples. This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
+We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples.
+<br>
+This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
 <br>
 <br>
 We can also analyse which clusters communicate the most between each other.
@@ -180,6 +191,9 @@ Let's look at the distribution of link sentiment in the dataset.
 </div>
 
 We can also see how the share of positive/neural hyperlinks evolves over time for each cluster.
+
+</div>
+</div>
 
 <div class="flourish-embed flourish-chart" data-src="visualisation/26714353">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -408,5 +422,3 @@ snowContainer.appendChild(flake);
 }
 });
 </script>
-
-
