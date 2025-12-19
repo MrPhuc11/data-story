@@ -116,8 +116,8 @@ We can also see how the share of positive/neural hyperlinks evolves over time fo
 The issue with this classification is that it lacks precision. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
-- <b>VADER</b>: Positive, Negative, Compound
-- <b>LIWC</b>: Posemo, Negemo, Anx, Anger, Sad
+<li><b>VADER</b>: Positive, Negative, Compound</li>
+<li><b>LIWC</b>: Posemo, Negemo, Anx, Anger, Sad</li>
 </div>
 
 LIWC and VADER are lexicon-based tools for measuring sentiment and affect in text. LIWC computes normalized frequencies of words associated with psychological and emotional categories, such as negative emotion or anger, while VADER produces a continuous sentiment polarity score by combining word-level valence with rules for negation, intensifiers, and punctuation, making it well suited for social media text.
