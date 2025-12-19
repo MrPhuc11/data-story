@@ -1,6 +1,5 @@
 ---
 layout: page
-title: About Us
 permalink: /about/
 ---
 
@@ -9,9 +8,9 @@ permalink: /about/
     <img src="{{ site.baseurl }}/Images/IMG_9861.JPG" alt="Team photo">
   </div>
   <div class="about-text">
-    <h2>Snowball Effect on Reddit</h2>
+    <h2>About us</h2>
     <p>
-      This data story is our ADA project, exploring how positive and negative interactions between subreddits ripple through the Reddit ecosystem. We dig into hyperlinks, sentiment, and embeddings to see how small sparks can snowball into larger patterns.
+      This data story is our ADA project! This is a picture of us hard at work :)
     </p>
     <div class="about-links">
       <h3>Authors</h3>

@@ -20,7 +20,7 @@
 
 title: Snowball Effect
 author: Aveen Azarin, Manon Benarafa, Charly Guardia, Olatz Sanz, Phuc Truong
-baseurl: "/data-story" # ATTENTION: ton nom de repo avec un slash devant
+baseurl: "/data-story"
 url: "https://mrphuc11.github.io"
 twitter_username: jekyllrb
 github_username: mrphuc11 # facultatif, mais autant le mettre

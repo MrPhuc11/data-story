@@ -1,5 +1,6 @@
 ---
 layout: page
+permalink: /
 use_math: true
 ---
 
