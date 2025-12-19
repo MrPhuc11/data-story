@@ -14,11 +14,10 @@ use_math: true
   </div>
 </section>
 
-<div id="intro"></div> 
+<div id="intro"></div>
 
 <div class="content-wrapper">
    </div>
-
 
 <div id="intro" style="margin-top: 0;"></div>
 
@@ -37,8 +36,8 @@ use_math: true
     
   </div>
 
-  
-  ---
+---
+
 Now let’s take a look at the dataset.
 
 <h3>Dataset</h3>
@@ -50,12 +49,12 @@ The hyperlink network covers the period from December 2013 to April 2017
 
 As a complement, we will utilize subreddit embeddings, vector representations of each subreddit. They were created such that community embeddings will be close together if similar users post on them.
 
-
 <h3>Clustering</h3>
 <div style="text-align: justify;">
     To make sense of the huge network, we can start by clustering subreddits into larger topical communities.
 
 Communities are defined as sets of tightly connected nodes. This can be confusing for our problem because a subreddit can also be called a "community", yet it represents only a single node in the Reddit graph.
+<br>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
 The idea is to identify communities by maximizing modularity.
@@ -82,9 +81,9 @@ The idea is to identify communities by maximizing modularity.
 
    </details>
 </div>
-
+<br>
 Here are the clusters we found.
-
+<br>
 <div class="flourish-embed flourish-hierarchy" data-src="visualisation/26907809">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
@@ -100,19 +99,21 @@ Now we can visualize these clusters in the embedding space using the subreddit e
   <details open> 
     <summary style = "font-size: 18px; cursor: pointer;"><b>How to plot embeddings?</b></summary>    
   These vector embeddings are actually <b>300 dimensional</b>! To make a nice plot, we first need to reduce the dimensionality. This step keeps the most important structure in the data while projecting everything down to two dimensions.
+  <br>
 
   <details open> 
     <summary style = "font-size: 18px; cursor: pointer;"><b>PCA</b></summary>
     We start with <b>PCA</b> (Principal Component Analysis). PCA is a linear method that finds the directions in the data with the most variance and projects the embeddings onto those directions. Using PCA helps compress the embeddings and remove some noise, and it also makes later visualization steps faster and more stable.
+    <br>
    </details>
   <details open> 
     <summary style = "font-size: 18px; cursor: pointer;"><b>t-SNE</b></summary>  
     After PCA, we use t-SNE to create the final 2D visualization. t-SNE works by turning similarities between subreddits into probabilities and then trying to preserve those similarities in a lower-dimensional space. It does this by minimizing the Kullback–Leibler divergence between the original high-dimensional data and the 2D embedding. We apply PCA first because the original embeddings have a lot of features, and t-SNE doesn’t work well when the dimensionality is too high.
+    <br>
    </details>
   </details>
 </div>
-
-
+<br>
 
   <div class="image-container">
     <img src="{{ site.baseurl }}/Images/tsne_plot.png" >
@@ -121,10 +122,10 @@ Now we can visualize these clusters in the embedding space using the subreddit e
     </p>
   </div>
 
-
 We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples. This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
 
 We can also analyse which clusters communicate the most between each other.
+<br>
 
 <div class="flourish-embed flourish-sankey" data-src="visualisation/26700217">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -165,6 +166,7 @@ The issue with this classification is that it lacks precision. We want to be abl
 </div>
 
 LIWC and VADER are lexicon-based tools for measuring sentiment and affect in text. LIWC computes normalized frequencies of words associated with psychological and emotional categories, such as negative emotion or anger, while VADER produces a continuous sentiment polarity score by combining word-level valence with rules for negation, intensifiers, and punctuation, making it well suited for social media text.
+<br>
 
 <div class="flourish-embed flourish-radar" data-src="visualisation/26785304">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -177,7 +179,7 @@ We can use them to define a continuous sentiment score between -1 and 1, which a
 <br>
 <br>
 We combine the LIWC and VADER outputs into a single signed sentiment score using principal component analysis (PCA). PCA is applied directly to the LIWC and VADER features, and the first principal component, which captures the dominant shared variation across the lexicon-based measures, is used as a continuous sentiment axis. This signed score provides a compact measure of sentiment polarity and strength, enabling rapid assessment and comparison of sentiment intensity across posts.
-
+<br>
 
 <div class="image-container">
       <img src="{{ site.baseurl }}/Images/pca_sentiment.png" alt="PCA Sentiment Analysis Cluster">
@@ -185,7 +187,6 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 </div>
 
 The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
-
 
 ## 7. Matching
 
@@ -222,7 +223,6 @@ Match with different clusters?
     4. Decay
 
 </div>
-
 
 <div id="art-snow-bar">
 <button onclick="toggleSnow()" id="btn-toggle">
@@ -378,9 +378,3 @@ snowContainer.appendChild(flake);
 }
 });
 </script>
-
-
-
-
-
-
