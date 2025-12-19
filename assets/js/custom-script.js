@@ -209,3 +209,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     
 });
+
+
+window.onscroll = function() {
+  const nav = document.querySelector('nav'); 
+  if (window.pageYOffset > 50) {
+    nav.style.backgroundColor = "#acc8e5"; 
+  } else {
+    nav.style.backgroundColor = "transparent";
+  }
+};
