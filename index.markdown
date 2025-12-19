@@ -1,19 +1,19 @@
 ---
 layout: page
-title: Snowball Effect on Reddit
 use_math: true
 ---
 
-<div class="title-background">
-    <img src="Images/monet_magpie.jpg" style="display: block; margin: 0 auto; width: 100%;"/>
-</div>
-&nbsp;
-<div class="quote-card" markdown="1">
-> "The more I live, the more I regret how little I know."
->
-> - Claude Monet
-</div>
-&nbsp;
+<section class="hero-section">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Snowball Effect on Reddit</h1>
+      <p class="hero-p2">"The more I live, the more I regret how little I know."</p>
+      <p2 class="hero-author">- Claude Monet</p2>
+      </div>
+  </div>
+</section>
+
+
 
 <img src="{{ site.baseurl }}/Images/reddit_logo.png" alt="reddit logo" style="display:block;margin:0 auto;max-width:180px;">
 
@@ -22,14 +22,17 @@ use_math: true
 #provisoire : faudrait faire une intro un peu plus générale sur le réso reddit
 Reddit is a web of thousands of communities (subreddits) that constantly react to each other by sharing hyperlinks. Each link carries a tone: it can be supportive, neutral, or hostile, and those signals can ripple outward.
 
-FRED was here and aveen also
+FRED was here and aveen also 
 
 <div id="monet-bd-story"></div>
 
 The snowball effect is a metaphor for a situation where something small and insignificant grows in size over time, much like a snowball rolling down a hill gathers more snow.
 In this project, we aim to investigate whether such an effect exists within Reddit's social network. Specifically, we examine how positive or negative links received by a targeted subreddit influence both its own behavior and the broader network's response. First, we explore whether the sentiment of incoming links affects the sentiment of the outgoing links that the targeted subreddit sends during that period (does receiving negative attention make it more likely to link negatively to others, or does positive attention lead to more supportive interactions?). Next, we study how other subreddits respond to these interactions. When one subreddit links negatively to another, does this make additional subreddits also link negatively to the same target? Conversely, does a positive link between two subreddits also attract more positive attention from others? Overall, we aim to see whether that first link triggers a snowball effect, amplifying positive or negative sentiment across both related and distant communities on Reddit.
-
 </div>
+
+## 2. PLOT Visu of the data {#plot-visu}
+
+## 3. PLOT Clustering plot {#plot-clusters}
 
 ## Dataset
 
@@ -92,7 +95,7 @@ We can also analyse which clusters communicate the most between each other.
   </noscript>
 </div>
 
-## Sentiment analysis
+# Sentiment analysis
 
 What is the share of positive to negative hyperlinks and how can we define them?
 The data is manually labeled with a link sentiment of +/- 1.
@@ -137,6 +140,8 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 
 The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
 
+
+
 ## 7. Matching
 
 1. within cluster
@@ -170,6 +175,7 @@ Match with different clusters?
     2. Radius
     3. Duration
     4. Decay
+
 
 <div id="art-snow-bar">
 <button onclick="toggleSnow()" id="btn-toggle">
@@ -325,3 +331,9 @@ snowContainer.appendChild(flake);
 }
 });
 </script>
+
+
+
+
+
+
