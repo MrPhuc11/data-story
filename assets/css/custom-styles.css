@@ -91,156 +91,156 @@ html {
   color: #4a5568;
   font-style: normal;
   letter-spacing: 0.02em;
-/* Justify paragraph text across page content */
-.container-md p,
-.container-fluid p,
-.page-content p,
-.post-content p {
-  text-align: justify;
-  text-justify: inter-word;
+  /* Justify paragraph text across page content */
+  .container-md p,
+  .container-fluid p,
+  .page-content p,
+  .post-content p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }
-}
-
 
 .bd-wrapper {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fdfcf0; /* Paper aesthetic */
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fdfcf0; /* Paper aesthetic */
 }
 
 .bd-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Maintains 3 columns */
-    gap: 20px;
-    width: 100%;
-    /* This prevents the grid from stretching height-wise independently of width */
-    align-items: start; 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Maintains 3 columns */
+  gap: 20px;
+  width: 100%;
+  /* This prevents the grid from stretching height-wise independently of width */
+  align-items: start;
 }
 
 .bd-panel {
-    position: relative;
-    border: 3px solid black;
-    background-color: white;
-    /* This is the magic line for horizontal/vertical locking */
-    aspect-ratio: 1 / 1; 
-    width: 100%; 
-    overflow: hidden;
-    box-sizing: border-box;
+  position: relative;
+  border: 3px solid black;
+  background-color: white;
+  /* This is the magic line for horizontal/vertical locking */
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .bd-illustration {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* 'background-size: cover' is actually safer for 'fixed' looks 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 'background-size: cover' is actually safer for 'fixed' looks 
        as it prevents white gaps if the math is off by 1 pixel */
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Character Dialogue Bubbles */
 .speech-bubble {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    background: white;
-    border: 2px solid black;
-    border-radius: 15px;
-    padding: 8px 12px;
-    font-size: 13px;
-    font-family: 'Segoe UI', sans-serif;
-    font-weight: bold;
-    box-shadow: 3px 3px 0px black;
-    line-height: 1.2;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: bold;
+  box-shadow: 3px 3px 0px black;
+  line-height: 1.2;
 }
 
 /* Adjust for mobile screens */
 @media (max-width: 800px) {
-    .bd-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 panels per row on tablets */
-    }
+  .bd-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 panels per row on tablets */
+  }
 }
 
 /* If you want to prevent the panels from getting TOO small on mobile */
 @media (max-width: 600px) {
-    .bd-grid {
-        grid-template-columns: 1fr; /* Stack them vertically so they stay large */
-    }
+  .bd-grid {
+    grid-template-columns: 1fr; /* Stack them vertically so they stay large */
+  }
 }
 
 /* Permanent Speech Bubble */
 .speech-bubble {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    background: white;
-    border: 2px solid black;
-    border-radius: 15px;
-    padding: 8px 12px;
-    font-family: 'Comic Sans MS', 'cursive', sans-serif;
-    font-weight: bold;
-    font-size: 13px;
-    color: black;
-    z-index: 10;
-    box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
-    line-height: 1.2;
-    /* No more opacity: 0; No more transitions */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 8px 12px;
+  font-family: "Comic Sans MS", "cursive", sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  z-index: 10;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+  /* No more opacity: 0; No more transitions */
 }
 
 /* The Bubble Tail */
 .speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 20px;
-    border-width: 10px 10px 0 0;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  border-width: 10px 10px 0 0;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
 }
 /* Ensure the image fills the whole panel behind the bubble */
 .bd-illustration {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative; /* Needed for absolute positioning of bubble */
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Needed for absolute positioning of bubble */
 }
 
 .bd-panel {
-    position: relative;
-    border: 3px solid black;
-    height: 350px; /* Adjust height based on your images */
-    overflow: hidden;
+  position: relative;
+  border: 3px solid black;
+  height: 350px; /* Adjust height based on your images */
+  overflow: hidden;
 }
 
-
 /* Reset default margins that cause white space */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
 }
 
 .hero-section {
-  margin-top: 0 !important; /* Removes any gap between the blue bar and the photo */  width: 100vw;        
+  margin-top: 0 !important; /* Removes any gap between the blue bar and the photo */
+  width: 100vw;
   width: 100vw;
   height: calc(100vh - 50px); /* Adjusts height to account for the header bar */
   margin-top: -60px;
   margin-left: calc(-50vw + 50%);
-  
+
   /* Background Image Settings */
-  background-image: url('../../Images/monet_magpie.jpg');
+  background-image: url("../../Images/monet_magpie.jpg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -297,21 +297,24 @@ body, html {
 }
 
 /* 1. Make the header float over the image */
-header, .navbar, nav {
-  position: absolute;   /* Sits on top of the hero section */
+header,
+.navbar,
+nav {
+  position: absolute; /* Sits on top of the hero section */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;        /* Ensures it stays above the image */
-  background-color: #acc8e5 !important; /* Removes the white/blue background */
+  z-index: 3000; /* Ensures it stays above the image */
+  background-color: rgba(172, 200, 229, 0.95) !important;
   border: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08) !important;
 }
 
 /* 2. Style the nav links so they are readable over the painting */
-header a, .navbar a, nav a {
+header a,
+.navbar a,
+nav a {
   color: #2c2c2c !important; /* Dark grey to match your text preference */
-  
 }
 
 /* 3. Ensure the Hero Section starts at the very top */
@@ -322,54 +325,53 @@ header a, .navbar a, nav a {
   /* Keep your existing width/height settings */
 }
 
-
 /* Container for major research visuals */
 .analysis-visual {
-    padding: 40px 0;
-    text-align: center;
+  padding: 40px 0;
+  text-align: center;
 }
 
 .analysis-visual h3 {
-    font-family: 'Georgia', serif;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #2c2c2c;
+  font-family: "Georgia", serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2c2c2c;
 }
 
 /* The card surrounding the image */
 .image-card {
-    background: #ffffff;
-    border: 1px solid #eef2f6;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    margin: 0 auto;
-    max-width: 900px;
-    transition: transform 0.3s ease;
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  max-width: 900px;
+  transition: transform 0.3s ease;
 }
 
 .image-card:hover {
-    transform: scale(1.01); /* Subtle "lift" when hovering */
+  transform: scale(1.01); /* Subtle "lift" when hovering */
 }
 
 .image-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 /* Professional caption styling */
 .caption {
-    margin-top: 20px;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #666;
-    border-top: 1px solid #f0f0f0;
-    padding-top: 15px;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #666;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 15px;
 }
 
 .caption strong {
-    color: #acc8e5; /* Using your signature light blue */
+  color: #acc8e5; /* Using your signature light blue */
 }
 
 .fun-fact-card {
@@ -393,14 +395,205 @@ header a, .navbar a, nav a {
   color: #0b5ba1;
 }
 
-.fun-fact-tag::before {
-  content: "*";
-  color: #0077ff;
-}
-
 .fun-fact-card p {
   margin: 0.5rem 0 0;
   color: #233044;
   font-size: 1.05rem;
   line-height: 1.6;
 }
+
+.dataset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 1rem 0 2rem;
+  justify-content: center;
+}
+
+.dataset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  color: #1f2b3a;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid #d6e6f5;
+  background: linear-gradient(145deg, #f9fbff, #f2f6fb);
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.dataset-btn.hot {
+  color: #1f2b3a;
+  border-color: #c9def2;
+}
+
+.dataset-btn.chill {
+  color: #1f2b3a;
+  border-color: #c9def2;
+}
+
+.dataset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-color: #b5d2ee;
+}
+
+.dataset-cta {
+  text-align: center;
+  font-weight: 500;
+  font-style: italic;
+  color: #1f2b3a;
+  margin: 1.2rem 0 0.5rem;
+}
+
+.dataset-box {
+  background: #f8fbff;
+  border: 1px solid #e5eff9;
+  border-radius: 14px;
+  padding: 1.4rem 1.2rem;
+  margin: 1rem 0 2rem;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+}
+
+.metric-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin: 1rem 0 1.5rem;
+}
+
+.metric-card {
+  min-width: 200px;
+  background: #f9fbff;
+  border: 1px solid #e5eff9;
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.05);
+}
+
+.metric-title {
+  font-weight: 700;
+  color: #1f2b3a;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.35rem;
+}
+
+.metric-meta {
+  margin: 0;
+  color: #344a62;
+  font-size: 0.98rem;
+}
+
+.about-card {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  margin: 1.5rem 0;
+  background: #f8fbff;
+  border: 1px solid #e5eff9;
+  border-radius: 16px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.about-text h2 {
+  margin-top: 0;
+  color: #1f2b3a;
+}
+
+.about-text p {
+  margin: 0.6rem 0 1.1rem;
+  color: #2f3d52;
+}
+
+.about-links h3 {
+  margin: 0 0 0.5rem;
+  color: #1f2b3a;
+}
+
+.about-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px 14px;
+}
+
+.about-links a {
+  color: #1f2b3a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+#scroll-progress {
+  position: fixed;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 70vh;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+#scroll-progress::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 50%;
+  width: 6px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #e6eef7, #d2e2f4);
+  border-radius: 999px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.06);
+}
+
+#scroll-progress .progress-track {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  width: 6px;
+  height: 0;
+  background: linear-gradient(180deg, #acc8e5, #4e7aa9);
+  border-radius: 999px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.12);
+  transform: translateX(-50%);
+  transition: height 0.12s ease-out;
+}
+
+#scroll-progress .progress-ski {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+  transition: top 0.1s ease-out;
+}
+

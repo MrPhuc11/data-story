@@ -1,5 +1,6 @@
 ---
 layout: page
+permalink: /
 use_math: true
 ---
 
@@ -50,6 +51,19 @@ The hyperlink network covers the period from December 2013 to April 2017.
 <br>
 <br>
 As a complement, we will utilize subreddit embeddings, vector representations of each subreddit. They were created such that community embeddings will be close together if similar users post on them.
+
+<div class="dataset-box">
+  <div class="dataset-cta">Check out the datasets here!</div>
+  <div class="dataset-buttons">
+    <a class="dataset-btn hot" href="https://snap.stanford.edu/data/soc-RedditHyperlinks.html" target="_blank" rel="noopener">
+      Hyperlinks dataset ⛄
+    </a>
+    <a class="dataset-btn chill" href="https://snap.stanford.edu/data/web-RedditEmbeddings.html" target="_blank" rel="noopener">
+      Embeddings dataset 🧊
+    </a>
+  </div>
+</div>
+<br>
 
 </div>
 
@@ -104,7 +118,7 @@ Here are the clusters we found.
   </noscript>
 </div>
 
-<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+<div style="border-left: 4px solid #A7C7E7; font-size: 18px; background-color: #A7C7E7">
 Now we can visualize these clusters in the embedding space using the subreddit embeddings dataset. This plot lets us see how different topical groups of subreddits are arranged relative to each other. The idea behind the embedding space is simple: subreddits with similar users end up close together, while communities with very different audiences are farther apart.
 </div>
 
@@ -138,7 +152,9 @@ Now we can visualize these clusters in the embedding space using the subreddit e
     </p>
   </div>
 
-We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples. This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
+We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples.
+<br>
+This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
 <br>
 <br>
 We can also analyse which clusters communicate the most between each other.
@@ -179,7 +195,10 @@ Let's look at the distribution of link sentiment in the dataset.
   </noscript>
 </div>
 
-We can also see how the share of positive/neural hyperlinks evolves over time for each cluster.
+It looks like a large share of links are neutral to positive. We can also see how the share of positive/neural hyperlinks evolves over time for each cluster, to get a btter idea of the distribution.
+
+<br>
+<br>
 
 <div class="flourish-embed flourish-chart" data-src="visualisation/26714353">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -188,14 +207,21 @@ We can also see how the share of positive/neural hyperlinks evolves over time fo
   </noscript>
 </div>
 
-The issue with this classification is that it lacks precision. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
+The issue with this classification is that it <b>lacks precision</b>. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
 
-<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
-<li><b>VADER</b>: Positive, Negative, Compound</li>
-<li><b>LIWC</b>: Posemo, Negemo, Anx, Anger, Sad</li>
+<div class="metric-grid">
+  <div class="metric-card">
+    <div class="metric-title">VADER</div>
+    <p class="metric-meta">Positive, Negative, Compound</p>
+  </div>
+  <div class="metric-card">
+    <div class="metric-title">LIWC</div>
+    <p class="metric-meta">Posemo, Negemo, Anx, Anger, Sad</p>
+  </div>
 </div>
 
 LIWC and VADER are lexicon-based tools for measuring sentiment and affect in text. LIWC computes normalized frequencies of words associated with psychological and emotional categories, such as negative emotion or anger, while VADER produces a continuous sentiment polarity score by combining word-level valence with rules for negation, intensifiers, and punctuation, making it well suited for social media text.
+<br>
 <br>
 
 <div class="flourish-embed flourish-radar" data-src="visualisation/26785304">
@@ -210,13 +236,34 @@ We can use them to define a continuous sentiment score between -1 and 1, which a
 <br>
 We combine the LIWC and VADER outputs into a single signed sentiment score using principal component analysis (PCA). PCA is applied directly to the LIWC and VADER features, and the first principal component, which captures the dominant shared variation across the lexicon-based measures, is used as a continuous sentiment axis. This signed score provides a compact measure of sentiment polarity and strength, enabling rapid assessment and comparison of sentiment intensity across posts.
 <br>
+<br>
 
 <div class="image-container">
       <img src="{{ site.baseurl }}/Images/pca_sentiment.png" alt="PCA Sentiment Analysis Cluster">
       <p class="caption">The large spike near zero represents hyperlinks with neutral metrics, effectively identifying objective or non-emotive content.</p>
 </div>
+<br>
+<br>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+<b>What parameters were most important?</b>
+</div>
 
-The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details open> 
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Loadings</b></summary>
+    To answer this, we can look at the PCA loadings for the first principal component. A loading tells us how much each original feature contributes to that component. Features with larger absolute values matter more, because they have a bigger influence on the direction of the component.
+
+    They show how strongly each feature lines up with the main axis of variation in the data.
+
+<br>
+<br>
+<div class="image-container">
+  <img src="{{ site.baseurl }}/Images/pca_weights.png" alt="PCA weights" style=" width: 70%;">
+  <p class="caption">Most of the sentiment signal comes from overall positive and negative tone, with finer-grained emotions playing a much smaller role.</p>
+</div>
+
+</details>
+</div>
 
 <br>
 <h3>So what happens after a negative interaction?</h3>
@@ -435,7 +482,7 @@ Match with different clusters?
 <div class="vertical-line"></div>
 <div class="slider-wrapper">
 <span class="label-flake" style="font-size: 12px;">◌</span>
-<input type="range" id="size-slider" min="10" max="80" value="25" oninput="updateSnowSize(this.value)">
+<input type="range" id="size-slider" min="10" max="80" value="16" oninput="updateSnowSize(this.value)">
 <span class="label-flake" style="font-size: 18px;">❄</span>
 </div>
 </div>
@@ -445,9 +492,8 @@ Match with different clusters?
 <style>
 #art-snow-bar {
 position: fixed;
-bottom: 30px;
-left: 50%;
-transform: translateX(-50%);
+bottom: 24px;
+right: 24px;
 display: flex;
 align-items: center;
 /* Artsy glass effect */
@@ -555,7 +601,7 @@ document.documentElement.style.setProperty('--snow-size', val + 'px');
 document.addEventListener("DOMContentLoaded", function () {
 const snowContainer = document.getElementById("snow");
 const flakeCount = 50; // Fewer flakes because they are larger and more detailed
-document.documentElement.style.setProperty('--snow-size', '25px');
+document.documentElement.style.setProperty('--snow-size', '16px');
 
 for (let i = 0; i < flakeCount; i++) {
 let flake = document.createElement("div");
@@ -582,5 +628,3 @@ snowContainer.appendChild(flake);
 }
 });
 </script>
-
-
