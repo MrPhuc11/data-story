@@ -1,5 +1,9 @@
 /* Give the header some height and style */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .graph-hero {
   position: relative;
   width: 100%;
@@ -275,6 +279,18 @@ body, html {
   margin-bottom: 30px;
 }
 
+/* Button style */
+.hero-button {
+  background-color: white;
+  color: black;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
 .hero-button:hover {
   background-color: #f0f0f0;
   transform: scale(1.05);
@@ -295,7 +311,7 @@ header, .navbar, nav {
 /* 2. Style the nav links so they are readable over the painting */
 header a, .navbar a, nav a {
   color: #2c2c2c !important; /* Dark grey to match your text preference */
-  font-weight: bold;
+  
 }
 
 /* 3. Ensure the Hero Section starts at the very top */
@@ -304,4 +320,54 @@ header a, .navbar a, nav a {
   padding-top: 0 !important;
   top: 0;
   /* Keep your existing width/height settings */
+}
+
+
+/* Container for major research visuals */
+.analysis-visual {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.analysis-visual h3 {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c2c2c;
+}
+
+/* The card surrounding the image */
+.image-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+    max-width: 900px;
+    transition: transform 0.3s ease;
+}
+
+.image-card:hover {
+    transform: scale(1.01); /* Subtle "lift" when hovering */
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Professional caption styling */
+.caption {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #666;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+.caption strong {
+    color: #acc8e5; /* Using your signature light blue */
 }
