@@ -78,21 +78,21 @@ Here are the clusters we found.
 </div>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
-Now we can visualize these clusters in the embedding space by using the subreddit embedings dataset. This plot shows us how these topical groups of subreddits are organized in the embedding space. The embedding space is organized such that subreddits with similar users will lie close together.
+Now we can visualize these clusters in the embedding space using the subreddit embeddings dataset. This plot lets us see how different topical groups of subreddits are arranged relative to each other. The idea behind the embedding space is simple: subreddits with similar users end up close together, while communities with very different audiences are farther apart.
 </div>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
   <details open> 
     <summary style = "font-size: 18px; cursor: pointer;"><b>How to plot embeddings?</b></summary>    
-  These vector embeddings are actually <b>300 dimensional</b>! That can make visualization hard, so we need to reduce the dimension first before we can see what the clusters look like, for this we can use <b>PCA</b>.
+  These vector embeddings are actually <b>300 dimensional</b>! To make a nice plot, we first need to reduce the dimensionality. This step keeps the most important structure in the data while projecting everything down to two dimensions.
 
   <details open> 
     <summary style = "font-size: 18px; cursor: pointer;"><b>PCA</b></summary>
-    PCA is ..
+    We start with <b>PCA</b> (Principal Component Analysis). PCA is a linear method that finds the directions in the data with the most variance and projects the embeddings onto those directions. Using PCA helps compress the embeddings and remove some noise, and it also makes later visualization steps faster and more stable.
    </details>
   <details open> 
-    <summary style = "font-size: 18px; cursor: pointer;"><b>t-SNE</b></summary>    
-    t-SNE converts similarities between data points to joint probabilities and tries to minimize the Kullback-Leibler divergence between the joint probabilities of the low-dimensional embedding and the high-dimensional data.  We apply PCA before-hand because of the number of features is initially very high.
+    <summary style = "font-size: 18px; cursor: pointer;"><b>t-SNE</b></summary>  
+    After PCA, we use t-SNE to create the final 2D visualization. t-SNE works by turning similarities between subreddits into probabilities and then trying to preserve those similarities in a lower-dimensional space. It does this by minimizing the Kullback–Leibler divergence between the original high-dimensional data and the 2D embedding. We apply PCA first because the original embeddings have a lot of features, and t-SNE doesn’t work well when the dimensionality is too high.
    </details>
   </details>
 </div>
