@@ -3,7 +3,6 @@ layout: page
 title: Snowball Effect on Reddit
 use_math: true
 ---
-
 <div class="title-background">
     <img src="Images/monet_magpie.jpg" style="display: block; margin: 0 auto; width: 100%;"/>
 </div>
@@ -18,10 +17,13 @@ use_math: true
 <img src="{{ site.baseurl }}/Images/reddit_logo.png" alt="reddit logo" style="display:block;margin:0 auto;max-width:180px;">
 
 <div style="text-align: justify;" markdown="1">
+
 #provisoire : faudrait faire une intro un peu plus générale sur le réso reddit
 Reddit is a web of thousands of communities (subreddits) that constantly react to each other by sharing hyperlinks. Each link carries a tone: it can be supportive, neutral, or hostile, and those signals can ripple outward.
 
-FRED was here
+FRED was here and aveen also
+
+<div id="monet-bd-story"></div>
 
 The snowball effect is a metaphor for a situation where something small and insignificant grows in size over time, much like a snowball rolling down a hill gathers more snow.
 In this project, we aim to investigate whether such an effect exists within Reddit's social network. Specifically, we examine how positive or negative links received by a targeted subreddit influence both its own behavior and the broader network's response. First, we explore whether the sentiment of incoming links affects the sentiment of the outgoing links that the targeted subreddit sends during that period (does receiving negative attention make it more likely to link negatively to others, or does positive attention lead to more supportive interactions?). Next, we study how other subreddits respond to these interactions. When one subreddit links negatively to another, does this make additional subreddits also link negatively to the same target? Conversely, does a positive link between two subreddits also attract more positive attention from others? Overall, we aim to see whether that first link triggers a snowball effect, amplifying positive or negative sentiment across both related and distant communities on Reddit.
@@ -154,3 +156,159 @@ Match with different clusters?
     2. Radius
     3. Duration
     4. Decay
+
+
+<div id="art-snow-bar">
+<button onclick="toggleSnow()" id="btn-toggle">
+<span class="icon">❄</span> Snow
+</button>
+<div class="vertical-line"></div>
+<div class="slider-wrapper">
+<span class="label-flake" style="font-size: 12px;">◌</span>
+<input type="range" id="size-slider" min="10" max="80" value="25" oninput="updateSnowSize(this.value)">
+<span class="label-flake" style="font-size: 18px;">❄</span>
+</div>
+</div>
+
+<div id="snow"></div>
+
+<style>
+#art-snow-bar {
+position: fixed;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+align-items: center;
+/* Artsy glass effect */
+background: rgba(255, 255, 255, 0.2);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+border: 1px solid rgba(255, 255, 255, 0.4);
+padding: 8px 24px;
+border-radius: 100px;
+z-index: 10001;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+font-family: 'Georgia', serif; /* Elegant serif font */
+}
+
+#art-snow-bar button {
+background: none;
+border: 1px solid rgba(255, 255, 255, 0.6);
+color: #4a5568;
+padding: 6px 16px;
+border-radius: 50px;
+cursor: pointer;
+font-size: 13px;
+font-style: italic;
+display: flex;
+align-items: center;
+gap: 8px;
+transition: all 0.3s ease;
+}
+
+#art-snow-bar button:hover {
+background: rgba(255, 255, 255, 0.5);
+transform: translateY(-1px);
+box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.vertical-line {
+width: 1px;
+height: 25px;
+background: rgba(0, 0, 0, 0.1);
+margin: 0 20px;
+}
+
+.slider-wrapper {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+/* Aesthetic thin slider */
+#size-slider {
+-webkit-appearance: none;
+width: 100px;
+background: transparent;
+cursor: pointer;
+}
+
+#size-slider::-webkit-slider-runnable-track {
+height: 2px;
+background: rgba(0, 0, 0, 0.1);
+}
+
+#size-slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+height: 12px;
+width: 12px;
+border-radius: 50%;
+background: #fff;
+border: 1px solid #cbd5e0;
+margin-top: -5px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#snow {
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+pointer-events: none;
+z-index: 9999;
+transition: opacity 1s ease-in-out; /* Slow artistic fade */
+}
+
+.snowflake {
+position: absolute;
+color: #a6c9cdff;
+filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+user-select: none;
+will-change: transform;
+font-size: var(--snow-size);
+}
+</style>
+
+<script>
+let snowVisible = true;
+const snowflakes = ['❄', '❅', '❆',];
+
+function toggleSnow() {
+const snow = document.getElementById('snow');
+snowVisible = !snowVisible;
+snow.style.opacity = snowVisible ? "1" : "0";
+}
+
+function updateSnowSize(val) {
+document.documentElement.style.setProperty('--snow-size', val + 'px');
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+const snowContainer = document.getElementById("snow");
+const flakeCount = 50; // Fewer flakes because they are larger and more detailed
+document.documentElement.style.setProperty('--snow-size', '25px');
+
+for (let i = 0; i < flakeCount; i++) {
+let flake = document.createElement("div");
+flake.className = "snowflake";
+// Randomly pick a snowflake shape
+flake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+flake.style.left = Math.random() * 100 + "vw";
+flake.style.opacity = Math.random() * 0.7 + 0.3;
+const duration = Math.random() * 5000 + 7000;
+const delay = Math.random() * -20;
+const spin = Math.random() > 0.5 ? 360 : -360;
+
+// Animate both falling and spinning
+flake.animate([
+{ transform: `translateY(-10vh) translateX(0) rotate(0deg)` },
+{ transform: `translateY(110vh) translateX(${Math.random() * 60 - 30}px) rotate(${spin}deg)` }
+], {
+duration: duration,
+iterations: Infinity,
+delay: delay * 1000,
+easing: 'linear'
+});
+snowContainer.appendChild(flake);
+}
+});
+</script>
