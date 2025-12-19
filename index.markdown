@@ -337,7 +337,7 @@ In the figure below, we follow <i>r/askreddit</i> over time and track, for each 
 <br>
 
 <!-- STATIC EXAMPLE PLOT -->
-<div style="max-width: 800px; margin: 40px auto;">
+<div style="max-width: 1000px; margin: 40px auto;">
   <div class="image-container">
     <img src="{{ site.baseurl }}/Images/detective events.png" alt="Detected negative events in askreddit">
     <p class="caption">
