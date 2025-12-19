@@ -15,11 +15,6 @@ use_math: true
   </div>
 </section>
 
-<div id="intro"></div>
-
-<div class="content-wrapper">
-   </div>
-
 <div id="intro" style="margin-top: 0;"></div>
 
 <div id="monet-bd-story"></div>
@@ -40,8 +35,7 @@ use_math: true
 <br>
 Now let’s take a look at the dataset.
 
-<h3>Dataset</h3>
-
+<h3 id="dataset">Dataset</h3>
 <div style="text-align: justify;">
 The dataset we are working with is a network of subreddit-to-subreddit hyperlinks, extracted from posts that create hyperlinks from one subreddit to another. A hyperlink originates from a post in the source community and links to a post in the target community. Each hyperlink is annotated with the timestamp of the post, the sentiment of the source community post towards the target community post (−1 for negative and +1 for neutral or positive), and the text property vector of the source post.
 The hyperlink network covers the period from December 2013 to April 2017.
@@ -67,7 +61,7 @@ As a complement, we will utilize subreddit embeddings, vector representations of
 
 </div>
 
-<h3>Clustering</h3>
+<h3 id="clustering">Clustering</h3>
 <div style="text-align: justify;">
     To make sense of the huge network, we can start by clustering subreddits into larger topical communities.
 
@@ -170,8 +164,9 @@ We can also analyse which clusters communicate the most between each other.
 
 </div>
 
+<div id="sentiment"></div>
 <div style="text-align: justify;">
-<h3>Sentiment analysis</h3>
+<h3 id="sentiment">Sentiment analysis</h3>
 
 What is the share of positive to negative hyperlinks and how can we define them?
 The data is labeled with a link sentiment value which is either +1 if the post is neutral to positive or -1 if the post is negative.
@@ -270,7 +265,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 <br>
 <div style="text-align: justify;">
 
-Like most social media platforms, Reddit can be a hostile place, and negative interactions between communities are far from rare. Most of the time, these interactions fade into the background noise of daily activity and have little lasting impact. But occasionally, a negative link stands out, not because negativity is unusual, but because it is unusually strong compared to what a subreddit typically receives. This naturally raises the question of what comes next. 
+Like most social media platforms, Reddit can be a hostile place, and negative interactions between communities are far from rare. Most of the time, these interactions fade into the background noise of daily activity and have little lasting impact. But occasionally, a negative link stands out, not because negativity is unusual, but because it is unusually strong compared to what a subreddit typically receives. This naturally raises the question of what comes next.
 
 </div>
 <br>
@@ -303,7 +298,7 @@ So what does such an event actually look like in practice? To answer that, let�
 In the figure below, we follow <i>r/askreddit</i> over time and track, for each day, the most negative incoming interaction it receives. Rather than raw sentiment values, we express this signal as a standardized score, measuring how unusual each interaction is compared to the subreddit’s typical incoming tone.
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; margin-top: 20px;">
-  <details>
+  <details open>
     <summary style="font-size: 18px; cursor: pointer;">
       <b>How is the standardized score computed?</b>
     </summary>
@@ -329,6 +324,7 @@ In the figure below, we follow <i>r/askreddit</i> over time and track, for each 
     This transformation expresses sentiment in units of standard deviation, allowing us to compare how extreme an interaction is relative to what the subreddit usually receives. Strongly negative values of $z_{s,t}$ therefore indicate unusually hostile incoming interactions.
 
     </div>
+
   </details>
 </div>
 
@@ -350,12 +346,11 @@ In the figure below, we follow <i>r/askreddit</i> over time and track, for each 
 
 <div style="text-align: justify;">
 
-
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
 Most interactions blend into the background. But every now and then, a strongly negative link stands out enough to make you stop and look. These are the moments we flag as potential snowball seeds: single hits that could ripple through a community afterward. Now that we have set up the detection of our events, we can now try and look for a potential snowball effect !
 </div>
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
-  <details>
+  <details open>
     <summary style="font-size: 18px; cursor: pointer;">
       <b>How do we test for a snowball effect?</b>
     </summary>
@@ -393,6 +388,7 @@ Most interactions blend into the background. But every now and then, a strongly 
     more positive sentiment.
 
     </div>
+
   </details>
 </div>
 <br>
@@ -403,9 +399,9 @@ Most interactions blend into the background. But every now and then, a strongly 
   <!-- Interpretation text -->
   <div style="flex: 1; min-width: 280px; text-align: justify;">
 
-  Rather than inspecting individual events one by one, we first step back and look at the overall pattern across all detected events. The visualization on the right summarizes, at a glance, how often negative hits are followed by measurable changes in outgoing sentiment, and in which direction those changes tend to go.
+Rather than inspecting individual events one by one, we first step back and look at the overall pattern across all detected events. The visualization on the right summarizes, at a glance, how often negative hits are followed by measurable changes in outgoing sentiment, and in which direction those changes tend to go.
 
-  This aggregated view allows us to directly address our research question: whether incoming negativity systematically influences how communities interact with others over short time periods.
+This aggregated view allows us to directly address our research question: whether incoming negativity systematically influences how communities interact with others over short time periods.
 
   </div>
 
@@ -434,44 +430,7 @@ Most interactions blend into the background. But every now and then, a strongly 
 Most sentiment shock events do not lead to a measurable change in outgoing sentiment, suggesting that negative interactions are However, when a significant shift does occur, it is much more likely to be negative than positive. In other words, sentiment propagation is rare, but when it happens, it tends to amplify negativity rather than dampen it.
 
 </div>
-
-
-
 <br>
-
-## 7. Matching
-
-1. within cluster
-
-2. by activity level
-
-3. by mean sentiment
-
-## 8. Analysis 1) {#analysis-1}
-
-Define random-ish time windows for analysis
-
-1.  Match: strongly negative/positive event
-2.  Match: frequent negative/positive events (within a day or so)
-3.  Analyse outgoing
-    1. Sentiment mean, intensity threshold (1 strong event)
-    2. Frequency: more/less links
-4.  Check if changes are statistically significant (8 tests total)
-5.  Compare strong vs frequent interaction
-6.  Compare results wrt cluster assignment
-
-## 9. Analysis 2) {#analysis-2}
-
-Match with different clusters?
-
-1.  Match: strongly negative/positive event
-2.  Analyse outgoing sentiment mean, intensity threshold
-3.  For each treated match identify top-k most interacted with subreddits and top-k closest subreddits in embedding space
-4.  Vary k to determine<>
-    1. Reach
-    2. Radius
-    3. Duration
-    4. Decay
 
 </div>
 
