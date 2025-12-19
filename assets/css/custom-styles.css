@@ -371,3 +371,36 @@ header a, .navbar a, nav a {
 .caption strong {
     color: #acc8e5; /* Using your signature light blue */
 }
+
+.fun-fact-card {
+  max-width: 900px;
+  margin: 1.75rem auto;
+  padding: 1.25rem 1.5rem;
+  background: #f7fbff;
+  border: 1px solid #d5e8ff;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+}
+
+.fun-fact-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0b5ba1;
+}
+
+.fun-fact-tag::before {
+  content: "*";
+  color: #0077ff;
+}
+
+.fun-fact-card p {
+  margin: 0.5rem 0 0;
+  color: #233044;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}

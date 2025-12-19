@@ -140,7 +140,15 @@ We can also analyse which clusters communicate the most between each other.
 <h3>Sentiment analysis</h3>
 
 What is the share of positive to negative hyperlinks and how can we define them?
-The data is manually labeled with a link sentiment of +/- 1.
+The data is labeled with a link sentiment value which is either +1 if the post is neutral to positive or -1 if the post is negative.
+<br>
+<div class="fun-fact-card">
+  <div class="fun-fact-tag">Fun fact</div>
+  <p>The authors of the paper originally had three categories -- positive, negative, and neutral -- but they had so few positives that they combined them with the neutral class.</p>
+</div>
+<br>
+Let's look at the distribution of link sentiment in the dataset.
+<br>
 
 <div class="flourish-embed flourish-chart" data-src="visualisation/26769169">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
