@@ -46,7 +46,7 @@ To make sense of the huge network, we can start by clustering subreddits into la
 
 Communities are defined as sets of tightly connected nodes. This can be confusing for our problem because a subreddit can also be called a "community", yet it represents only a single node in the Reddit graph.
 
-<div style="border-left: 4px solid #432750; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
 The idea is to identify communities by maximizing modularity.
 </div>
 
@@ -67,12 +67,11 @@ The idea is to identify communities by maximizing modularity.
 
   <details open> 
     <summary style = "font-size: 18px; cursor: pointer;"><b>Leiden Algorithm</b></summary>     
-...
+    To identify communities by maximizing modularity, we can use the Leiden algorithm which is an improvement of the Louvain algorithm. It guarantees well-connected communities, converging towards a partition in which all subsets of all communities are locally optimally assigned and it is much faster than Louvain.
 
    </details>
 </div>
 
-The idea is to identify communities by maximizing modularity. To this end we can use the Leiden algorithm which is an improvement of the Louvain algorithm. It guarantees well-connected communities, converging towards a partition in which all subsets of all communities are locally optimally assigned and it is much faster than Louvain.
 Now we can visualize these clusters in the embedding space by using the subreddit embedings dataset. We can reduce the dimension of to 2D for visualization using PCA followed by t-SNE (t-distributed Stochastic Neighbor Embedding).
 
 ![t-SNE clusters]({{ site.baseurl }}/Images/tsne_plot.png)
@@ -93,17 +92,15 @@ We can also analyse which clusters communicate the most between each other.
   </noscript>
 </div>
 
-## 5. Defining positivity / Negativity score {#positivity-score}
+## Sentiment analysis
 
 What is the share of positive to negative hyperlinks and how can we define them?
 The data is manually labeled with a link sentiment of +/- 1.
 
-## 6. PLOT Most positive and negative clusters by time {#pos-neg-over-time}
-
 <div class="flourish-embed flourish-chart" data-src="visualisation/26769169">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
-    <img src="https://public.flourish.studio/visualisation/26769169/thumbnail" width="70%" alt="chart visualization" />
+    <img src="https://public.flourish.studio/visualisation/26769169/thumbnail" width="60%" alt="chart visualization" />
   </noscript>
 </div>
 
@@ -118,8 +115,10 @@ We can also see how the share of positive/neural hyperlinks evolves over time fo
 
 The issue with this classification is that it lacks precision. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
 
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
 - **VADER**: Positive, Negative, Compound
 - **LIWC**: Posemo, Negemo, Anx, Anger, Sad
+</div>
 
 LIWC and VADER are lexicon-based tools for measuring sentiment and affect in text. LIWC computes normalized frequencies of words associated with psychological and emotional categories, such as negative emotion or anger, while VADER produces a continuous sentiment polarity score by combining word-level valence with rules for negation, intensifiers, and punctuation, making it well suited for social media text.
 
