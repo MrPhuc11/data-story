@@ -1,0 +1,221 @@
+/* Give the header some height and style */
+
+.graph-hero {
+  position: relative;
+  width: 100%;
+  height: 280px; /* you can change this */
+  overflow: hidden;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.graph-hero canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.graph-hero-text {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  color: #ffffff;
+}
+
+.graph-hero-text h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.graph-hero-text p {
+  font-size: 1rem;
+  max-width: 650px;
+  opacity: 0.9;
+}
+
+/* Optional overlay to make text readable */
+.graph-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.9)
+    );
+  z-index: 1;
+}
+
+/* Quote highlight */
+.quote-card {
+  margin: 1.5rem auto;
+  padding: 1.2rem 1.6rem;
+  max-width: 820px;
+  background: linear-gradient(135deg, #f3f7ff, #e7efff);
+  border-left: 4px solid #008aff;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.quote-card blockquote {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #1f2b3a;
+  font-style: italic;
+}
+
+.quote-card blockquote p {
+  margin: 0;
+}
+
+.quote-card blockquote p:last-child {
+  margin-top: 0.65rem;
+  font-size: 1rem;
+  color: #4a5568;
+  font-style: normal;
+  letter-spacing: 0.02em;
+/* Justify paragraph text across page content */
+.container-md p,
+.container-fluid p,
+.page-content p,
+.post-content p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+}
+
+
+.bd-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fdfcf0; /* Paper aesthetic */
+}
+
+.bd-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Maintains 3 columns */
+    gap: 20px;
+    width: 100%;
+    /* This prevents the grid from stretching height-wise independently of width */
+    align-items: start; 
+}
+
+.bd-panel {
+    position: relative;
+    border: 3px solid black;
+    background-color: white;
+    /* This is the magic line for horizontal/vertical locking */
+    aspect-ratio: 1 / 1; 
+    width: 100%; 
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.bd-illustration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 'background-size: cover' is actually safer for 'fixed' looks 
+       as it prevents white gaps if the math is off by 1 pixel */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Character Dialogue Bubbles */
+.speech-bubble {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    box-shadow: 3px 3px 0px black;
+    line-height: 1.2;
+}
+
+.negative-highlight {
+    border-color: #e53e3e; /* Red border for the jealous peer */
+}
+
+/* Adjust for mobile screens */
+@media (max-width: 800px) {
+    .bd-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 panels per row on tablets */
+    }
+}
+
+/* If you want to prevent the panels from getting TOO small on mobile */
+@media (max-width: 600px) {
+    .bd-grid {
+        grid-template-columns: 1fr; /* Stack them vertically so they stay large */
+    }
+}
+
+/* Permanent Speech Bubble */
+.speech-bubble {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 8px 12px;
+    font-family: 'Comic Sans MS', 'cursive', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: black;
+    z-index: 10;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+    line-height: 1.2;
+    /* No more opacity: 0; No more transitions */
+}
+
+/* The Bubble Tail */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    border-width: 10px 10px 0 0;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+/* Ensure the image fills the whole panel behind the bubble */
+.bd-illustration {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Needed for absolute positioning of bubble */
+}
+
+.bd-panel {
+    position: relative;
+    border: 3px solid black;
+    height: 350px; /* Adjust height based on your images */
+    overflow: hidden;
+}
+
