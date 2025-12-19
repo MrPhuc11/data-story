@@ -8,26 +8,40 @@ use_math: true
     <div class="hero-content">
       <h1>Snowball Effect on Reddit</h1>
       <p class="hero-p2">"The more I live, the more I regret how little I know."</p>
-      <p2 class="hero-author">- Claude Monet</p2>
-      </div>
+      <p class="hero-author">- Claude Monet</p>
+      <a href="#intro" class="hero-button">Discover the Research</a>
+    </div>
   </div>
 </section>
 
-<img src="{{ site.baseurl }}/Images/reddit_logo.png" alt="reddit logo" style="display:block;margin:0 auto;max-width:180px;">
+<div id="intro"></div> 
 
-<div style="text-align: justify;" markdown="1">
+<div class="content-wrapper">
+   </div>
 
-#provisoire : faudrait faire une intro un peu plus générale sur le réso reddit
-Reddit is a web of thousands of communities (subreddits) that constantly react to each other by sharing hyperlinks. Each link carries a tone: it can be supportive, neutral, or hostile, and those signals can ripple outward.
+
+<div id="intro" style="margin-top: 0;"></div>
 
 <div id="monet-bd-story"></div>
 
-The snowball effect is a metaphor for a situation where something small and insignificant grows in size over time, much like a snowball rolling down a hill gathers more snow.
-In this project, we aim to investigate whether such an effect exists within Reddit's social network. Specifically, we examine how positive or negative links received by a targeted subreddit influence both its own behavior and the broader network's response. First, we explore whether the sentiment of incoming links affects the sentiment of the outgoing links that the targeted subreddit sends during that period (does receiving negative attention make it more likely to link negatively to others, or does positive attention lead to more supportive interactions?). Next, we study how other subreddits respond to these interactions. When one subreddit links negatively to another, does this make additional subreddits also link negatively to the same target? Conversely, does a positive link between two subreddits also attract more positive attention from others? Overall, we aim to see whether that first link triggers a snowball effect, amplifying positive or negative sentiment across both related and distant communities on Reddit.
+<div class="bd-transition-line"></div>
 
-</div>
+<section id="intro" class="research-container">
 
-## Dataset
+  <div class="story-lead">
+    <h2>How far can a single event influence community behavior?</h2>
+    <p>
+    <div style="text-align: justify;">
+      The snowball effect describes how a small action can grow into something much larger over time, like a snowball rolling downhill, picking up speed and mass as it goes.
+      On Reddit, even a single interaction between two communities can set off a chain reaction. This project explores how positive or negative links between subreddits influence not only the communities involved, but also how others respond.
+    
+  </div>
+
+  
+  ---
+Now let’s take a look at the dataset.
+
+<h3>Dataset</h3>
 
 The dataset we are working with is a network of subreddit-to-subreddit hyperlinks, extacted from posts that create hyperlinks from one subreddit to another. A hyperlink originates from a post in the source community and links to a post in the target community. Each hyperlink is annotated with the timestamp of the post, the sentiment of the source community post towards the target community post (−1 for negative and +1 for neutral or positive), and the text property vector of the source post.
 The hyperlink network covers the period from December 2013 to April 2017
@@ -36,9 +50,10 @@ The hyperlink network covers the period from December 2013 to April 2017
 
 As a complement, we will utilize subreddit embeddings, vector representations of each subreddit. They were created such that community embeddings will be close together if similar users post on them.
 
-## Clustering
 
-To make sense of the huge network, we can start by clustering subreddits into larger topical communities.
+<h3>Clustering</h3>
+<div style="text-align: justify;">
+    To make sense of the huge network, we can start by clustering subreddits into larger topical communities.
 
 Communities are defined as sets of tightly connected nodes. This can be confusing for our problem because a subreddit can also be called a "community", yet it represents only a single node in the Reddit graph.
 
@@ -97,7 +112,15 @@ Now we can visualize these clusters in the embedding space using the subreddit e
   </details>
 </div>
 
-![t-SNE clusters]({{ site.baseurl }}/Images/tsne_plot.png)
+
+
+  <div class="image-container">
+    <img src="{{ site.baseurl }}/Images/tsne_plot.png" >
+    <p class="caption">
+      t-SNE projection of subreddit embeddings. Each dot represents a community; clusters indicate shared topical interests and interaction patterns.
+    </p>
+  </div>
+
 
 We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples. This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
 
@@ -110,7 +133,10 @@ We can also analyse which clusters communicate the most between each other.
   </noscript>
 </div>
 
-# Sentiment analysis
+</div>
+
+<div style="text-align: justify;">
+<h3>Sentiment analysis</h3>
 
 What is the share of positive to negative hyperlinks and how can we define them?
 The data is manually labeled with a link sentiment of +/- 1.
@@ -148,12 +174,18 @@ LIWC and VADER are lexicon-based tools for measuring sentiment and affect in tex
 </div>
 
 We can use them to define a continuous sentiment score between -1 and 1, which allows us to quantify sentiment type (negative or positive) as well as strength.
-
+<br>
+<br>
 We combine the LIWC and VADER outputs into a single signed sentiment score using principal component analysis (PCA). PCA is applied directly to the LIWC and VADER features, and the first principal component, which captures the dominant shared variation across the lexicon-based measures, is used as a continuous sentiment axis. This signed score provides a compact measure of sentiment polarity and strength, enabling rapid assessment and comparison of sentiment intensity across posts.
 
-![t-SNE clusters]({{ site.baseurl }}/Images/pca_sentiment.png)
+
+<div class="image-container">
+      <img src="{{ site.baseurl }}/Images/pca_sentiment.png" alt="PCA Sentiment Analysis Cluster">
+      <p class="caption">The large spike near zero represents hyperlinks with neutral metrics, effectively identifying objective or non-emotive content.</p>
+</div>
 
 The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
+
 
 ## 7. Matching
 
@@ -188,6 +220,9 @@ Match with different clusters?
     2. Radius
     3. Duration
     4. Decay
+
+</div>
+
 
 <div id="art-snow-bar">
 <button onclick="toggleSnow()" id="btn-toggle">
@@ -343,3 +378,9 @@ snowContainer.appendChild(flake);
 }
 });
 </script>
+
+
+
+
+
+
