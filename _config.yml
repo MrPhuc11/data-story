@@ -45,14 +45,13 @@ plugins:
 navbar-links:
   About Us: "about"
   Sections:
-    - Data vis: "#plot-visu"
-    - Clustering: "#plot-clusters"
-    - Interactions: "#plot-interactions"
-    - Positivity score: "#positivity-score"
-    - Time trends: "#pos-neg-over-time"
-    - Matching: "#matching"
-    - Analysis 1: "#analysis-1"
-    - Analysis 2: "#analysis-2"
+    - Intro: "/data-story/#intro"
+    - Dataset: "/data-story/#dataset"
+    - Clustering: "/data-story/#clustering"
+    - Sentiment: "/data-story/#sentiment"
+    - Matching: "/data-story/#matching"
+    - Analysis 1: "/data-story/#analysis-1"
+    - Analysis 2: "/data-story/#analysis-2"
   Resources:
     - Dataset: "https://snap.stanford.edu/data/soc-RedditHyperlinks.html"
     - Repository: "https://github.com/epfl-ada/ada-2025-project-canada"
