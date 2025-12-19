@@ -195,10 +195,10 @@ Let's look at the distribution of link sentiment in the dataset.
   </noscript>
 </div>
 
-We can also see how the share of positive/neural hyperlinks evolves over time for each cluster.
+It looks like a large share of links are neutral to positive. We can also see how the share of positive/neural hyperlinks evolves over time for each cluster, to get a btter idea of the distribution.
 
-</div>
-</div>
+<br>
+<br>
 
 <div class="flourish-embed flourish-chart" data-src="visualisation/26714353">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -207,7 +207,7 @@ We can also see how the share of positive/neural hyperlinks evolves over time fo
   </noscript>
 </div>
 
-The issue with this classification is that it lacks precision. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
+The issue with this classification is that it <b>lacks precision</b>. We want to be able to distinguish strongly postive and negative posts from neutral ones. Luckily, we still have some tools we can use. Among the text proporties of each post, we have a couple of useful metrics:
 
 <div class="metric-grid">
   <div class="metric-card">
@@ -222,6 +222,7 @@ The issue with this classification is that it lacks precision. We want to be abl
 
 LIWC and VADER are lexicon-based tools for measuring sentiment and affect in text. LIWC computes normalized frequencies of words associated with psychological and emotional categories, such as negative emotion or anger, while VADER produces a continuous sentiment polarity score by combining word-level valence with rules for negation, intensifiers, and punctuation, making it well suited for social media text.
 <br>
+<br>
 
 <div class="flourish-embed flourish-radar" data-src="visualisation/26785304">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -235,13 +236,34 @@ We can use them to define a continuous sentiment score between -1 and 1, which a
 <br>
 We combine the LIWC and VADER outputs into a single signed sentiment score using principal component analysis (PCA). PCA is applied directly to the LIWC and VADER features, and the first principal component, which captures the dominant shared variation across the lexicon-based measures, is used as a continuous sentiment axis. This signed score provides a compact measure of sentiment polarity and strength, enabling rapid assessment and comparison of sentiment intensity across posts.
 <br>
+<br>
 
 <div class="image-container">
       <img src="{{ site.baseurl }}/Images/pca_sentiment.png" alt="PCA Sentiment Analysis Cluster">
       <p class="caption">The large spike near zero represents hyperlinks with neutral metrics, effectively identifying objective or non-emotive content.</p>
 </div>
+<br>
+<br>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+<b>What parameters were most important?</b>
+</div>
 
-The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details open> 
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Loadings</b></summary>
+    To answer this, we can look at the PCA loadings for the first principal component. A loading tells us how much each original feature contributes to that component. Features with larger absolute values matter more, because they have a bigger influence on the direction of the component.
+
+    They show how strongly each feature lines up with the main axis of variation in the data.
+
+<br>
+<br>
+<div class="image-container">
+  <img src="{{ site.baseurl }}/Images/pca_weights.png" alt="PCA weights" style=" width: 70%;">
+  <p class="caption">Most of the sentiment signal comes from overall positive and negative tone, with finer-grained emotions playing a much smaller role.</p>
+</div>
+
+</details>
+</div>
 
 ## 7. Matching
 
