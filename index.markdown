@@ -3,6 +3,7 @@ layout: page
 title: Snowball Effect on Reddit
 use_math: true
 ---
+
 <div class="title-background">
     <img src="Images/monet_magpie.jpg" style="display: block; margin: 0 auto; width: 100%;"/>
 </div>
@@ -27,11 +28,8 @@ FRED was here and aveen also
 
 The snowball effect is a metaphor for a situation where something small and insignificant grows in size over time, much like a snowball rolling down a hill gathers more snow.
 In this project, we aim to investigate whether such an effect exists within Reddit's social network. Specifically, we examine how positive or negative links received by a targeted subreddit influence both its own behavior and the broader network's response. First, we explore whether the sentiment of incoming links affects the sentiment of the outgoing links that the targeted subreddit sends during that period (does receiving negative attention make it more likely to link negatively to others, or does positive attention lead to more supportive interactions?). Next, we study how other subreddits respond to these interactions. When one subreddit links negatively to another, does this make additional subreddits also link negatively to the same target? Conversely, does a positive link between two subreddits also attract more positive attention from others? Overall, we aim to see whether that first link triggers a snowball effect, amplifying positive or negative sentiment across both related and distant communities on Reddit.
+
 </div>
-
-## 2. PLOT Visu of the data {#plot-visu}
-
-## 3. PLOT Clustering plot {#plot-clusters}
 
 ## Dataset
 
@@ -48,21 +46,37 @@ To make sense of the huge network, we can start by clustering subreddits into la
 
 Communities are defined as sets of tightly connected nodes. This can be confusing for our problem because a subreddit can also be called a "community", yet it represents only a single node in the Reddit graph.
 
-Modularity is a measure of how well a network is partitioned into groups (or communities). Given a partition of the network into groups.
-The Modularity of a partitioning S of graph G is :
+<div style="border-left: 4px solid #432750; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+The idea is to identify communities by maximizing modularity.
+</div>
 
-$$
-Q = \frac{1}{2m} \sum_{ij} \left( A_{ij} - \frac{k_i k_j}{2m} \right) \delta(c_i, c_j)
-$$
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details open> 
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Modularity</b></summary>    
+     
+    Modularity is a measure of how well a network is partitioned into groups (or communities). Given a partition of the network into groups.
+    The Modularity of a partitioning S of graph G is :
 
-Where $A_{ij}$ is the edge weight between nodes $i$ and $j$, $k_i$ and $k_j$ are the sum of the weights of the edges attached to nodes $i$ and $j$, $2m$ is the sum of all the edge weights in the graph, $c_i$ and $c_j$ are the communities of the nodes and $\delta$ is an indicator function.
+    $$
+    Q = \frac{1}{2m} \sum_{ij} \left( A_{ij} - \frac{k_i k_j}{2m} \right) \delta(c_i, c_j)
+    $$
+
+    Where $A_{ij}$ is the edge weight between nodes $i$ and $j$, $k_i$ and $k_j$ are the sum of the weights of the edges attached to nodes $i$ and $j$, $2m$ is the sum of all the edge weights in the graph, $c_i$ and $c_j$ are the communities of the nodes and $\delta$ is an indicator function.
+
+</details>
+
+  <details open> 
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Leiden Algorithm</b></summary>     
+...
+
+   </details>
+</div>
 
 The idea is to identify communities by maximizing modularity. To this end we can use the Leiden algorithm which is an improvement of the Louvain algorithm. It guarantees well-connected communities, converging towards a partition in which all subsets of all communities are locally optimally assigned and it is much faster than Louvain.
 Now we can visualize these clusters in the embedding space by using the subreddit embedings dataset. We can reduce the dimension of to 2D for visualization using PCA followed by t-SNE (t-distributed Stochastic Neighbor Embedding).
 
 ![t-SNE clusters]({{ site.baseurl }}/Images/tsne_plot.png)
 
-## 4. PLOT Interactions between clusters {#plot-interactions}
 We use t-SNE to replicate Figure 1 from the original paper [1] and highlight nodes based on their cluster assignment.
 t-SNE converts similarities between data points to joint probabilities and tries to minimize the Kullback-Leibler divergence between the joint probabilities of the low-dimensional embedding and the high-dimensional data. We apply PCA before-hand because of the number pf features is initially very high.[2]
 
@@ -85,6 +99,7 @@ What is the share of positive to negative hyperlinks and how can we define them?
 The data is manually labeled with a link sentiment of +/- 1.
 
 ## 6. PLOT Most positive and negative clusters by time {#pos-neg-over-time}
+
 <div class="flourish-embed flourish-chart" data-src="visualisation/26769169">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
@@ -156,7 +171,6 @@ Match with different clusters?
     2. Radius
     3. Duration
     4. Decay
-
 
 <div id="art-snow-bar">
 <button onclick="toggleSnow()" id="btn-toggle">
