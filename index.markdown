@@ -218,6 +218,180 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 
 The large spike in values just under zero is due to the hyperlinks with zero on all metrics. They are considered to be neutral in sentiment.
 
+<br>
+<h3>So what happens after a negative interaction?</h3>
+<br>
+<div style="text-align: justify;">
+
+Like most social media platforms, Reddit can be a hostile place, and negative interactions between communities are far from rare. Most of the time, these interactions fade into the background noise of daily activity and have little lasting impact. But occasionally, a negative link stands out, not because negativity is unusual, but because it is unusually strong compared to what a subreddit typically receives. This naturally raises the question of what comes next. 
+
+</div>
+<br>
+
+<div style="text-align: justify;">
+
+Up to now, sentiment has mostly lived in the background of our analysis. We compressed language, emotion, and tone into a single continuous score, and for the most part, things looked fairly calm. Most hyperlinks sit close to neutral, with only a handful drifting toward more extreme values.
+
+But those extremes are precisely where things get interesting.
+
+Instead of asking how sentiment behaves on average, we shift our focus to moments where something clearly stands out: a day when a subreddit receives an incoming link that is much more negative than what it is used to. These moments feel different. They are not just part of the usual noise, they are potential disruptions.
+
+We refer to these moments as <i>shock events</i>.
+
+</div>
+
+<div class="fun-fact-card">
+  <div class="fun-fact-tag">Definition</div>
+  <p>
+    An event is defined relative to each subreddit’s own baseline. What counts as “extreme” depends on what a community is used to, not on a global sentiment threshold applied to all of Reddit.
+  </p>
+</div>
+
+<br>
+
+<div style="text-align: justify;">
+
+So what does such an event actually look like in practice? To answer that, let’s zoom in on a single subbreddit.
+
+In the figure below, we follow <i>r/askreddit</i> over time and track, for each day, the most negative incoming interaction it receives. Rather than raw sentiment values, we express this signal as a standardized score, measuring how unusual each interaction is compared to the subreddit’s typical incoming tone.
+
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; margin-top: 20px;">
+  <details>
+    <summary style="font-size: 18px; cursor: pointer;">
+      <b>How is the standardized score computed?</b>
+    </summary>
+
+    <div style="text-align: justify; margin-top: 10px;">
+
+    To quantify how unusual an incoming interaction is for a given subreddit, we standardize sentiment values relative to that subreddit’s typical behavior.
+
+    <br><br>
+
+    For a subreddit <i>s</i>, let $x_{s,t}$ denote the sentiment score of an incoming interaction observed on day $t$. We compute the standardized score as:
+
+    $$
+    z_{s,t} = \frac{x_{s,t} - \mu_s}{\sigma_s}
+    $$
+
+    where:
+    <ul>
+      <li>$\mu_s$ is the mean incoming sentiment for subreddit <i>s</i>,</li>
+      <li>$\sigma_s$ is the corresponding standard deviation.</li>
+    </ul>
+
+    This transformation expresses sentiment in units of standard deviation, allowing us to compare how extreme an interaction is relative to what the subreddit usually receives. Strongly negative values of $z_{s,t}$ therefore indicate unusually hostile incoming interactions.
+
+    </div>
+  </details>
+</div>
+
+</div>
+
+<br>
+
+<!-- STATIC EXAMPLE PLOT -->
+<div style="max-width: 800px; margin: 40px auto;">
+  <div class="image-container">
+    <img src="{{ site.baseurl }}/Images/detective events.png" alt="Detected negative events in askreddit">
+    <p class="caption">
+      Detected negative events for <i>r/askreddit</i>. The blue curve shows incoming sentiment over time, standardized relative to the subreddit’s baseline. Orange points mark days where the negative deviation is strong enough to be classified as an event.
+    </p>
+  </div>
+</div>
+
+<div style="text-align: justify;">
+
+<div style="text-align: justify;">
+
+
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+Most interactions blend into the background. But every now and then, a strongly negative link stands out enough to make you stop and look. These are the moments we flag as potential snowball seeds: single hits that could ripple through a community afterward. Now that we have set up the detection of our events, we can now try and look for a potential snowball effect !
+</div>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details>
+    <summary style="font-size: 18px; cursor: pointer;">
+      <b>How do we test for a snowball effect?</b>
+    </summary>
+
+    <div style="text-align: justify; margin-top: 10px;">
+
+    Once events have been detected, we test whether they are followed by a change in the subreddit’s outgoing behavior.
+
+    For each event, defined by a subreddit <i>s</i> and an event day <i>t</i>, we proceed as follows:
+
+    <ul>
+      <li>
+        We collect all outgoing links written by subreddit <i>s</i> in a short time window
+        <b>before</b> and <b>after</b> the event day <i>t</i>.
+      </li>
+      <li>
+        We compare the distributions of the continuous sentiment score
+        (<code>score_sentiment_pca</code>) in the pre- and post-event windows.
+      </li>
+      <li>
+        To account for unequal variances and sample sizes, we use
+        <b>Welch’s t-test</b>, which yields a p-value quantifying whether the change is
+        statistically significant.
+      </li>
+    </ul>
+
+    In addition to the p-value, we compute a signed effect size:
+
+    $$
+    \Delta = \overline{\text{post}} - \overline{\text{pre}}
+    $$
+
+    A negative value of $\Delta$ indicates that the subreddit’s outgoing sentiment became
+    more negative after the event, while a positive value corresponds to a shift toward
+    more positive sentiment.
+
+    </div>
+  </details>
+</div>
+<br>
+
+<!-- TEXT + WAFFLE SIDE BY SIDE -->
+<div style="display: flex; gap: 40px; align-items: center; margin-top: 40px; flex-wrap: wrap;">
+
+  <!-- Interpretation text -->
+  <div style="flex: 1; min-width: 280px; text-align: justify;">
+
+  Rather than inspecting individual events one by one, we first step back and look at the overall pattern across all detected events. The visualization on the right summarizes, at a glance, how often negative hits are followed by measurable changes in outgoing sentiment, and in which direction those changes tend to go.
+
+  This aggregated view allows us to directly address our research question: whether incoming negativity systematically influences how communities interact with others over short time periods.
+
+  </div>
+
+  <!-- Waffle chart -->
+  <div style="flex: 0 0 200px;">
+
+    <div class="flourish-embed flourish-pictogram" data-src="visualisation/26909992">
+      <script src="https://public.flourish.studio/resources/embed.js"></script>
+      <noscript>
+        <img src="https://public.flourish.studio/visualisation/26909992/thumbnail"
+             width="100%"
+             alt="pictogram visualization" />
+      </noscript>
+    </div>
+
+  </div>
+
+</div>
+
+<p style="max-width: 900px; margin: 10px 0 0; font-size: 0.9em; color: #555; text-align: justify;">
+<strong>Figure.</strong> Composition of sentiment shifts across all detected events. Each square represents 1% of events. Significant shifts (p &lt; 0.05) are highlighted, with negative shifts shown in red and positive shifts in green.
+</p>
+
+<div style="text-align: justify; margin-top: 20px;">
+
+Most sentiment shock events do not lead to a measurable change in outgoing sentiment, suggesting that negative interactions are However, when a significant shift does occur, it is much more likely to be negative than positive. In other words, sentiment propagation is rare, but when it happens, it tends to amplify negativity rather than dampen it.
+
+</div>
+
+
+
+<br>
+
 ## 7. Matching
 
 1. within cluster
