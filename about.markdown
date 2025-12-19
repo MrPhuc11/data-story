@@ -23,6 +23,3 @@ permalink: /about/
         <li><a href="https://github.com/mrphuc11" target="_blank" rel="noopener"><i class="fab fa-github"></i> Phuc Truong</a></li>
       </ul>
     </div>
-
-  </div>
-</div>
