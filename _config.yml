@@ -45,13 +45,9 @@ plugins:
 navbar-links:
   About Us: "about"
   Sections:
-    - Intro: "/data-story/#intro"
-    - Dataset: "/data-story/#dataset"
-    - Clustering: "/data-story/#clustering"
-    - Sentiment: "/data-story/#sentiment"
-    - Matching: "/data-story/#matching"
-    - Analysis 1: "/data-story/#analysis-1"
-    - Analysis 2: "/data-story/#analysis-2"
+    - Dataset: "#dataset"
+    - Clustering: "#clustering"
+    - Sentiment: "#sentiment"
   Resources:
     - Dataset: "https://snap.stanford.edu/data/soc-RedditHyperlinks.html"
     - Repository: "https://github.com/epfl-ada/ada-2025-project-canada"

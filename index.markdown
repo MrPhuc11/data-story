@@ -15,6 +15,12 @@ use_math: true
   </div>
 </section>
 
+<div id="intro" style="margin-top: 0;"></div>
+
+<div id="monet-bd-story"></div>
+
+<div class="bd-transition-line"></div>
+
 <section id="intro" class="research-container">
 
   <div class="story-lead">
@@ -424,42 +430,7 @@ This aggregated view allows us to directly address our research question: whethe
 Most sentiment shock events do not lead to a measurable change in outgoing sentiment, suggesting that negative interactions are However, when a significant shift does occur, it is much more likely to be negative than positive. In other words, sentiment propagation is rare, but when it happens, it tends to amplify negativity rather than dampen it.
 
 </div>
-
 <br>
-
-## 7. Matching {#matching}
-
-1. within cluster
-
-2. by activity level
-
-3. by mean sentiment
-
-## 8. Analysis 1) {#analysis-1}
-
-Define random-ish time windows for analysis
-
-1.  Match: strongly negative/positive event
-2.  Match: frequent negative/positive events (within a day or so)
-3.  Analyse outgoing
-    1. Sentiment mean, intensity threshold (1 strong event)
-    2. Frequency: more/less links
-4.  Check if changes are statistically significant (8 tests total)
-5.  Compare strong vs frequent interaction
-6.  Compare results wrt cluster assignment
-
-## 9. Analysis 2) {#analysis-2}
-
-Match with different clusters?
-
-1.  Match: strongly negative/positive event
-2.  Analyse outgoing sentiment mean, intensity threshold
-3.  For each treated match identify top-k most interacted with subreddits and top-k closest subreddits in embedding space
-4.  Vary k to determine<>
-    1. Reach
-    2. Radius
-    3. Duration
-    4. Decay
 
 </div>
 
