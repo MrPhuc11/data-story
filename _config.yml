@@ -26,7 +26,7 @@ twitter_username: jekyllrb
 github_username: mrphuc11 # facultatif, mais autant le mettre
 remote_theme: daattali/beautiful-jekyll@6.0.1
 
-favicon: "/Images/snowflake_icon.png"
+favicon: "/Images/favicon.png"
 
 markdown: kramdown
 mathjax: true
