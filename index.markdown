@@ -87,7 +87,7 @@ Here are the clusters we found.
 <div class="flourish-embed flourish-hierarchy" data-src="visualisation/26907809">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
-    <img src="https://public.flourish.studio/visualisation/26907809/thumbnail" width="60%" alt="hierarchy visualization" />
+    <img src="https://public.flourish.studio/visualisation/26907809/thumbnail" width="50%" alt="hierarchy visualization" />
   </noscript>
 </div>
 
@@ -123,7 +123,7 @@ Now we can visualize these clusters in the embedding space using the subreddit e
   </div>
 
 We observe that highly connected groups of subreddits are not necessarily close in embedding space. Some topical groups form clear clusters in embedding space, meaning their users are similar: Gaming, Pornography & Music are good examples of these. Other groups are much more spread out: Popular/memes, News, Politics & Conspiracies, Religion & Philosophy are good examples. This makes sense because although subreddits in these might link each other often (eg: r/capitalism and r/communism) this does not mean that their users will be similar, leading to a spread out group in embedding space.
-
+<br>
 We can also analyse which clusters communicate the most between each other.
 <br>
 
