@@ -276,20 +276,20 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 <br>
 <div style="text-align: justify;">
 
-Like most social media platforms, Reddit can be a hostile place, and negative interactions between communities are far from rare. Most of the time, these interactions fade into the background noise of daily activity and have little lasting impact. But occasionally, a link stands out, not just for its negativity, but sometimes for being unusually positive praise, compared to what a subreddit typically receives. This naturally raises the question of what comes next.
+Like most social media platforms, Reddit can be a hostile place, and strongly polarized interactions between communities are far from rare. Most of the time, these interactions fade into the background noise of daily activity and have little lasting impact. But occasionally, a link stands out, not just for its negativity, but sometimes for being unusually positive praise, compared to what a subreddit typically receives. This naturally raises the question of what comes next.
 
 </div>
 <br>
 
 <div style="text-align: justify;">
 
-We just introduced sentiment shocks: most links hover near neutral, but occasionally a subreddit gets an incoming link that is unusually negative or unusually positive compared with what it normally receives. Those rare outliers are the disruptions we track — and we call them <i>shock events</i>.
+We just introduced sentiment shocks: most links hover near neutral, but occasionally a subreddit gets an incoming link that is unusually negative or unusually positive compared with what it normally receives. Those rare outliers are the disruptions we track and we call them <i>shock events</i>.
 
 </div>
-
+<br>
 <div style="text-align: justify;">
 
-So what does such an event actually look like in practice? To answer that, let’s zoom in on a single subbreddit !
+So what does such an event actually look like in practice? To answer that, let’s zoom in on the subbreddit of one of the most famous game clash of clans.
 
 <div style="max-width: 1000px; margin: 40px auto;">
   <div class="image-container">
@@ -300,7 +300,7 @@ So what does such an event actually look like in practice? To answer that, let�
   </div>
 </div>
 
-In this Figure, we follow <i>r/clashofclans</i> over time and track, for each day, the most negative incoming interaction it receives. Rather than raw sentiment values, we express this signal as a standardized score, measuring how unusual each interaction is compared to the subreddit’s typical incoming tone.
+Here, we watch <i>r/clashofclans</i> over time and, each day, grab the single most negative link it gets. Instead of staring at raw scores, we turn that into a standardized “how different was this for them?” number so you can see when an interaction really stands out from their usual tone.
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; margin-top: 20px;">
   <details open>
@@ -424,48 +424,35 @@ Now that we have set up the detection of our events, we can now try and look for
       <summary style="font-size: 18px; cursor: pointer;">
         <b>P-Value</b>
       </summary>
-      A p-value (probability value) is a statistical measure used in hypothesis testing to evaluate the strength of evidence against a null hypothesis. It represents the probability of obtaining results at least as extreme as the observed data, assuming that the null hypothesis is true.
+      A p-value is the probability of seeing a result at least this extreme if the null hypothesis were actually true. Smaller p-values mean the result is less likely to be just random variation.
       <br>
       <br>
-      The p-value indicates the smallest level of significance at which the null hypothesis would be rejected. A smaller p-value suggests that the observed data are less likely to have occurred by random chance alone and therefore provide stronger evidence in favor of the alternative hypothesis.
-      <br>
-      <br>
-      In practice, a p-value is often compared to a predefined significance level, commonly 0.05. If the p-value is less than or equal to this threshold, the result is considered statistically significant, and the null hypothesis is rejected.
+      For our tests, we compare it to a threshold with value 0.05: below that, we call the result statistically significant and reject the null hypothesis.
     </details>
 
   </details>
 </div>
 <br>
 
-<!-- TEXT + WAFFLE SIDE BY SIDE -->
-<div style="display: flex; gap: 40px; align-items: center; margin-top: 40px; flex-wrap: wrap;">
-
-  <!-- Interpretation text -->
-  <div style="flex: 1; min-width: 280px; text-align: justify;">
-
-Rather than inspecting individual events one by one, we first step back and look at the overall pattern across all detected events. The visualization on the right summarizes, at a glance, how often negative hits are followed by measurable changes in outgoing sentiment, and in which direction those changes tend to go.
-
-This aggregated view allows us to directly address our research question: whether incoming negativity systematically influences how communities interact with others over short time periods.
-
-  </div>
-
-  <!-- Waffle chart -->
-  <div style="flex: 0 0 200px;">
-
+<!-- Dual waffle charts: negative vs positive shock events -->
+<div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin: 40px 0 10px;">
+  <div style="flex: 1 1 320px; min-width: 280px;">
     <div class="flourish-embed flourish-chart" data-src="visualisation/26916888"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26916888/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
-
+    <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Negative shock events</p>
   </div>
-
+  <div style="flex: 1 1 320px; min-width: 280px;">
+    <!-- Replace data-src with the Flourish ID for positive shock events -->
+    <div class="flourish-embed flourish-chart" data-src="visualisation/REPLACE_WITH_POSITIVE_SHOCK_ID"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="" width="100%" alt="positive shock events chart" /></noscript></div>
+    <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Positive shock events</p>
+  </div>
 </div>
 
-<p style="max-width: 900px; margin: 10px 0 0; font-size: 0.9em; color: #555; text-align: justify;">
-<strong>Figure.</strong> Composition of sentiment shifts across all detected events. Each square represents 1% of events. Significant shifts (p &lt; 0.05) are highlighted, with negative shifts shown in red and positive shifts in green.
+<p style="max-width: 900px; margin: 10px auto 0; font-size: 0.9em; color: #555; text-align: justify;">
+<strong>Figure.</strong> Composition of sentiment shifts across shock events: negative shocks on the left, positive shocks on the right. Each square represents 1% of events; significant shifts (p &lt; 0.05) are highlighted, with negative shifts in red and positive shifts in green.
 </p>
 
 <div style="text-align: justify; margin-top: 20px;">
-
-Most sentiment shock events do not lead to a measurable change in outgoing sentiment, suggesting that negative interactions are However, when a significant shift does occur, it is much more likely to be negative than positive. In other words, sentiment propagation is rare, but when it happens, it tends to amplify negativity rather than dampen it.
-
+Most sentiment shock events do not lead to a measurable change in outgoing sentiment. When shifts do register, negative shocks are more likely to push tone downward than upward; the new positive-shock chart lets you see whether unusually warm links create the opposite effect.
 </div>
 <br>
 
