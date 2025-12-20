@@ -272,41 +272,35 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
       <img src="{{ site.baseurl }}/Images/Rep_shock_event.png" alt="PCA Sentiment Analysis Cluster" style="width: 100%;">
 </div>
 
-<h3>So what happens after a negative interaction?</h3>
+<h3>So what happens after a sentiment shock event ?</h3>
 <br>
 <div style="text-align: justify;">
 
-Like most social media platforms, Reddit can be a hostile place, and negative interactions between communities are far from rare. Most of the time, these interactions fade into the background noise of daily activity and have little lasting impact. But occasionally, a negative link stands out, not because negativity is unusual, but because it is unusually strong compared to what a subreddit typically receives. This naturally raises the question of what comes next.
+Like most social media platforms, Reddit can be a hostile place, and negative interactions between communities are far from rare. Most of the time, these interactions fade into the background noise of daily activity and have little lasting impact. But occasionally, a link stands out, not just for its negativity, but sometimes for being unusually positive praise, compared to what a subreddit typically receives. This naturally raises the question of what comes next.
 
 </div>
 <br>
 
 <div style="text-align: justify;">
 
-Up to now, sentiment has mostly lived in the background of our analysis. We compressed language, emotion, and tone into a single continuous score, and for the most part, things looked fairly calm. Most hyperlinks sit close to neutral, with only a handful drifting toward more extreme values.
-
-But those extremes are precisely where things get interesting.
-
-Instead of asking how sentiment behaves on average, we shift our focus to moments where something clearly stands out: a day when a subreddit receives an incoming link that is much more negative than what it is used to. These moments feel different. They are not just part of the usual noise, they are potential disruptions.
-
-We refer to these moments as <i>shock events</i>.
+We just introduced sentiment shocks: most links hover near neutral, but occasionally a subreddit gets an incoming link that is unusually negative or unusually positive compared with what it normally receives. Those rare outliers are the disruptions we track — and we call them <i>shock events</i>.
 
 </div>
-
-<div class="fun-fact-card">
-  <div class="fun-fact-tag">Definition</div>
-  <p>
-    An event is defined relative to each subreddit’s own baseline. What counts as “extreme” depends on what a community is used to, not on a global sentiment threshold applied to all of Reddit.
-  </p>
-</div>
-
-<br>
 
 <div style="text-align: justify;">
 
-So what does such an event actually look like in practice? To answer that, let’s zoom in on a single subbreddit.
+So what does such an event actually look like in practice? To answer that, let’s zoom in on a single subbreddit !
 
-In the figure below, we follow <i>r/clashofclans</i> over time and track, for each day, the most negative incoming interaction it receives. Rather than raw sentiment values, we express this signal as a standardized score, measuring how unusual each interaction is compared to the subreddit’s typical incoming tone.
+<div style="max-width: 1000px; margin: 40px auto;">
+  <div class="image-container">
+    <img src="{{ site.baseurl }}/Images/detective events.png" alt="Detected negative events in askreddit">
+    <p class="caption">
+      Detected negative events for <i>r/clashoflclans</i>. Orange points mark days where the negative deviation is strong enough to be classified as an event.
+    </p>
+  </div>
+</div>
+
+In this Figure, we follow <i>r/clashofclans</i> over time and track, for each day, the most negative incoming interaction it receives. Rather than raw sentiment values, we express this signal as a standardized score, measuring how unusual each interaction is compared to the subreddit’s typical incoming tone.
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; margin-top: 20px;">
   <details open>
@@ -343,22 +337,12 @@ In the figure below, we follow <i>r/clashofclans</i> over time and track, for ea
 
 <br>
 
-<!-- STATIC EXAMPLE PLOT -->
-<div style="max-width: 1000px; margin: 40px auto;">
-  <div class="image-container">
-    <img src="{{ site.baseurl }}/Images/detective events.png" alt="Detected negative events in askreddit">
-    <p class="caption">
-      Detected negative events for <i>r/clashoflclans</i>. Orange points mark days where the negative deviation is strong enough to be classified as an event.
-    </p>
-  </div>
-</div>
-
 <div style="text-align: justify;">
 
 <div style="text-align: justify;">
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
-Most interactions blend into the background. But every now and then, a strongly negative link stands out enough to make you stop and look. These are the moments we flag as potential snowball seeds: single hits that could ripple through a community afterward. Now that we have set up the detection of our events, we can now try and look for a potential snowball effect !
+Now that we have set up the detection of our events, we can now try and look for a potential snowball effect !
 </div>
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
   <details open>
