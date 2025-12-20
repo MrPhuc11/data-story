@@ -487,6 +487,8 @@ Most sentiment shock events do not lead to a measurable change in outgoing senti
 
 </div>
 
+<h3 id="event analysis">What can we tell about these events?</h3>
+
 <div class="flourish-container">
   
   <div class="flourish-embed flourish-chart" data-src="visualisation/26918762"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26918762/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
