@@ -500,9 +500,32 @@ Even among events we classify as strong, higher sentiment z-scores do not transl
 <br>
 <br>
 
-Visual comparisons are useful, but they can also be misleading: subreddits do not start from the same baseline. Some tend to be more positive or more negative to begin with, which strongly constrains how much they can change. To separate these baseline effects from topic- or sentiment-specific reactions, we turn to a simple regression analysis.
+<div class="callout-option accent-callout" style="border-left: none;">
+  <strong style="display:block; margin-bottom: 4px;">Baseline matters!</strong>
+  <span style="text-align: justify; display: block;">Visual comparisons are useful, but they can also be misleading: subreddits do not start from the same baseline. Some tend to be more positive or more negative to begin with, which strongly constrains how much they can change. To separate these baseline effects from topic- or sentiment-specific reactions, we turn to a simple regression analysis.</span>
+</div>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+<b>Regression 101 </b>
+</div>
 
-Once we account for a subreddit’s prior sentiment level, most of the variation in how it reacts is explained by regression to the mean: subreddits that were already highly positive tend to cool off, while more negative ones tend to rebound. Topic still matters, but only at the margins. News, politics, and conspiracy-focused communities show systematically weaker reactions, while gaming-related subreddits tend to react slightly more positively on average. By contrast, the strength of the incoming sentiment signal—how extreme it is—adds little explanatory power once the baseline is known. In other words, where a community starts matters far more than how emotionally charged the triggering content is.
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details open>
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Ordinary Least Squares Regression (OLS) </b></summary>
+    <div style="text-align: justify;">
+      OLS regression is a statistical method for estimating the parameters of a linear relationship between a dependent variable and one or more independent variables. The method selects coefficient estimates that minimize the sum of squared residuals, where each residual represents the difference between an observed value and the value predicted by the linear model.
+    </div>
+    <details>
+      <summary style = "font-size: 18px; cursor: pointer;"><b>Details </b></summary>
+      <div class="image-container">
+        <img src="{{ site.baseurl }}/Images/OLS.png" alt="OLS">
+      </div>
+    </details>
+  </details>
+</div>
+<br>
+<br>
+
+Once we account for a subreddit’s prior sentiment level, most of the variation in how it reacts is explained by regression to the mean: subreddits that were already highly positive tend to cool off, while more negative ones tend to rebound. Topic still matters, but only at the margins. News, politics, and conspiracy-focused communities show systematically weaker reactions, while gaming-related subreddits tend to react slightly more positively on average. By contrast, the strength of the incoming sentiment signal (how extreme it is) adds little explanatory power once the baseline is known. In other words, where a community starts matters far more than how emotionally charged the triggering content is.
 
 <h3>Do repeated links change the tone of online communities?</h3>
 <br>
