@@ -334,9 +334,6 @@ Here, we watch <i>r/clashofclans</i> over time and, each day, grab the single mo
 
 </div>
 
-<br>
-
-<div style="text-align: justify;">
 
 <div style="text-align: justify;">
 
@@ -432,11 +429,9 @@ Now that we have set up the detection of our events, we can now try and look for
   </details>
 </div>
 
-<h4 style="margin-top: 30px;">What do the results tell us?</h4>
 <p style="text-align: justify;">
-Here’s how often big negative vs positive hits actually shift a subreddit’s outgoing sentiment, and in which direction.
+Let's see what results we get...
 </p>
-
 
 <!-- Dual waffle charts: negative vs positive shock events -->
 <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin: 40px 0 10px;">
@@ -450,16 +445,13 @@ Here’s how often big negative vs positive hits actually shift a subreddit’s 
     <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Negative shock events</p>
 </div>
 
-<p class="caption">
-      Composition of sentiment shifts across all detected events.
-    </p>
-
+<h3 style="margin-top: 5px;">Can we conclude something?</h3>
+<div class="image-container" style="text-align: center; margin: 20px 0;">
+  <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="max-width: 50%; height: auto;">
+  <p class="caption">Even Monet looks unsure here.</p>
 </div>
 
-<div style="text-align: justify; margin-top: 20px;">
-Overall, incoming sentiment rarely leads to a measurable shift in outgoing tone, so any link between the two looks weak and correlational rather than causal. When a change does show up, it skews negative—hostile hits are more likely to drag tone down, while positive ones mostly get absorbed with little effect. The few positive shifts are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we’re missing the context that could reveal any subtler influence.
-
-</div>
+These results don’t let us claim a causal effect. Incoming sentiment barely nudges what a subreddit sends out, and any link looks weak and mostly coincidental. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
 
 </div>
 
