@@ -265,6 +265,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 <br>
 
 <ul>
+      In our framework, we decided to define two particular cases of Shock events:
       <li><b>Sentiment Shock Event:</b> A sentiment shock event happens when a subreddit receives an incoming link with sentiment that is unusually extreme, either negative or positive, compared to what it normally receives. These moments stand out from everyday activity as spikes in emotional intensity.</li>
       <li><b>Repetitive Shock Event:</b> A repetitive shock event happens when a subreddit receives unusually large bursts of incoming links several times in a short period, compared to its normal past activity.</li>
     </ul>
