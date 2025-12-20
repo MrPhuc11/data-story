@@ -388,6 +388,55 @@ Most interactions blend into the background. But every now and then, a strongly 
     more positive sentiment.
 
     </div>
+    <details open>
+      <summary style="font-size: 18px; cursor: pointer;">
+        <b>Welch’s t-test</b>
+      </summary>
+      Welch’s t-test is used to determine whether the difference between the means of two groups is due to random variation or reflects a real difference between the populations, particularly when the variances of the groups are unequal. The test works by computing a t-value that relates the difference in sample means to the variability in the data.
+
+      Welch’s t-test defines the statistic \( t \) by the following formula:
+
+        \[
+        t = \frac{\Delta \bar{X}}{s_{\Delta \bar{X}}}
+        = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{s_{\bar{X}_1}^2 + s_{\bar{X}_2}^2}},
+        \]
+
+        with:
+
+        \[
+        s_{\bar{X}_i} = \frac{s_i}{\sqrt{N_i}}.
+        \]
+
+        Here, \(\bar{X}_i\) and \(s_{\bar{X}_i}\) denote the \(i\)-th sample mean and its standard error, respectively. The quantity \(s_i\) represents the corrected sample standard deviation, and \(N_i\) is the sample size. Unlike Student’s t-test, the denominator is not based on a pooled variance estimate.
+
+        The degrees of freedom \(\nu\) associated with this variance estimate are approximated using the Welch–Satterthwaite equation:
+
+        \[
+        \nu \approx
+        \frac{\left(\frac{s_1^2}{N_1} + \frac{s_2^2}{N_2}\right)^2}
+        {\frac{s_1^4}{N_1^2 \nu_1} + \frac{s_2^4}{N_2^2 \nu_2}},
+        \]
+
+        where:
+
+        \[
+        \nu_i = N_i - 1.
+        \]
+
+    </details>
+
+    <details open>
+      <summary style="font-size: 18px; cursor: pointer;">
+        <b>P-Value</b>
+      </summary>
+      A p-value (probability value) is a statistical measure used in hypothesis testing to evaluate the strength of evidence against a null hypothesis. It represents the probability of obtaining results at least as extreme as the observed data, assuming that the null hypothesis is true.
+      <br>
+      <br>
+      The p-value indicates the smallest level of significance at which the null hypothesis would be rejected. A smaller p-value suggests that the observed data are less likely to have occurred by random chance alone and therefore provide stronger evidence in favor of the alternative hypothesis.
+      <br>
+      <br>
+      In practice, a p-value is often compared to a predefined significance level, commonly 0.05. If the p-value is less than or equal to this threshold, the result is considered statistically significant, and the null hypothesis is rejected.
+    </details>
 
   </details>
 </div>
@@ -408,14 +457,7 @@ This aggregated view allows us to directly address our research question: whethe
   <!-- Waffle chart -->
   <div style="flex: 0 0 200px;">
 
-    <div class="flourish-embed flourish-pictogram" data-src="visualisation/26909992">
-      <script src="https://public.flourish.studio/resources/embed.js"></script>
-      <noscript>
-        <img src="https://public.flourish.studio/visualisation/26909992/thumbnail"
-             width="100%"
-             alt="pictogram visualization" />
-      </noscript>
-    </div>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/26916888"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26916888/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
 
   </div>
 
