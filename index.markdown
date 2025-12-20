@@ -520,8 +520,32 @@ To detect shock events, we identify days when a subreddit receives far more inco
 In simple terms, a day is labeled as a shock event when a subreddit receives a surge of incoming links that is rare compared to its past, much larger than its usual activity, and large enough in absolute size to be meaningful.
   <details open>
     <summary style="font-size: 18px; cursor: pointer;">
-      <b>How do we test for a snowball effect?</b>
+      <b>Formal Definition</b>
     </summary>
+      For each subreddit s, we define a threshold that determines when incoming links are unusually high:
+      \[
+      \text{threshold}_s = \max \left( \text{percentile}_s,\ \alpha \cdot \text{median}_s,\ k_0 \right)
+      \]
+
+      A day is labeled as a <i>shock event</i> if the number of incoming links to the subreddit exceeds this threshold.
+
+    What each term means: 
+
+    <li> percentileₛ : </li> 
+    Captures rare events by requiring the spike to fall in the extreme upper tail of the subreddit’s historical linking activity (e.g., the top 1%).
+   
+
+    <li> α.medianₛ :</li>  
+    Ensures the spike is large relative to normal behavior by requiring several times the typical daily number of incoming links.
+
+    <li> k₀ :</li>  
+    Sets a minimum absolute number of links, preventing very small subreddits from triggering shock events by chance.
+
+  By taking the **maximum** of these three values, we ensure that detected shock events are **unusual**, **clearly elevated**, and **substantial**.
+
+
+      
+    
   </details>
 </div>
 
