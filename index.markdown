@@ -269,7 +269,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
       <li><b>Repetitive Shock Event:</b> A repetitive shock event happens when a subreddit receives unusually large bursts of incoming links several times in a short period, compared to its normal past activity.</li>
     </ul>
 <div class="image-container" style="width: 90%; margin: 0 auto; text-align: center;">
-      <img src="{{ site.baseurl }}/Images/Rep _shock_event.png" alt="PCA Sentiment Analysis Cluster" style="width: 100%;">
+      <img src="{{ site.baseurl }}/Images/Rep_shock_event.png" alt="PCA Sentiment Analysis Cluster" style="width: 100%;">
 </div>
 
 <h3>So what happens after a negative interaction?</h3>
@@ -533,6 +533,7 @@ To detect shock events, we identify days when a subreddit receives far more inco
 <br>
 
 In simple terms, a day is labeled as a shock event when a subreddit receives a surge of incoming links that is rare compared to its past, much larger than its usual activity, and large enough in absolute size to be meaningful.
+
   <details open>
     <summary style="font-size: 18px; cursor: pointer;">
       <b>Formal Definition</b>
@@ -544,26 +545,22 @@ In simple terms, a day is labeled as a shock event when a subreddit receives a s
 
       A day is labeled as a <i>shock event</i> if the number of incoming links to the subreddit exceeds this threshold.
 
-    What each term means: 
+    What each term means:
 
-    <li> percentileₛ : </li> 
+    <li> percentileₛ : </li>
     Captures rare events by requiring the spike to fall in the extreme upper tail of the subreddit’s historical linking activity (e.g., the top 1%).
-   
 
-    <li> α.medianₛ :</li>  
+
+    <li> α.medianₛ :</li>
     Ensures the spike is large relative to normal behavior by requiring several times the typical daily number of incoming links.
 
-    <li> k₀ :</li>  
+    <li> k₀ :</li>
     Sets a minimum absolute number of links, preventing very small subreddits from triggering shock events by chance.
 
-  By taking the **maximum** of these three values, we ensure that detected shock events are **unusual**, **clearly elevated**, and **substantial**.
-      
-    
+By taking the **maximum** of these three values, we ensure that detected shock events are **unusual**, **clearly elevated**, and **substantial**.
+
   </details>
 </div>
-
-
-
 
 <div id="art-snow-bar">
 <button onclick="toggleSnow()" id="btn-toggle">
