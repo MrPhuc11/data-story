@@ -295,7 +295,7 @@ We refer to these moments as <i>shock events</i>.
 
 So what does such an event actually look like in practice? To answer that, let’s zoom in on a single subbreddit.
 
-In the figure below, we follow <i>r/askreddit</i> over time and track, for each day, the most negative incoming interaction it receives. Rather than raw sentiment values, we express this signal as a standardized score, measuring how unusual each interaction is compared to the subreddit’s typical incoming tone.
+In the figure below, we follow <i>r/clashofclans</i> over time and track, for each day, the most negative incoming interaction it receives. Rather than raw sentiment values, we express this signal as a standardized score, measuring how unusual each interaction is compared to the subreddit’s typical incoming tone.
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; margin-top: 20px;">
   <details open>
@@ -337,7 +337,7 @@ In the figure below, we follow <i>r/askreddit</i> over time and track, for each 
   <div class="image-container">
     <img src="{{ site.baseurl }}/Images/detective events.png" alt="Detected negative events in askreddit">
     <p class="caption">
-      Detected negative events for <i>r/askreddit</i>. The blue curve shows incoming sentiment over time, standardized relative to the subreddit’s baseline. Orange points mark days where the negative deviation is strong enough to be classified as an event.
+      Detected negative events for <i>r/clashfoflclans</i>. Orange points mark days where the negative deviation is strong enough to be classified as an event.
     </p>
   </div>
 </div>
