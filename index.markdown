@@ -337,7 +337,7 @@ In the figure below, we follow <i>r/clashofclans</i> over time and track, for ea
   <div class="image-container">
     <img src="{{ site.baseurl }}/Images/detective events.png" alt="Detected negative events in askreddit">
     <p class="caption">
-      Detected negative events for <i>r/clashfoflclans</i>. Orange points mark days where the negative deviation is strong enough to be classified as an event.
+      Detected negative events for <i>r/clashoflclans</i>. Orange points mark days where the negative deviation is strong enough to be classified as an event.
     </p>
   </div>
 </div>
