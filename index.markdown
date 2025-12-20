@@ -269,7 +269,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
       <li><b>Repetitive Shock Event:</b> A repetitive shock event happens when a subreddit receives unusually large bursts of incoming links several times in a short period, compared to its normal past activity.</li>
     </ul>
 <div class="image-container" style="width: 90%; margin: 0 auto; text-align: center;">
-      <img src="{{ site.baseurl }}/Images/Sent:Rep shock event.png" alt="PCA Sentiment Analysis Cluster" style="width: 100%;">
+      <img src="{{ site.baseurl }}/Images/Rep _shock_event.png" alt="PCA Sentiment Analysis Cluster" style="width: 100%;">
 </div>
 
 <h3>So what happens after a negative interaction?</h3>
