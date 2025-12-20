@@ -261,6 +261,17 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 </div>
 
 <br>
+<h3>What are Shock Events?</h3>
+<br>
+
+<ul>
+      <li><b>Sentiment Shock Event:</b> A sentiment shock event happens when a subreddit receives an incoming link with sentiment that is unusually extreme, either negative or positive, compared to what it normally receives. These moments stand out from everyday activity as spikes in emotional intensity.</li>
+      <li><b>Repetitive Shock Event:</b> A repetitive shock event happens when a subreddit receives unusually large bursts of incoming links several times in a short period, compared to its normal past activity.</li>
+    </ul>
+<div class="image-container" style="width: 90%; margin: 0 auto; text-align: center;">
+      <img src="{{ site.baseurl }}/Images/Sent:Rep shock event.png" alt="PCA Sentiment Analysis Cluster" style="width: 100%;">
+</div>
+
 <h3>So what happens after a negative interaction?</h3>
 <br>
 <div style="text-align: justify;">
@@ -475,6 +486,47 @@ Most sentiment shock events do not lead to a measurable change in outgoing senti
 <br>
 
 </div>
+
+<h3>Do repeated links change the tone of online communities?</h3>
+<br>
+<div style="text-align: justify;">
+
+Subreddits frequently link to one another, sometimes repeatedly over short periods of time. But what happens when a community suddenly receives a surge of incoming links?
+Does this external attention amplify certain narratives, shift sentiment, or trigger collective reactions?
+
+</div>
+<br>
+
+<div style="text-align: justify;">
+
+Subreddits frequently link to one another, sometimes repeatedly over short periods of time. In this section, we look at these moments. These sudden bursts of attention can act like a shock, potentially changing how people interact and what they talk about.
+
+Instead of asking how sentiment behaves on average, we shift our focus to moments where something clearly stands out: a day when a subreddit receives an incoming link that is much more negative than what it is used to. These moments feel different. They are not just part of the usual noise, they are potential disruptions.
+<br>
+<br>
+
+In this part, <i>shock events</i> refer to moments when a subreddit suddenly receives an unusually large number of incoming links within a short period of time.
+
+<br>
+<br>
+
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+How do we define a shock event?
+</div>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+To detect shock events, we identify days when a subreddit receives far more incoming links than usual. Instead of relying on a single cutoff, we combine multiple criteria to make sure these spikes are rare, substantial, and meaningful.
+<br>
+
+In simple terms, a day is labeled as a shock event when a subreddit receives a surge of incoming links that is rare compared to its past, much larger than its usual activity, and large enough in absolute size to be meaningful.
+  <details open>
+    <summary style="font-size: 18px; cursor: pointer;">
+      <b>How do we test for a snowball effect?</b>
+    </summary>
+  </details>
+</div>
+
+
+
 
 <div id="art-snow-bar">
 <button onclick="toggleSnow()" id="btn-toggle">
