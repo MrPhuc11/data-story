@@ -473,6 +473,10 @@ Most sentiment shock events do not lead to a measurable change in outgoing senti
 
 <h3 id="event analysis">What can we tell about these events?</h3>
 
+First, let's see how our deceted events are distributed withing the different topical clusters. Is the reaction conditioned on the type of subreddit? Do some subreddits react more poritively or more negatively? Let's take a look.
+<br>
+<br>
+
 <div class="flourish-container">
   
   <div class="flourish-embed flourish-chart" data-src="visualisation/26918762"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26918762/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
@@ -480,6 +484,10 @@ Most sentiment shock events do not lead to a measurable change in outgoing senti
   <div class="flourish-embed flourish-chart" data-src="visualisation/26918828"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26918828/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
 
 </div>
+
+What about the strength of the incoming link: does a larger sentiment score impact the reaction even within the events we already classified as strong?
+<br>
+<br>
 
 <div class="flourish-container">
   
@@ -546,6 +554,16 @@ In simple terms, a day is labeled as a shock event when a subreddit receives a s
 By taking the **maximum** of these three values, we ensure that detected shock events are **unusual**, **clearly elevated**, and **substantial**.
 
   </details>
+</div>
+
+<h3>Phuc</h3>
+<div style="max-width: 1000px; margin: 40px auto;">
+  <div class="image-container">
+    <img src="{{ site.baseurl }}/Images/plot_spread.png" alt="plot spread">
+    <p class="caption">
+      JSp ce que c'est
+    </p>
+  </div>
 </div>
 
 <div id="art-snow-bar">
