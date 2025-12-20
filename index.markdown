@@ -487,6 +487,21 @@ Most sentiment shock events do not lead to a measurable change in outgoing senti
 
 </div>
 
+<div class="flourish-container">
+  
+  <div class="flourish-embed flourish-chart" data-src="visualisation/26918762"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26918762/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+
+  <div class="flourish-embed flourish-chart" data-src="visualisation/26918828"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26918828/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+
+</div>
+
+<div class="flourish-container">
+  
+  <div class="flourish-embed flourish-chart" data-src="visualisation/26919161"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26919161/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+
+  <div class="flourish-embed flourish-chart" data-src="visualisation/26919030"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26919030/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+
+</div>
 <h3>Do repeated links change the tone of online communities?</h3>
 <br>
 <div style="text-align: justify;">
@@ -542,8 +557,6 @@ In simple terms, a day is labeled as a shock event when a subreddit receives a s
     Sets a minimum absolute number of links, preventing very small subreddits from triggering shock events by chance.
 
   By taking the **maximum** of these three values, we ensure that detected shock events are **unusual**, **clearly elevated**, and **substantial**.
-
-
       
     
   </details>
