@@ -299,7 +299,6 @@ So what does such an event actually look like in practice? To answer that, let�
     </p>
   </div>
 </div>
-
 Here, we watch <i>r/clashofclans</i> over time and, each day, grab the single most negative link it gets. Instead of staring at raw scores, we turn that into a standardized “how different was this for them?” number so you can see when an interaction really stands out from their usual tone.
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; margin-top: 20px;">
@@ -432,29 +431,35 @@ Now that we have set up the detection of our events, we can now try and look for
 
   </details>
 </div>
-<br>
+
+<h4 style="margin-top: 30px;">What do the results tell us?</h4>
+<p style="text-align: justify;">
+Here’s how often big negative vs positive hits actually shift a subreddit’s outgoing sentiment, and in which direction.
+</p>
+
 
 <!-- Dual waffle charts: negative vs positive shock events -->
 <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin: 40px 0 10px;">
   <div style="flex: 1 1 320px; min-width: 280px;">
     <div class="flourish-embed flourish-chart" data-src="visualisation/26916888"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26916888/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
-    <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Negative shock events</p>
+    <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Positive shock events</p>
   </div>
   <div style="flex: 1 1 320px; min-width: 280px;">
     <!-- Replace data-src with the Flourish ID for positive shock events -->
-    <div class="flourish-embed flourish-chart" data-src="visualisation/REPLACE_WITH_POSITIVE_SHOCK_ID"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="" width="100%" alt="positive shock events chart" /></noscript></div>
-    <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Positive shock events</p>
-  </div>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/26919883"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26919883/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+    <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Negative shock events</p>
 </div>
 
-<p style="max-width: 900px; margin: 10px auto 0; font-size: 0.9em; color: #555; text-align: justify;">
-<strong>Figure.</strong> Composition of sentiment shifts across shock events: negative shocks on the left, positive shocks on the right. Each square represents 1% of events; significant shifts (p &lt; 0.05) are highlighted, with negative shifts in red and positive shifts in green.
-</p>
+<p class="caption">
+      Composition of sentiment shifts across all detected events.
+    </p>
+
+</div>
 
 <div style="text-align: justify; margin-top: 20px;">
-Most sentiment shock events do not lead to a measurable change in outgoing sentiment. When shifts do register, negative shocks are more likely to push tone downward than upward; the new positive-shock chart lets you see whether unusually warm links create the opposite effect.
+Overall, incoming sentiment rarely leads to a measurable shift in outgoing tone, so any link between the two looks weak and correlational rather than causal. When a change does show up, it skews negative—hostile hits are more likely to drag tone down, while positive ones mostly get absorbed with little effect. The few positive shifts are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we’re missing the context that could reveal any subtler influence.
+
 </div>
-<br>
 
 </div>
 
