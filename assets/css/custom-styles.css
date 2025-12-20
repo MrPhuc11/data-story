@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap");
+
 /* Give the header some height and style */
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lora", serif;
 }
 
 .graph-hero {
@@ -152,7 +167,7 @@ html {
   border-radius: 15px;
   padding: 8px 12px;
   font-size: 13px;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-weight: bold;
   box-shadow: 3px 3px 0px black;
   line-height: 1.2;
@@ -182,7 +197,7 @@ html {
   border: 2px solid black;
   border-radius: 15px;
   padding: 8px 12px;
-  font-family: "Comic Sans MS", "cursive", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-weight: bold;
   font-size: 13px;
   color: black;
@@ -332,7 +347,7 @@ nav a {
 }
 
 .analysis-visual h3 {
-  font-family: "Georgia", serif;
+  font-family: "Lora", serif;
   font-size: 2rem;
   margin-bottom: 20px;
   color: #2c2c2c;
