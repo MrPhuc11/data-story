@@ -597,3 +597,33 @@ nav a {
   transition: top 0.1s ease-out;
 }
 
+/* Container set to a larger percentage of the screen */
+.flourish-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;            /* Increased gap for a cleaner look at larger sizes */
+  width: 95%;           /* Increased from 100% of a small container to 95% of the page */
+  max-width: 1600px;    /* Prevents it from getting absurdly wide on huge monitors */
+  margin: 40px auto;    /* Centers the whole block and adds vertical breathing room */
+}
+
+/* Individual plot wrappers */
+.flourish-embed {
+  flex: 1;              /* Grows to fill available space */
+  width: 100%;          /* Forces the Flourish script to respect the flex container */
+}
+
+/* Responsive: Stacks plots vertically on tablets/phones */
+@media (max-width: 1024px) {
+  .flourish-container {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  
+  .flourish-embed {
+    width: 100%;        /* Takes full width when stacked */
+  }
+}
