@@ -317,8 +317,11 @@ Here, we watch <i>r/clashofclans</i> over time and, each day, grab the single mo
 
   </details>
 </div>
-
 </div>
+
+<br>
+<br>
+
 <div style="text-align: justify;">
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
