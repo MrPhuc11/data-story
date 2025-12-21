@@ -611,6 +611,35 @@ From the detected cascades, we compute four key indicators of emotional diffusio
   </details>
 </div>
 
+<div style="max-width: 520px; margin: 12px 0 20px; border: 1px solid #A7C7E7; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+  <table style="width: 100%; border-collapse: collapse; font-size: 0.95em;">
+    <thead style="background: #f7fbff;">
+      <tr>
+        <th style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #A7C7E7;">Metric</th>
+        <th style="text-align: left; padding: 10px 12px; border-bottom: 1px solid #A7C7E7;">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 9px 12px; font-weight: 700;">Maximum reach</td>
+        <td style="padding: 9px 12px;">13</td>
+      </tr>
+      <tr style="background: #f9fcff;">
+        <td style="padding: 9px 12px; font-weight: 700;">Average reach</td>
+        <td style="padding: 9px 12px;">3.2</td>
+      </tr>
+      <tr>
+        <td style="padding: 9px 12px; font-weight: 700;">Maximum radius of sentiment</td>
+        <td style="padding: 9px 12px;">3</td>
+      </tr>
+      <tr style="background: #f9fcff;">
+        <td style="padding: 9px 12px; font-weight: 700;">Average radius of sentiment</td>
+        <td style="padding: 9px 12px;">1.18</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <div style="max-width: 1000px; margin: 40px auto;">
   <div class="image-container">
     <img src="{{ site.baseurl }}/Images/plot_spread.png" alt="plot spread">
@@ -620,7 +649,22 @@ From the detected cascades, we compute four key indicators of emotional diffusio
   </div>
 </div>
 
-<h3>What have we learned?</h3>
+<h3>So, what have we learned?</h3>
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin: 12px 0 12px;">
+  <div class="image-container" style="flex: 0 0 190px; max-width: 200px; margin: 0; border: 1px solid #A7C7E7; border-radius: 12px; padding: 10px; background: #f7fbff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <img src="{{ site.baseurl }}/Images/monet_snowball.png" alt="Monet snowball" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  </div>
+  <div style="flex: 1 1 320px; text-align: justify;">
+    After many distribution plots, t-tests, and statistical detours, we <b>find little evidence of a snowball effect in hyperlinks between subreddits</b>.
+    <br>
+    <br>
+    Which might actually be good news <span id="confetti-emoji" role="button" aria-label="celebrate" style="cursor: pointer;">🥳</span>!
+  </div>
+</div>
+<div style="text-align: justify; margin-bottom: 20px;">
+  However, this does not mean that the snowball effect does not exist on Reddit. One important limitation is that hyperlinks capture only explicit references between subreddits, while many interactions happen without links and therefore remain invisible in this dataset. It could still appear in other forms, such as through comments, user activity, or coordinated behavior within and across subreddits. To push this analysis further and find out for sure, we would need richer data on post content and on users active in both the source and target communities.
+</div>
 
 <div class="callout-option accent-callout" style="margin-top: 20px;">
   <strong style="display:block; margin-bottom: 6px;">FIND OUT MORE 🤓</strong>

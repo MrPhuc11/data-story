@@ -226,6 +226,66 @@ document.addEventListener("DOMContentLoaded", function () {
   bdContainer.innerHTML = bdHTML;
 });
 
+// Simple confetti on clicking the celebration emoji
+document.addEventListener("DOMContentLoaded", function () {
+  const trigger = document.getElementById("confetti-emoji");
+  if (!trigger) return;
+
+  const container = document.createElement("div");
+  container.id = "confetti-container";
+  container.style.position = "fixed";
+  container.style.top = "0";
+  container.style.left = "0";
+  container.style.width = "100%";
+  container.style.height = "100%";
+  container.style.pointerEvents = "none";
+  container.style.overflow = "hidden";
+  container.style.zIndex = "12000";
+  document.body.appendChild(container);
+
+  function ensureConfettiStyles() {
+    if (document.getElementById("confetti-style")) return;
+    const style = document.createElement("style");
+    style.id = "confetti-style";
+    style.textContent = `
+      .confetti-piece {
+        position: absolute;
+        width: 8px;
+        height: 14px;
+        border-radius: 2px;
+        opacity: 0.9;
+      }
+      @keyframes confetti-fall {
+        0% { transform: translateY(-10vh) rotate(0deg); }
+        100% { transform: translateY(110vh) rotate(720deg); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function launchConfetti() {
+    ensureConfettiStyles();
+    const colors = ["#fbbf24", "#f472b6", "#60a5fa", "#34d399", "#f87171"];
+    const count = 60;
+    for (let i = 0; i < count; i++) {
+      const piece = document.createElement("span");
+      piece.className = "confetti-piece";
+      piece.style.left = Math.random() * 100 + "%";
+      piece.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
+      piece.style.animation = `confetti-fall ${6 + Math.random() * 2}s linear`;
+      piece.style.animationDelay = `${Math.random() * -2}s`;
+      piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+      container.appendChild(piece);
+      setTimeout(() => piece.remove(), 8000);
+    }
+  }
+
+  trigger.style.cursor = "pointer";
+  trigger.title = "Celebrate";
+  trigger.addEventListener("click", launchConfetti);
+});
+
 window.onscroll = function () {
   const nav = document.querySelector("nav");
   if (window.pageYOffset > 50) {
