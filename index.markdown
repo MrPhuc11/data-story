@@ -774,7 +774,7 @@ From the detected cascades, we compute two key indicators of emotional diffusion
 <br>
 <br>
 
-We consider all the subreddits which have been linked by the seed, in a short time window after the highly emotional event. Like earlier, we try and see if their average outgoing link sentiment has a significant change in value.
+Considering the seed as the first subreddit who started the shock event, we focused on all the subreddits which have been linked by it in the defined short timespan after the highly emotional event. As earlier, we try and observe if their average outgoing link sentiment has a significant change in value.
 
 <div style="padding: 16px 20px; background-color: #f4f9ff; font-size: 18px; text-align: justify; margin: 12px 0;">
 If cascades exhibit a radius greater than one and a non-trivial reach, this provides evidence that emotions do not remain localized to a single interaction, but instead spread to related subreddits through the network.
@@ -802,6 +802,8 @@ If cascades exhibit a radius greater than one and a non-trivial reach, this prov
     </table>
   </div>
 </div>
+
+For this last analysis of our research, the resuls confirm what was seen from the start. Most events do not result in a significative reach. Not noticing any significative effect on the propagation of the sentient through the network is coherent with our previous finds on the detection of the Snowball effect.
 
 <h3 id="conclusion">So, what have we learned?</h3>
 
