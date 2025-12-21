@@ -455,7 +455,7 @@ Let's see what results we get...
 We also inspected whether a subreddit hyperlinks more or less than usual after one of those shock events.
 </div>
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; margin-top: 2;">
-  <details open>
+  <details close>
     <summary style="font-size: 18px; cursor: pointer;"><b>Details</b></summary>
     <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; align-items: stretch; margin: 24px 0 10px;">
       <div style="flex: 1 1 320px; min-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center;">
