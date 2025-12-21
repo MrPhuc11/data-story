@@ -186,7 +186,7 @@ Let's look at the distribution of link sentiment in the dataset.
 <div class="flourish-embed flourish-chart" data-src="visualisation/26769169">
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <noscript>
-    <img src="https://public.flourish.studio/visualisation/26769169/thumbnail" width="60%" alt="chart visualization" />
+    <img src="https://public.flourish.studio/visualisation/26769169/thumbnail" width="30%" alt="chart visualization" />
   </noscript>
 </div>
 
@@ -335,7 +335,6 @@ Here, we watch <i>r/clashofclans</i> over time and, each day, grab the single mo
 
 </div>
 
-
 <div style="text-align: justify;">
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
@@ -437,22 +436,24 @@ Let's see what results we get...
 <!-- Dual waffle charts: negative vs positive shock events -->
 <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin: 40px 0 10px;">
   <div style="flex: 1 1 320px; min-width: 280px;">
-    <div class="flourish-embed flourish-chart" data-src="visualisation/26916888"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26916888/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/26916888"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26916888/thumbnail" width="80%" alt="chart visualization" /></noscript></div>
     <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Positive shock events</p>
   </div>
   <div style="flex: 1 1 320px; min-width: 280px;">
     <!-- Replace data-src with the Flourish ID for positive shock events -->
-    <div class="flourish-embed flourish-chart" data-src="visualisation/26919883"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26919883/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/26919883"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26919883/thumbnail" width="80%" alt="chart visualization" /></noscript></div>
     <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Negative shock events</p>
 </div>
 
-<h3 style="margin-top: 5px;">Can we conclude something?</h3>
-<div class="image-container" style="text-align: center; margin: 20px 0;">
-  <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="max-width: 50%; height: auto;">
-  <p class="caption">Even Monet looks unsure here.</p>
+<div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin: 20px 0 10px;">
+  <div style="flex: 1 1 280px; min-width: 260px; text-align: justify;">
+    These results don’t let us claim a causal effect. Incoming sentiment barely nudges what a subreddit sends out, and any link looks weak and mostly coincidental. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
+  </div>
+  <div class="image-container" style="flex: 0 0 260px; max-width: 320px; margin: 0 auto; margin-left: 50px;">
+    <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="width: 100%; height: auto;">
+    <p class="caption" style="text-align: center;">Even Monet looks unsure here.</p>
+  </div>
 </div>
-
-These results don’t let us claim a causal effect. Incoming sentiment barely nudges what a subreddit sends out, and any link looks weak and mostly coincidental. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
 
 </div>
 
@@ -579,6 +580,17 @@ By taking the **maximum** of these three values, we ensure that detected shock e
       JSp ce que c'est
     </p>
   </div>
+</div>
+
+<div class="callout-option accent-callout" style="margin-top: 20px;">
+  <strong style="display:block; margin-bottom: 6px;">FIND OUT MORE 🤓</strong>
+  <p style="margin: 0 0 10px 0; text-align: justify;">
+    There are many ways in which users interact! If you are interested in the way negative hyperlinks can create mobilizations where users from a source subreddit and how users from that target react after an attack, check out the paper below.
+  </p>
+  <a href="https://cs.stanford.edu/~srijan/pubs/conflict-paper-www18.pdf" target="_blank" rel="noopener"
+     style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid #4e7aa9; border-radius: 999px; text-decoration: none; color: #1f2b3a; background: linear-gradient(135deg, #f9fbff, #eef3ff); font-weight: 600;">
+    Read the paper <span aria-hidden="true">→</span>
+  </a>
 </div>
 
 <div id="art-snow-bar">
