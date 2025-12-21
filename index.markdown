@@ -579,32 +579,65 @@ By taking the maximum of these two values, we ensure that detected bursts are un
 
 </details>
 </div>
+<br>
+r/SubredditDrama is one of these reddits where people collect and retell the funniest and most chaotic fights happening across Reddit, so you can follow the drama without being part of it. We decided to show you that subreddit's activity (number of times it has been hyperlinked per day) to bettter understand how we detect these events.
+<div class="image-container" style="max-width: 1000px; margin: 40px auto; text-align: center;">
+  <img src="{{ site.baseurl }}/Images/frequency_event_detection.png" alt="Frequency event detection" style="width: 75%; height: auto;">
+</div>
+Seems like a big drama was going on September 2015 ! 
 
 <div style="text-align: justify;">
 <p>
-Once these repetitive shock events are detected, we apply the same logic as before. We compare a subreddit’s behavior <b>before</b> and <b>after</b> the burst by looking at these two main outcomes:
+Once these repetitive shock events are detected for every subreddits, we apply the same logic as done for our sentiment events. We compare a subreddit’s behavior <b>before</b> and <b>after</b> to answer the following questions:
 
-<ul>
-  <li>Does the <b>sentiment</b> of outgoing and incoming links change?</li>
-  <li>Does the <b>volume</b> of outgoing and incoming links increase or decrease?</li>
-</ul>
+<div class="fun-fact-card">
+  <div class="fun-fact-tag">Questions</div>
+  <ul>
+    <li>Does the <b>sentiment</b> of outgoing and incoming links change?</li>
+    <li>Does the <b>volume</b> of outgoing and incoming links increase or decrease?</li>
+  </ul>
+</div>
 
-So, like before, we measured shifts on each metric and ran the same Welch-style t-tests as before to see whether these bursts produced any statistically significant movement for each detected event. 
+<br>
+So, we measured shifts on each metric and ran the same Welch-style t-tests as before to see whether these bursts produced any statistically significant movement for each detected event. 
 You can see below our results ...
 
 <!-- SLOT: SENTIMENT SHIFT AFTER REPETITIVE EVENTS -->
-<div style="max-width: 1000px; margin: 40px auto;">
+<div style="max-width: 600px; margin: 40px auto;">
   <div class="image-container">
     <!-- INSERT PLOT HERE -->
-    <div class="flourish-embed flourish-chart" data-src="visualisation/26926849"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26926849/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/26926849"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26926849/thumbnail" width="60%" alt="chart visualization" /></noscript></div>
   </div>
 </div>
 
-<!-- SLOT: OUTGOING LINK COUNT AFTER REPETITIVE EVENTS -->
+From these plots, what we can conclude is that only a small slice show statistically significant effects. When significance does appear, it shows up more often in incoming metrics than outgoing ones, meaning subreddits are more likely to be affected in how others link to them than in how they link out. The “untested” wedges on the sentiment pies come from events with no observable links around the shock window, so there was no sentiment to measure.
+<br>
+<br>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+<b> Want to know more about those small portions of the significant effects ? </b>
+</div>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+
+</div>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details closed>
+    If you wonder what happens for those significant effects detected you are at the right section !
+    Note that as they only represent a small portion of the overall events, their meaning should not be generalized but we can still analyze them and see it they would look like to what we would expect.
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Click here to see the details !</b></summary>
+    <div style="text-align: justify;">
+
+    <div class="image-container">
+      <div class="flourish-embed flourish-chart" data-src="visualisation/26926702"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26926702/thumbnail" width="40%" alt="chart visualization" /></noscript></div>
+    </div>
+    
+    </div>
+  </details>
+</div>
+
 <div style="max-width: 1000px; margin: 40px auto;">
   <div class="image-container">
     <!-- INSERT PLOT HERE -->
-    <div class="flourish-embed flourish-chart" data-src="visualisation/26926702"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26926702/thumbnail" width="80%" alt="chart visualization" /></noscript></div>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/26927123"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26927123/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
   </div>
 </div>
 
