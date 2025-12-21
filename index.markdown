@@ -536,46 +536,125 @@ Once we account for a subreddit’s prior sentiment level, most of the variation
 <br>
 <div id="monet-bd-story3"></div>
 
-<div style="text-align: justify;">
-
-Subreddits frequently link to one another, sometimes repeatedly over short periods of time. But what happens when a community suddenly receives a surge of incoming links?
-Does this external attention amplify certain narratives, shift sentiment, or trigger collective reactions?
-
-<br>
-<br>
-
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
-How do we define a shock event?
+How do we detect those bursts in the incoming links?
 </div>
+
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
-To detect shock events, we identify days when a subreddit receives far more incoming links than usual. Instead of relying on a single cutoff, we combine multiple criteria to make sure these spikes are rare, substantial, and meaningful.
-<br>
+To detect repetitive shock events, we look at one-day windows and flag days when a subreddit receives far more incoming links than usual for that specific subreddit. Hyperlink activity is heavy-tailed (a few extreme days dominate), so we avoid mean/variance thresholds and instead mix a high percentile cutoff with an absolute floor to keep events rare, substantial, and meaningful.
+<br><br>
 
 In simple terms, a day is labeled as a shock event when a subreddit receives a surge of incoming links that is rare compared to its past, much larger than its usual activity, and large enough in absolute size to be meaningful.
 
+<details open>
+  <summary style="font-size: 18px; cursor: pointer;">
+    <b>Formal Definition</b>
+  </summary>
+
+  For each subreddit <i>s</i>, we define a threshold that determines when incoming links are unusually high:
+
+  \[
+  \text{threshold}_s = \max \left( \text{percentile}_{s,q},\ k_0 \right)
+  \]
+
+  A day is labeled as a <i>repetitive shock event</i> if the number of incoming links exceeds this threshold.
+
+  <ul style="margin-top: 8px; margin-bottom: 8px; padding-left: 18px;">
+    <li><b>percentileₛ,q:</b> captures rare events by focusing on the extreme tail of historical activity (we use q = 0.99).</li>
+    <li><b>k₀:</b> avoids triggering events for very small subreddits due to noise (we use k₀ = 5 links).</li>
+  </ul>
+
+  By taking the maximum of these two values, we ensure that detected bursts are unusual, clearly elevated, and substantial.
+
   <details open>
-    <summary style="font-size: 18px; cursor: pointer;">
-      <b>Formal Definition</b>
-    </summary>
-      For each subreddit s, we define a threshold that determines when incoming links are unusually high:
-      \[
-      \text{threshold}_s = \max \left( \text{percentile}_s,\ \alpha \cdot \text{median}_s,\ k_0 \right)
-      \]
-
-      A day is labeled as a <i>shock event</i> if the number of incoming links to the subreddit exceeds this threshold.
-
-    What each term means:
-
+    <summary style="font-size: 18px; cursor: pointer;"><b>How strict is this detection?</b></summary>
+    The detection is intentionally strict: most days have very little activity (often just one link for a subreddit), so we only flag truly unusual spikes and end up marking just a small fraction of time bins as shock events. After performing parameter sweeping and qualitative inspection, we selected a baseline configuration that best represents meaningful repetitive linking activity.
     <ul style="margin-top: 8px; margin-bottom: 8px; padding-left: 18px;">
-      <li><b>percentileₛ:</b> Captures rare events by requiring the spike to fall in the extreme upper tail of the subreddit’s historical linking activity (e.g., the top 1%).</li>
-      <li><b>α · medianₛ:</b> Ensures the spike is large relative to normal behavior by requiring several times the typical daily number of incoming links.</li>
-      <li><b>k₀:</b> Sets a minimum absolute number of links, preventing very small subreddits from triggering shock events by chance.</li>
+      <li><b>Time window:</b> 1 day</li>
+      <li><b>Percentile threshold (q):</b> 0.99</li>
+      <li><b>Minimum absolute threshold (k₀):</b> 5 links</li>
+      <li><b>Decision rule:</b> thresholdₛ = max(percentileₛ,q, k₀)</li>
     </ul>
-
-By taking the **maximum** of these three values, we ensure that detected shock events are **unusual**, **clearly elevated**, and **substantial**.
-
   </details>
+
+</details>
 </div>
+
+<div style="text-align: justify;">
+<p>
+Once these repetitive shock events are detected, we apply the same logic as before:
+we compare a subreddit’s behavior <b>before</b> and <b>after</b> the burst by looking at these two main outcomes:
+
+<ul>
+  <li>Does the <b>sentiment</b> of outgoing links change?</li>
+  <li>Does the <b>volume</b> of outgoing links increase or decrease?</li>
+</ul>
+
+<!-- SLOT: SENTIMENT SHIFT AFTER REPETITIVE EVENTS -->
+<div style="max-width: 1000px; margin: 40px auto;">
+  <div class="image-container">
+    <!-- INSERT PLOT HERE -->
+    <img src="{{ site.baseurl }}/Images/PLACEHOLDER_repetitive_sentiment.png" alt="Sentiment shifts after repetitive shock events">
+    <p class="caption">
+      Change in outgoing sentiment before and after repetitive shock events.
+    </p>
+  </div>
+</div>
+
+<div style="text-align: justify;">
+<p>
+At first glance, the picture looks familiar.
+Most repetitive shock events are followed by <b>little to no measurable change</b> in outgoing sentiment. When shifts do occur, they remain small and inconsistent. Some subreddits become slightly more negative, others slightly more positive,
+but the overall distribution is tightly centered around zero.
+</p>
+
+<p>
+In other words, even sustained incoming attention rarely translates into a clear emotional reaction.
+</p>
+</div>
+
+<!-- SLOT: OUTGOING LINK COUNT AFTER REPETITIVE EVENTS -->
+<div style="max-width: 1000px; margin: 40px auto;">
+  <div class="image-container">
+    <!-- INSERT PLOT HERE -->
+    <img src="{{ site.baseurl }}/Images/PLACEHOLDER_repetitive_volume.png" alt="Outgoing link volume after repetitive shock events">
+    <p class="caption">
+      Changes in outgoing hyperlink volume following repetitive shock events.
+    </p>
+  </div>
+</div>
+
+<div style="text-align: justify;">
+<p>
+We also inspected whether repeated incoming links trigger more activity.
+If communities feel “under the spotlight”, they might respond by linking out more.
+</p>
+
+<p>
+Again, the evidence is weak.
+Outgoing activity shows no systematic increase or decrease after repetitive shock events.
+Most subreddits quickly revert to their usual rhythm.
+</p>
+</div>
+
+<div class="callout-option accent-callout" style="margin-top: 24px;">
+  <strong style="display:block; margin-bottom: 6px;">Takeaway</strong>
+  <span style="text-align: justify; display: block;">
+  Repeated attention does not seem to amplify reactions.
+  Even when a subreddit is hit by sustained incoming linking, its outgoing behavior remains remarkably stable.
+  If a snowball effect exists, it is subtle, rare, and easily drowned out by baseline dynamics.
+  </span>
+</div>
+
+<div style="text-align: justify; margin-top: 16px;">
+<p>
+This reinforces what we observed earlier:
+communities are far more constrained by their usual tone and activity level
+than by short-term external pressure. However, these analyses still focus on the <i>directly targeted</i> subreddit.
+What remains unanswered is whether emotional signals might travel further through the network.
+</p>
+</div>
+
 
 <h3>Emotional Influence Analysis Between Related Subreddits</h3>
 
@@ -595,7 +674,7 @@ We use our highlyemotional detected events as <b> seeds</b>, potential starting 
 <br>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
-From the detected cascades, we compute four key indicators of emotional diffusion:
+From the detected cascades, we compute two key indicators of emotional diffusion:
 </div>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">

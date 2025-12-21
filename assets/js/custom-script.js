@@ -708,15 +708,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <div class="bd-text-content3">
                 <p>
-                    If you've made it this far, you've seen that even strongly
-                    polarized incoming links don't budge a subreddit's outgoing
-                    sentiment or how often it links out. Now let's see whether
-                    a snowball shows up with repetitive shock events. We define
-                    those as  sudden bursts of links
-                    hitting a subreddit in a short window that is different from
-                    the usual. Do these spikes amplify certain narratives, like 
-                    a shift on the usual sentiment of the subreddit sentiment or
-                    can we also see an impact on the frequency of the outgoing links?
+                    If you've made it this far, you've seen that we have focused on single, emotionally extreme interactions.  
+                    But Reddit communities also experience a different kind of disruption: moments when attention suddenly piles up.
+                    Instead of one sharp hit, a subreddit may receive many incoming links in a short time window.  
+                    These bursts of attention can feel like being “flooded” by the rest of the platform.
+                    Intuitively, such moments could amplify reactions: more visibility, more pressure, more responses.  
+                    This raises a natural question: Does repeated incoming attention trigger a snowball effect ?
                 </p>
             </div>
         </div>
