@@ -648,7 +648,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             <div class="bd-text-content3">
                 <p>
-                    Text Olatz
+                    If you've made it this far, you've seen that even strongly
+                    polarized incoming links don't budge a subreddit's outgoing
+                    sentiment or how often it links out. Now let's see whether
+                    a snowball shows up with repetitive shock events. We define
+                    those as  sudden bursts of links
+                    hitting a subreddit in a short window that is different from
+                    the usual. Do these spikes amplify certain narratives, like 
+                    a shift on the usual sentiment of the subreddit sentiment or
+                    can we also see an impact on the frequency of the outgoing links?
                 </p>
             </div>
         </div>
@@ -656,3 +664,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     bdContainer.innerHTML = bdHTML;
 });
+
