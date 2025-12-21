@@ -657,7 +657,9 @@ What remains unanswered is whether emotional signals might travel further throug
 </p>
 </div>
 
-<h3>Emotional Influence Analysis Between Related Subreddits</h3>
+<h3>How About Emotional Influence Analysis Between Related Subreddits?</h3>
+
+<div class="image-container"> <img src="{{ site.baseurl }}/Images/Images/WhatsApp Image 2025-12-20 at 22.32.39.jpeg" style=" width: 70%;"> </div>
 
 This analysis investigates whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that are topically or structurally related</b> to them. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
 <br>
