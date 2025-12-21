@@ -445,15 +445,15 @@ Let's see what results we get...
     <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Negative shock events</p>
 </div>
 
-<div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin: 20px 0 10px;">
-  <div style="flex: 1 1 280px; min-width: 260px; text-align: justify;">
-    These results don’t let us claim a causal effect. Incoming sentiment barely nudges what a subreddit sends out, and any link looks weak and mostly coincidental. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
-  </div>
-  <div class="image-container" style="flex: 0 0 260px; max-width: 320px; margin: 0 auto; margin-left: 50px;">
-    <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="width: 100%; height: auto;">
-    <p class="caption" style="text-align: center;">Even Monet looks unsure here.</p>
-  </div>
+<h3 style="margin-top: 5px;">Can we conclude something?</h3>
+<div class="image-container" style="text-align: center; margin: 20px 0;">
+  <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="max-width: 30%; height: auto;">
+  <p class="caption">Even Monet looks unsure here.</p>
 </div>
+
+In these waffle plots we are hunting for a snowball effect: we try to see if after a subreddit takes a hit (or a praise), there would be a change in the sentiment of its outgoing links.
+
+Something is sure from these plots, we cannot claim a causal effect. The incoming tone barely registers in what a subreddit sends back, and any apparent link feels like random drift rather than cause and effect. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
 
 </div>
 
