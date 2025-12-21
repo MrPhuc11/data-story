@@ -586,8 +586,21 @@ r/SubredditDrama is one of these reddits where people collect and retell the fun
 </div>
 Seems like a big drama was going on September 2015 ! 
 
-<div style="text-align: justify;">
-<p>
+<br>
+<br>
+
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+Here’s how the clusters are involved in those shock events.
+</div>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details open>
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Details</b></summary>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/26927123"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26927123/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+  </details>
+</div>
+
+<br>
+
 Once these repetitive shock events are detected for every subreddits, we apply the same logic as done for our sentiment events. We compare a subreddit’s behavior <b>before</b> and <b>after</b> to answer the following questions:
 
 <div class="fun-fact-card">
@@ -621,8 +634,8 @@ From these plots, what we can conclude is that only a small slice show statistic
 </div>
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
   <details closed>
-    If you wonder what happens for those significant effects detected you are at the right section !
-    Note that as they only represent a small portion of the overall events, their meaning should not be generalized but we can still analyze them and see it they would look like to what we would expect.
+    If you wonder what happens for those significant effects detected you are at the right section!
+    Note that as they only represent a small portion of the overall events, their characteristics should not be generalized but we can still analyze them and see it they would look like to what we would expect.
     <summary style = "font-size: 18px; cursor: pointer;"><b>Click here to see the details !</b></summary>
     <div style="text-align: justify;">
 
@@ -634,41 +647,10 @@ From these plots, what we can conclude is that only a small slice show statistic
   </details>
 </div>
 
-<div style="max-width: 1000px; margin: 40px auto;">
-  <div class="image-container">
-    <!-- INSERT PLOT HERE -->
-    <div class="flourish-embed flourish-chart" data-src="visualisation/26927123"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26927123/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
-  </div>
-</div>
-
-<div style="text-align: justify;">
-<p>
-We also inspected whether repeated incoming links trigger more activity.
-If communities feel “under the spotlight”, they might respond by linking out more.
-</p>
-
-<p>
-Again, the evidence is weak.
-Outgoing activity shows no systematic increase or decrease after repetitive shock events.
-Most subreddits quickly revert to their usual rhythm.
-</p>
-</div>
-
-<div class="callout-option accent-callout" style="margin-top: 24px;">
-  <strong style="display:block; margin-bottom: 6px;">Takeaway</strong>
-  <span style="text-align: justify; display: block;">
-  Repeated attention does not seem to amplify reactions.
-  Even when a subreddit is hit by sustained incoming linking, its outgoing behavior remains remarkably stable.
-  If a snowball effect exists, it is subtle, rare, and easily drowned out by baseline dynamics.
-  </span>
-</div>
-
 <div style="text-align: justify; margin-top: 16px;">
 <p>
-This reinforces what we observed earlier:
-communities are far more constrained by their usual tone and activity level
-than by short-term external pressure. However, these analyses still focus on the <i>directly targeted</i> subreddit.
-What remains unanswered is whether emotional signals might travel further through the network.
+Apparently Monet was seen losing is mind somewhere in France in the search of a Snowball Effect. 
+Let's not give up now, we still have one card left.
 </p>
 </div>
 
