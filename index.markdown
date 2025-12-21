@@ -672,14 +672,21 @@ What remains unanswered is whether emotional signals might travel further throug
 </p>
 </div>
 
-<h3>How About Emotional Influence Analysis Between Related Subreddits?</h3>
+<h3>But does it spread?</h3>
 
-<div class="image-container"> <img src="{{ site.baseurl }}/Images/Images/monet_thinks.png" style=" width: 70%;"> </div>
-
-Now the aim would be to investigate whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that are topically or structurally related</b> to them. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
-<br>
-<br>
-We use our highly emotional detected events as <b> seeds</b>, potential starting points of emotional diffusion.
+<div style="display: flex; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin: 12px 0 16px;">
+  <div style="flex: 1 1 320px; text-align: justify;">
+    Now the aim would be to investigate whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that are topically or structurally related</b> to them. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
+    <br>
+    <br>
+    We use our highly emotional detected events as <b>seeds</b>, potential starting points of emotional diffusion.
+  </div>
+  <div style="flex: 0 0 170px; margin-left: auto;">
+    <div class="image-container" style="width: 100%; max-width: 170px; margin: 0 auto;">
+      <img src="{{ site.baseurl }}/Images/monet_thinks.png" alt="Monet thinks" style="width: 100%; height: auto;">
+    </div>
+  </div>
+</div>
 <br>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
@@ -713,9 +720,7 @@ We then reconstruct the daily interaction network between subreddits:
 - Nodes are subreddits
 - Directed edges represent interactions from SOURCE_SUBREDDIT to TARGET_SUBREDDIT
 
-This network allows us to define *network distance*, measured as the number of hops between subreddits.
-
-
+This network allows us to define _network distance_, measured as the number of hops between subreddits.
 
 But then among all those interactions what would emotional cascades?
 
@@ -736,12 +741,13 @@ Starting from each seed event, we searches for evidence of *emotional propagatio
   </details>
 </div>
 
-
 A subreddit is included in the cascade if it shows:
+
 - a sufficiently large emotional variation (VAR_THRESH)
 - sufficient temporal similarity with the seed’s emotional trajectory (rel_thresh)
 
 Each detected cascade consists of:
+
 - nodes: subreddits affected by the emotional event
 - edges: inferred paths of emotional influence
 
@@ -749,27 +755,28 @@ Each detected cascade consists of:
 
 From the detected cascades, we compute four key indicators of emotional diffusion:
 
-- *Reach*  
+- _Reach_  
   → Number of subreddits that show an emotional shift after the seed event  
   (len(cascade["nodes"]))
 
-- *Radius*  
+- _Radius_  
   → Maximum network distance between the seed subreddit and affected subreddits  
   (cascade_radius(cascade))
 
 The code then summarizes diffusion by reporting:
-- the *maximum radius* observed across all cascades
-- the *average radius*, representing typical emotional reach
+
+- the _maximum radius_ observed across all cascades
+- the _average radius_, representing typical emotional reach
 
 ### Interpretation
 
-If cascades exhibit a radius greater than one and a non-trivial reach, this provides evidence that emotions do not remain localized to a single interaction, but instead spread to *related subreddits* through the interaction network.
+If cascades exhibit a radius greater than one and a non-trivial reach, this provides evidence that emotions do not remain localized to a single interaction, but instead spread to _related subreddits_ through the interaction network.
 
 This directly addresses the research question:
 
 > Do interactions between two subreddits influence other topically or structurally related subreddits?
 
-By quantifying *reach, distance, and persistence*, the code operationalizes emotional diffusion in the subreddit network.
+By quantifying _reach, distance, and persistence_, the code operationalizes emotional diffusion in the subreddit network.
 
 <div style="max-width: 1000px; margin: 40px auto;">
   <div class="image-container">
