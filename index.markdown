@@ -448,8 +448,10 @@ Let's see what results we get...
     <p class="caption" style="margin: 0; text-align: center;">Even Monet looks unsure here.</p>
   </div>
   <div style="flex: 1 1 320px; text-align: justify;">
-    <p style="margin-top: 0;">In these waffle plots we are hunting for a snowball effect: we try to see if after a subreddit takes a hit (or a praise), there would be a change in the sentiment of its outgoing links.</p>
-    <p style="margin-bottom: 0;">Something is sure from these plots, we cannot claim a causal effect. The incoming tone barely registers in what a subreddit sends back, and any apparent link feels like random drift rather than cause and effect. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.</p>
+    <p style="margin-top: 0;">In these waffle plots we are hunting for what could be the beginning of a snowball effect. We try to observe if after a subreddit takes a hit (or a praise), there would be a change in the sentiment of its outgoing links.</p>
+    <p style="margin-bottom: 0;">Something stands out from these plots! The proportion of events where we compute a significant shift in the sentiment of the outgoing links, is really small compared to the overall events. Therefore,
+    we cannot make any generalization on the shift of the sentiment after such events. 
+    </p>
   </div>
 </div>
 
@@ -469,7 +471,7 @@ We also inspected whether a subreddit hyperlinks more or less than usual after o
         <p style="font-size: 0.9em; color: #555; margin-top: 10px;">Outgoing count shifts after positive events</p>
       </div>
     </div>
-    Same reasoning as before, there is still not a snowball effect detectable here!
+    Same reasoning as before, there are still not enough significant shifts to make concluse here!
   </details>
 </div>
 
@@ -643,8 +645,8 @@ Wanna know more about those small portions of the significant effects before mov
 </div>
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
   <details closed>
-    If you wonder what happens for those significant effects detected you are at the right section!
-    Note that as they only represent a small portion of the overall events, their characteristics should not be generalized but it's still interesting to see it they would look like to what we would expect.
+    If you wonder what happens for those significant effects detected, you are at the right section!
+    Note that, as they only represent a small portion of the overall events, their characteristics should not be generalized but it's still interesting to see it they would look like to what we would expect.
     <summary style = "font-size: 18px; cursor: pointer;"><b>Click here to see the details !</b></summary>
     <div style="text-align: justify;">
 
