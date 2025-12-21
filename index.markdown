@@ -551,20 +551,20 @@ In simple terms, a day is labeled as a shock event when a subreddit receives a s
     <b>Formal Definition</b>
   </summary>
 
-  For each subreddit <i>s</i>, we define a threshold that determines when incoming links are unusually high:
+For each subreddit <i>s</i>, we define a threshold that determines when incoming links are unusually high:
 
-  \[
-  \text{threshold}_s = \max \left( \text{percentile}_{s,q},\ k_0 \right)
-  \]
+\[
+\text{threshold}_s = \max \left( \text{percentile}_{s,q},\ k_0 \right)
+\]
 
-  A day is labeled as a <i>repetitive shock event</i> if the number of incoming links exceeds this threshold.
+A day is labeled as a <i>repetitive shock event</i> if the number of incoming links exceeds this threshold.
 
   <ul style="margin-top: 8px; margin-bottom: 8px; padding-left: 18px;">
     <li><b>percentileₛ,q:</b> captures rare events by focusing on the extreme tail of historical activity (we use q = 0.99).</li>
     <li><b>k₀:</b> avoids triggering events for very small subreddits due to noise (we use k₀ = 5 links).</li>
   </ul>
 
-  By taking the maximum of these two values, we ensure that detected bursts are unusual, clearly elevated, and substantial.
+By taking the maximum of these two values, we ensure that detected bursts are unusual, clearly elevated, and substantial.
 
   <details open>
     <summary style="font-size: 18px; cursor: pointer;"><b>How strict is this detection?</b></summary>
@@ -655,7 +655,6 @@ What remains unanswered is whether emotional signals might travel further throug
 </p>
 </div>
 
-
 <h3>Emotional Influence Analysis Between Related Subreddits</h3>
 
 This analysis investigates whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that are topically or structurally related</b> to them. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
@@ -731,14 +730,14 @@ From the detected cascades, we compute two key indicators of emotional diffusion
 <h3>So, what have we learned?</h3>
 
 <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin: 12px 0 12px;">
-  <div class="image-container" style="flex: 0 0 190px; max-width: 200px; margin: 0; border: 1px solid #A7C7E7; border-radius: 12px; padding: 10px; background: #f7fbff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+  <div class="image-container" style="flex: 0 0 180px; max-width: 190px; margin: 0; border: 1px solid #A7C7E7; border-radius: 12px; padding: 8px; background: #f7fbff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
     <img src="{{ site.baseurl }}/Images/monet_snowball.png" alt="Monet snowball" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
   </div>
   <div style="flex: 1 1 320px; text-align: justify;">
     After many distribution plots, t-tests, and statistical detours, we <b>find little evidence of a snowball effect in hyperlinks between subreddits</b>.
     <br>
     <br>
-    Which might actually be good news <span id="confetti-emoji" role="button" aria-label="celebrate" style="cursor: pointer;">🥳</span>!
+    Which might actually be good news!<span id="confetti-emoji" role="button" aria-label="celebrate" style="cursor: pointer;">🥳</span>
   </div>
 </div>
 <div style="text-align: justify; margin-bottom: 20px;">
