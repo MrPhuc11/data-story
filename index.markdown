@@ -588,7 +588,40 @@ By taking the **maximum** of these three values, we ensure that detected shock e
   </details>
 </div>
 
-<h3>Phuc</h3>
+<h3>Emotional Influence Analysis Between Related Subreddits</h3>
+
+This analysis investigates whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that are topically or structurally related</b> to them. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
+<br>
+<br>
+We use our highlyemotional detected events as <b> seeds</b>, potential starting points of emotional diffusion.
+<br>
+
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details open>
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Network distance</b></summary>
+        Network distance is a measure that quantifies the separation between two nodes in a network as the length of the shortest path connecting them, where length is defined as the minimum number of edges required to traverse from one node to the other.
+    </details>
+</div>
+<br>
+<br>
+
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+From the detected cascades, we compute four key indicators of emotional diffusion:
+</div>
+
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+  <details open>
+    <summary style = "font-size: 18px; cursor: pointer;"><b>Metrics</b></summary>
+    <div style="text-align: justify;">
+      <ul style="margin: 0 0 0 18px; padding: 0; list-style: disc;">
+        <li><b>Reach:</b> Number of subreddits that show an emotional shift after the seed event </li>
+        <li><b>Radius:</b> Maximum network distance between the seed subreddit and affected subreddits</li>
+      </ul>
+    </div>
+
+  </details>
+</div>
+
 <div style="max-width: 1000px; margin: 40px auto;">
   <div class="image-container">
     <img src="{{ site.baseurl }}/Images/plot_spread.png" alt="plot spread">
@@ -597,6 +630,8 @@ By taking the **maximum** of these three values, we ensure that detected shock e
     </p>
   </div>
 </div>
+
+<h3>What have we learned?</h3>
 
 <div class="callout-option accent-callout" style="margin-top: 20px;">
   <strong style="display:block; margin-bottom: 6px;">FIND OUT MORE 🤓</strong>
