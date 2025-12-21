@@ -538,14 +538,9 @@ Once we account for a subreddit’s prior sentiment level, most of the variation
 
 <div style="text-align: justify;">
 
-Subreddits frequently link to one another, sometimes repeatedly over short periods of time. But what happens when a community suddenly receives a surge of incoming links?
-Does this external attention amplify certain narratives, shift sentiment, or trigger collective reactions?
-
-<br>
-<br>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
-How do we define a shock event?
+
 </div>
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
 To detect shock events, we identify days when a subreddit receives far more incoming links than usual. Instead of relying on a single cutoff, we combine multiple criteria to make sure these spikes are rare, substantial, and meaningful.
