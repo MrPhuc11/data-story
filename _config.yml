@@ -48,6 +48,12 @@ navbar-links:
     - Dataset: "#dataset"
     - Clustering: "#clustering"
     - Sentiment: "#sentiment"
+    - Shock definition: "#shock-events"
+    - Sentiment Shock: "#sentiment-shock"
+    - Event Analysis: "#event-analysis"
+    - Repetitive Shock: "#repetitive-shock"
+    - Spreading: "#spread"
+    - Conclusion: "#conclusion"
   Resources:
     - Dataset: "https://snap.stanford.edu/data/soc-RedditHyperlinks.html"
     - Repository: "https://github.com/epfl-ada/ada-2025-project-canada"
