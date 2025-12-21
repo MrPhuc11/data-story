@@ -595,7 +595,7 @@ We use our highlyemotional detected events as <b> seeds</b>, potential starting 
 <br>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
-From the detected cascades, we compute four key indicators of emotional diffusion:
+From the detected cascades, we compute two key indicators of emotional diffusion:
 </div>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
