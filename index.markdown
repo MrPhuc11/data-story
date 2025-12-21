@@ -275,22 +275,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 
 <h3>So what happens after a sentiment shock event ?</h3>
 <br>
-<div style="text-align: justify;">
-
-Like most social media platforms, Reddit can be a hostile place, and strongly polarized interactions between communities are far from rare. Most of the time, these interactions fade into the background noise of daily activity and have little lasting impact. But occasionally, a link stands out, not just for its negativity, but sometimes for being unusually positive praise, compared to what a subreddit typically receives. This naturally raises the question of what comes next.
-
-</div>
-<br>
-
-<div style="text-align: justify;">
-
-We just introduced sentiment shocks: most links hover near neutral, but occasionally a subreddit gets an incoming link that is unusually negative or unusually positive compared with what it normally receives. Those rare outliers are the disruptions we track and we call them <i>shock events</i>.
-
-</div>
-<br>
-<div style="text-align: justify;">
-
-So what does such an event actually look like in practice? To answer that, let’s zoom in on the subbreddit of one of the most famous game clash of clans.
+<div id="monet-bd-story2"></div>
 
 <div style="max-width: 1000px; margin: 40px auto;">
   <div class="image-container">
