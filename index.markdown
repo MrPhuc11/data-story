@@ -326,6 +326,10 @@ Here, we watch <i>r/clashofclans</i> over time and, each day, grab the single mo
 Now that we have set up the detection of our events, we can now try and look for a potential snowball effect !
 </div>
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
+To verify that such effect exist, we need to be rigourous and do some statistics... 
+</div>
+
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
   <details open>
     <summary style="font-size: 18px; cursor: pointer;">
       <b>How do we test for a snowball effect?</b>
