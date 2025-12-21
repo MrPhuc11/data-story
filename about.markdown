@@ -10,7 +10,7 @@ permalink: /about/
   <div class="about-text">
     <h2>About us</h2>
     <p>
-      This data story is our ADA project! 
+      This data story is our <a href="https://epfl-ada.github.io/teaching/fall2025/cs401/" target="_blank" rel="noopener">ADA</a> project! 
       <br>
       This is a picture of us hard at work :)
     <div class="about-links">
@@ -23,5 +23,3 @@ permalink: /about/
         <li><a href="https://github.com/mrphuc11" target="_blank" rel="noopener"><i class="fab fa-github"></i> Phuc Truong</a></li>
       </ul>
     </div>
-  </div>
-</div>

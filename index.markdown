@@ -434,18 +434,18 @@ Let's see what results we get...
     <!-- Replace data-src with the Flourish ID for positive shock events -->
     <div class="flourish-embed flourish-chart" data-src="visualisation/26919883"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26919883/thumbnail" width="80%" alt="chart visualization" /></noscript></div>
     <p style="text-align: center; font-size: 0.9em; color: #555; margin-top: 10px;">Negative shock events</p>
+  </div>
 </div>
 
-<h3 style="margin-top: 5px;">Can we conclude something?</h3>
-<div class="image-container" style="text-align: center; margin: 20px 0;">
-  <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="max-width: 30%; height: auto;">
-  <p class="caption">Even Monet looks unsure here.</p>
-</div>
-
-In these waffle plots we are hunting for a snowball effect: we try to see if after a subreddit takes a hit (or a praise), there would be a change in the sentiment of its outgoing links.
-
-Something is sure from these plots, we cannot claim a causal effect. The incoming tone barely registers in what a subreddit sends back, and any apparent link feels like random drift rather than cause and effect. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
-
+<div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin: 20px 0 30px;">
+  <div class="image-container" style="flex: 0 0 260px; max-width: 320px; margin: 0; border: 1px solid #A7C7E7; border-radius: 12px; padding: 16px; background: #f7fbff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="max-width: 100%; height: auto; display: block; margin: 0 auto 12px;">
+    <p class="caption" style="margin: 0; text-align: center;">Even Monet looks unsure here.</p>
+  </div>
+  <div style="flex: 1 1 320px; text-align: justify;">
+    <p style="margin-top: 0;">In these waffle plots we are hunting for a snowball effect: we try to see if after a subreddit takes a hit (or a praise), there would be a change in the sentiment of its outgoing links.</p>
+    <p style="margin-bottom: 0;">Something is sure from these plots, we cannot claim a causal effect. The incoming tone barely registers in what a subreddit sends back, and any apparent link feels like random drift rather than cause and effect. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.</p>
+  </div>
 </div>
 
 <h3 id="event analysis">What can we tell about these events?</h3>
@@ -507,7 +507,7 @@ Even among events we classify as strong, higher sentiment z-scores do not transl
 <br>
 Once we account for a subreddit’s prior sentiment level, most of the variation in how it reacts is explained by regression to the mean: subreddits that were already highly positive tend to cool off, while more negative ones tend to rebound. Topic still matters, but only at the margins. News, politics, and conspiracy-focused communities show systematically weaker reactions, while gaming-related subreddits tend to react slightly more positively on average. By contrast, the strength of the incoming sentiment signal (how extreme it is) adds little explanatory power once the baseline is known. In other words, where a community starts matters far more than how emotionally charged the triggering content is.
 
-<h3>Do repeated links change the tone of online communities?</h3>
+<h3>What about the repetitive shock events?</h3>
 <br>
 <div style="text-align: justify;">
 
