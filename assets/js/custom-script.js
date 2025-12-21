@@ -1,3 +1,6 @@
+// Use an absolute path so Liquid is not required to resolve the base URL.
+const IMAGE_BASE = "/data-story/Images/";
+
 (function () {
   const canvas = document.getElementById("graph-hero-canvas");
   if (!canvas) return;
@@ -139,9 +142,6 @@
   loop();
 })();
 
-
-
-
 // document.addEventListener("DOMContentLoaded", function () {
 //     const bdContainer = document.getElementById("monet-bd-story");
 //     if (!bdContainer) return;
@@ -174,12 +174,11 @@
 //     bdContainer.innerHTML = bdHTML;
 // });
 
-
 document.addEventListener("DOMContentLoaded", function () {
-    const bdContainer = document.getElementById("monet-bd-story");
-    if (!bdContainer) return;
+  const bdContainer = document.getElementById("monet-bd-story");
+  if (!bdContainer) return;
 
-    const bdHTML = `
+  const bdHTML = `
         <style>
             /* This section removes the yellowish background */
             .bd-wrapper {
@@ -204,19 +203,19 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="bd-wrapper">
             <div class="bd-grid">
                 <div class="bd-panel">
-                    <div class="bd-illustration" style="background-image: url('Images/bd-panel-1.png');">
+                    <div class="bd-illustration" style="background-image: url('${IMAGE_BASE}bd-panel-1.png');">
                         <div class="speech-bubble">"I've Just finished The Magpie. I'll send a sketch of it to Picasso. I wonder what he thinks?"</div>
                     </div>
                 </div>
 
                 <div class="bd-panel">
-                    <div class="bd-illustration" style="background-image: url('Images/bd-panel-2.png');">
+                    <div class="bd-illustration" style="background-image: url('${IMAGE_BASE}bd-panel-2.png');">
                         <div class="speech-bubble">"Wow! This drawing is exceptional. I must show it to others!"</div>
                     </div>
                 </div>
 
                 <div class="bd-panel negative-highlight">
-                    <div class="bd-illustration" style="background-image: url('Images/bd-panel-3.png');">
+                    <div class="bd-illustration" style="background-image: url('${IMAGE_BASE}bd-panel-3.png');">
                         <div class="speech-bubble">"Exceptional? It's unfinished trash! Monet is a fraud, don't look at this disaster!"</div>
                     </div>
                 </div>
@@ -224,32 +223,32 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
 
-    bdContainer.innerHTML = bdHTML;
+  bdContainer.innerHTML = bdHTML;
 });
 
-
-window.onscroll = function() {
-  const nav = document.querySelector('nav'); 
+window.onscroll = function () {
+  const nav = document.querySelector("nav");
   if (window.pageYOffset > 50) {
-    nav.style.backgroundColor = "#acc8e5"; 
+    nav.style.backgroundColor = "#acc8e5";
   } else {
     nav.style.backgroundColor = "transparent";
   }
 };
 
-document.querySelector('.hero-button').addEventListener('click', function(e) {
+document.querySelector(".hero-button").addEventListener("click", function (e) {
   e.preventDefault();
-  const targetId = this.getAttribute('href');
+  const targetId = this.getAttribute("href");
   const targetElement = document.querySelector(targetId);
-  
+
   if (targetElement) {
-    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+    const targetPosition =
+      targetElement.getBoundingClientRect().top + window.pageYOffset;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     let startTime = null;
 
     // Change this number to make it slower (e.g., 5000 for 5 seconds)
-    const duration = 2000; 
+    const duration = 2000;
 
     function animation(currentTime) {
       if (startTime === null) startTime = currentTime;
@@ -262,25 +261,23 @@ document.querySelector('.hero-button').addEventListener('click', function(e) {
     // Easing function to make it start and end smoothly
     function ease(t, b, c, d) {
       t /= d / 2;
-      if (t < 1) return c / 2 * t * t + b;
+      if (t < 1) return (c / 2) * t * t + b;
       t--;
-      return -c / 2 * (t * (t - 2) - 1) + b;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
     }
 
     requestAnimationFrame(animation);
   }
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    const bdContainer = document.getElementById("monet-bd-story2");
-    if (!bdContainer) return;
+  const bdContainer = document.getElementById("monet-bd-story2");
+  if (!bdContainer) return;
 
-    const bdHTML = `
+  const bdHTML = `
         <style>
             /* Reset container to be transparent and clear floats */
-            #monet-bd-story2, .bd-wrapper2 {
+            #monet-bd-story2, .bd-wrapper-shock {
                 background-color: transparent !important;
                 background: none !important;
                 display: block; 
@@ -288,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 overflow: hidden; 
             }
 
-            .bd-panel2 {
+            .bd-panel-shock {
                 float: right; 
                 width: 300px; 
                 height: 300px;
@@ -301,15 +298,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 box-sizing: border-box;
             }
 
-            .bd-illustration2 {
+            .bd-illustration-shock {
                 width: 100%;
                 height: 100%;
-                background-image: url('Images/Monet_Sentiment_shock.png');
+                background-image: url('${IMAGE_BASE}Monet_Sentiment_shock.png');
                 background-size: cover;
                 background-position: center;
             }
 
-            .speech-bubble2 {
+            .speech-bubble-shock {
                 position: absolute;
                 top: 15px;
                 left: 10px;
@@ -325,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 z-index: 10;
             }
 
-            .speech-bubble2::after {
+            .speech-bubble-shock::after {
                 content: '';
                 position: absolute;
                 bottom: -15px; 
@@ -339,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             /* The white inside of the downward tail */
-            .speech-bubble2::before {
+            .speech-bubble-shock::before {
                 content: '';
                 position: absolute;
                 bottom: -11px; 
@@ -352,27 +349,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 z-index: 11;
             }
 
-            .bd-text-content2 {
+            .bd-text-content-shock {
                 font-family: inherit;
                 line-height: 1.6;
                 display: block;
             }
             
-            .bd-text-content2 p {
+            .bd-text-content-shock p {
                 margin-top: 0;
             }
         </style>
 
-        <div class="bd-wrapper2">
-            <div class="bd-panel2">
-                <div class="bd-illustration2">
-                    <div class="speech-bubble2">
+        <div class="bd-wrapper-shock">
+            <div class="bd-panel-shock">
+                <div class="bd-illustration-shock">
+                    <div class="speech-bubble-shock">
                         "Monet, the sketch isn't good at all!"
                     </div>
                 </div>
             </div>
 
-            <div class="bd-text-content2">
+            <div class="bd-text-content-shock">
                 <p>
                     Like most social media platforms, Reddit can be a hostile place, and strongly polarized 
                     interactions between communities are far from rare. Most of the time, these interactions 
@@ -393,5 +390,132 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
 
-    bdContainer.innerHTML = bdHTML;
+  bdContainer.innerHTML = bdHTML;
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const bdContainer = document.getElementById("monet-stats");
+  if (!bdContainer) return;
+
+  const bdHTML = `
+        <style>
+            /* Reset container to be transparent and clear floats */
+            #monet-stats, .bd-wrapper-stats {
+                background-color: transparent !important;
+                background: none !important;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .bd-panel-stats {
+                flex: 0 0 240px;
+                height: 240px;
+                border: 3px solid black;
+                background-color: white;
+                position: relative;
+                box-sizing: border-box;
+            }
+
+            .bd-illustration-stats {
+                width: 100%;
+                height: 100%;
+                background-image: url('${IMAGE_BASE}monet_stats.png');
+                background-size: cover;
+                background-position: center;
+            }
+
+            .speech-bubble-stats {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                right: 30px; /* Increased to make room for the tail */
+                background: white;
+                border: 2px solid black;
+                border-radius: 12px;
+                padding: 10px;
+                font-family: sans-serif;
+                font-size: 13px;
+                font-weight: bold;
+                text-align: center;
+                z-index: 10;
+            }
+
+            .speech-bubble-stats::after {
+                content: '';
+                position: absolute;
+                bottom: -15px; 
+                right: 37px;    /* Changed from left to right */
+                width: 0;
+                height: 0;
+                border-top: 15px solid black;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                z-index: -1;
+            }
+
+            /* The white inside of the downward tail */
+            .speech-bubble-stats::before {
+                content: '';
+                position: absolute;
+                bottom: -11px; 
+                right: 38px;    /* Adjusted to align with the outline */
+                width: 0;
+                height: 0;
+                border-top: 13px solid white;
+                border-left: 9px solid transparent;
+                border-right: 9px solid transparent;
+                z-index: 11;
+            }
+
+            .bd-text-content-stats {
+                font-family: inherit;
+                line-height: 1.6;
+                display: block;
+                flex: 1 1 320px;
+            }
+
+            .bd-text-content-stats p {
+                margin-top: 0;
+            }
+
+            @media (max-width: 700px) {
+                #monet-stats, .bd-wrapper-stats {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .bd-panel-stats {
+                    width: 100%;
+                    max-width: 260px;
+                    height: 260px;
+                }
+
+                .bd-text-content-stats {
+                    text-align: center;
+                }
+            }
+        </style>
+
+        <div class="bd-wrapper-stats">
+            <div class="bd-panel-stats">
+                <div class="bd-illustration-stats">
+                    <div class="speech-bubble-stats">
+                        "I hate statistics"
+                    </div>
+                </div>
+            </div>
+
+            <div class="bd-text-content-stats">
+                <p>
+                    Sorry Monet, we know statistics can be hard sometimes, but they're the only way we have the right to make a causal claim.
+                </p>
+            </div>
+        </div>
+    `;
+
+  bdContainer.innerHTML = bdHTML;
 });

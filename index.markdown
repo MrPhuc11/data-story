@@ -332,7 +332,9 @@ Now that we have set up the detection of our events, we can now try and look for
   <div style="text-align: center; margin-top: 10px;">
     <div id="monet-stats"></div>
   </div>
-  Sorry Monet, we know statistics can be hard sometimes, but they’re the only way we have the right to make a causal claim.
+
+<br>
+<br>
 </div>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
