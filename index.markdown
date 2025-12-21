@@ -261,7 +261,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 </div>
 
 <br>
-<h3>What are Shock Events?</h3>
+<h3 id="shock-events">What are Shock Events?</h3>
 <br>
 
 <ul>
@@ -273,7 +273,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
       <img src="{{ site.baseurl }}/Images/Rep_shock_event.png" alt="PCA Sentiment Analysis Cluster" style="width: 100%;">
 </div>
 
-<h3>So what happens after a sentiment shock event ?</h3>
+<h3 id="sentiment-shock">So what happens after a sentiment shock event ?</h3>
 <br>
 <div id="monet-bd-story2"></div>
 
@@ -473,7 +473,7 @@ We also inspected whether a subreddit hyperlinks more or less than usual after o
   </details>
 </div>
 
-<h3 id="event analysis">What can we tell about these events?</h3>
+<h3 id="event-analysis">What can we tell about these events?</h3>
 
 First, let's see how our detected events are distributed withing the different topical clusters. Is the reaction conditioned on the type of subreddit? Do some subreddits react more positively or more negatively? Let's take a look.
 <br>
@@ -532,7 +532,7 @@ Even among events we classify as strong, higher sentiment z-scores do not transl
 <br>
 Once we account for a subreddit’s prior sentiment level, most of the variation in how it reacts is explained by regression to the mean: subreddits that were already highly positive tend to cool off, while more negative ones tend to rebound. Topic still matters, but only at the margins. News, politics, and conspiracy-focused communities show systematically weaker reactions, while gaming-related subreddits tend to react slightly more positively on average. By contrast, the strength of the incoming sentiment signal (how extreme it is) adds little explanatory power once the baseline is known. In other words, where a community starts matters far more than how emotionally charged the triggering content is.
 
-<h3>What about the repetitive shock events?</h3>
+<h3 id="repetitive-shock">What about the repetitive shock events?</h3>
 <br>
 <div id="monet-bd-story3"></div>
 
@@ -639,18 +639,74 @@ What remains unanswered is whether emotional signals might travel further throug
 </p>
 </div>
 
-<h3>But does it spread?</h3>
+<h3 id="spread">But does it spread?</h3>
+
+<style>
+  .spread-figure {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .spread-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 3px solid black;
+    border-radius: 0;
+  }
+  .bubble-spread {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    right: 28px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 10;
+  }
+  .bubble-spread::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 35px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid black;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    z-index: -1;
+  }
+  .bubble-spread::before {
+    content: '';
+    position: absolute;
+    bottom: -11px;
+    right: 36px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid white;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    z-index: 11;
+  }
+</style>
 
 <div style="display: flex; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin: 12px 0 16px;">
   <div style="flex: 1 1 320px; text-align: justify;">
-    Now the aim would be to investigate whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that are topically or structurally related</b> to them. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
+    Now the aim would be to investigate whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that interact with them</b>. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
     <br>
     <br>
     We use our highly emotional detected events as <b>seeds</b>, potential starting points of emotional diffusion.
   </div>
-  <div style="flex: 0 0 170px; margin-left: auto;">
-    <div class="image-container" style="width: 100%; max-width: 170px; margin: 0 auto;">
-      <img src="{{ site.baseurl }}/Images/monet_thinks.png" alt="Monet thinks" style="width: 100%; height: auto;">
+  <div style="flex: 0 0 280px; margin-left: auto;">
+    <div class="image-container spread-figure">
+      <img src="{{ site.baseurl }}/Images/monet_spread.png" alt="Monet spread">
+      <div class="bubble-spread">Great painitngs guys!</div>
     </div>
   </div>
 </div>
@@ -674,87 +730,64 @@ From the detected cascades, we compute two key indicators of emotional diffusion
     <summary style = "font-size: 18px; cursor: pointer;"><b>Metrics</b></summary>
     <div style="text-align: justify;">
       <ul style="margin: 0 0 0 18px; padding: 0; list-style: disc;">
-        <li><b>Reach:</b> Number of subreddits that show an emotional shift after the seed event </li>
-        <li><b>Radius:</b> Maximum network distance between the seed subreddit and affected subreddits</li>
+        <li><b>Reach:</b> 
+        <br>
+        Number of subreddits that show an emotional shift after the seed event </li>
+        <li><b>Radius:</b>
+        <br>
+        Maximum network distance between the seed subreddit and affected subreddits</li>
       </ul>
     </div>
 
   </details>
 </div>
-
-We then reconstruct the daily interaction network between subreddits:
-
-- Nodes are subreddits
-- Directed edges represent interactions from SOURCE_SUBREDDIT to TARGET_SUBREDDIT
-
-This network allows us to define _network distance_, measured as the number of hops between subreddits.
-
-But then among all those interactions what would emotional cascades?
-
-<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
-Starting from each seed event, we searches for evidence of *emotional propagation* within a symmetric temporal window:
-</div>
-
-<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
-  <details open>
-    <summary style = "font-size: 18px; cursor: pointer;"><b>Attributes</b></summary>
-    <div style="text-align: justify;">
-      <ul style="margin: 0 0 0 18px; padding: 0; list-style: disc;">
-        <li><b>PRE_W:</b> Number of days before the event (arbitrarly set tp 3) </li>
-        <li><b>POST_W:</b> Number of days after the event (arbitrarly set tp 3)</li>
-      </ul>
-    </div>
-
-  </details>
-</div>
-
-A subreddit is included in the cascade if it shows:
-
-- a sufficiently large emotional variation (VAR_THRESH)
-- sufficient temporal similarity with the seed’s emotional trajectory (rel_thresh)
-
-Each detected cascade consists of:
-
-- nodes: subreddits affected by the emotional event
-- edges: inferred paths of emotional influence
-
-### Measuring emotional spread
-
-From the detected cascades, we compute four key indicators of emotional diffusion:
-
-- _Reach_  
-  → Number of subreddits that show an emotional shift after the seed event  
-  (len(cascade["nodes"]))
-
-- _Radius_  
-  → Maximum network distance between the seed subreddit and affected subreddits  
-  (cascade_radius(cascade))
-
-The code then summarizes diffusion by reporting:
-
-- the _maximum radius_ observed across all cascades
-- the _average radius_, representing typical emotional reach
-
-### Interpretation
-
-If cascades exhibit a radius greater than one and a non-trivial reach, this provides evidence that emotions do not remain localized to a single interaction, but instead spread to _related subreddits_ through the interaction network.
-
-This directly addresses the research question:
-
-> Do interactions between two subreddits influence other topically or structurally related subreddits?
-
-By quantifying _reach, distance, and persistence_, the code operationalizes emotional diffusion in the subreddit network.
 
 <div style="max-width: 1000px; margin: 40px auto;">
   <div class="image-container">
-    <img src="{{ site.baseurl }}/Images/plot_spread.png" alt="plot spread">
-    <p class="caption">
-      JSp ce que c'est
-    </p>
+    <img src="{{ site.baseurl }}/Images/reach_radius.png" alt="plot spread">
+  </div>
+</div>
+<div style="max-width: 1000px; margin: -12px auto 32px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+  <div style="flex: 1 1 240px; text-align: center; font-size: 16px; background: #f7fbff; border: 1px solid #A7C7E7; border-radius: 10px; padding: 10px 14px;">
+    <strong>Reach:</strong> 5 &nbsp; <strong>Radius:</strong> 3
+  </div>
+  <div style="flex: 1 1 240px; text-align: center; font-size: 16px; background: #f7fbff; border: 1px solid #A7C7E7; border-radius: 10px; padding: 10px 14px;">
+    <strong>Reach:</strong> 3 &nbsp; <strong>Radius:</strong> 1
+  </div>
+</div>
+<br>
+<br>
+
+We consider all the subreddits which have been linked by the seed, in a short time window after the highly emotional event. Like earlier, we try and see if their average outgoing link sentiment has a significant change in
+
+<div style="padding: 16px 20px; background-color: #f4f9ff; font-size: 18px; text-align: justify; margin: 12px 0;">
+If cascades exhibit a radius greater than one and a non-trivial reach, this provides evidence that emotions do not remain localized to a single interaction, but instead spread to related subreddits through the network.
+</div>
+
+<div style="max-width: 500px; margin: 0 auto 28px; text-align: center;">
+  <div style="border: 1px solid #A7C7E7; border-radius: 12px; overflow: hidden; background: #f7fbff;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 18px;">
+      <tr style="background: #e7f1fb;">
+        <th style="padding: 12px 16px; text-align: left;">Maximum reach</th>
+        <td style="padding: 12px 16px; text-align: right;">13</td>
+      </tr>
+      <tr>
+        <th style="padding: 12px 16px; text-align: left;">Average reach</th>
+        <td style="padding: 12px 16px; text-align: right;">3.2</td>
+      </tr>
+      <tr style="background: #e7f1fb;">
+        <th style="padding: 12px 16px; text-align: left;">Maximum radius of sentiment</th>
+        <td style="padding: 12px 16px; text-align: right;">3</td>
+      </tr>
+      <tr>
+        <th style="padding: 12px 16px; text-align: left;">Average radius of sentiment</th>
+        <td style="padding: 12px 16px; text-align: right;">1.18</td>
+      </tr>
+    </table>
   </div>
 </div>
 
-<h3>So, what have we learned?</h3>
+<h3 id="conclusion">So, what have we learned?</h3>
 
 <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin: 12px 0 12px;">
   <div class="image-container" style="flex: 0 0 180px; max-width: 190px; margin: 0; border: 1px solid #A7C7E7; border-radius: 12px; padding: 8px; background: #f7fbff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
