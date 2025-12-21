@@ -265,7 +265,7 @@ We combine the LIWC and VADER outputs into a single signed sentiment score using
 <br>
 
 <ul>
-      In our framework, we decided to define two particular cases of Shock events:
+      In our framework, we decided to define two particular cases of shock events:
       <li><b>Sentiment Shock Event:</b> A sentiment shock event happens when a subreddit receives an incoming link with sentiment that is unusually extreme, either negative or positive, compared to what it normally receives. These moments stand out from everyday activity as spikes in emotional intensity.</li>
       <li><b>Repetitive Shock Event:</b> A repetitive shock event happens when a subreddit receives unusually large bursts of incoming links several times in a short period, compared to its normal past activity.</li>
     </ul>
@@ -601,7 +601,7 @@ Here’s how the clusters are involved in those shock events.
 
 <br>
 
-Once these repetitive shock events are detected for every subreddits, we apply the same logic as done for our sentiment events. We compare a subreddit’s behavior <b>before</b> and <b>after</b> to answer the following questions:
+Once these repetitive shock events are detected for every subreddit, we apply the same logic as done for our sentiment events. We compare a subreddit’s behavior <b>before</b> and <b>after</b> to answer the following questions:
 
 <div class="fun-fact-card">
   <div class="fun-fact-tag">Questions</div>
@@ -634,7 +634,6 @@ Only a sliver of shocks show up as significant, and when they do it’s mostly i
 Apparently Monet was seen losing his mind somewhere in France in the search for a snowball effect. Let’s not give up now; we still have one card left.
 </p>
 </div>
-
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
 Wanna know more about those small portions of the significant effects before moving to the next part?
