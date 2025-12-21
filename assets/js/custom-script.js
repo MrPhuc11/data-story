@@ -180,6 +180,27 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!bdContainer) return;
 
     const bdHTML = `
+        <style>
+            /* This section removes the yellowish background */
+            .bd-wrapper {
+                background-color: transparent !important; /* Forces transparency */
+                padding: 20px 0;
+            }
+
+            .bd-grid {
+                background-color: transparent !important;
+                display: flex;
+                gap: 15px; /* Adjusts space between panels */
+                justify-content: center;
+            }
+
+            /* Optional: Ensures the panels themselves stay clean */
+            .bd-panel {
+                background-color: white; 
+                border: 2px solid black;
+            }
+        </style>
+
         <div class="bd-wrapper">
             <div class="bd-grid">
                 <div class="bd-panel">
@@ -199,15 +220,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="speech-bubble">"Exceptional? It's unfinished trash! Monet is a fraud, don't look at this disaster!"</div>
                     </div>
                 </div>
-
-      
             </div>
         </div>
     `;
 
     bdContainer.innerHTML = bdHTML;
-
-    
 });
 
 
@@ -252,4 +269,129 @@ document.querySelector('.hero-button').addEventListener('click', function(e) {
 
     requestAnimationFrame(animation);
   }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const bdContainer = document.getElementById("monet-bd-story2");
+    if (!bdContainer) return;
+
+    const bdHTML = `
+        <style>
+            /* Reset container to be transparent and clear floats */
+            #monet-bd-story2, .bd-wrapper2 {
+                background-color: transparent !important;
+                background: none !important;
+                display: block; 
+                width: 100%;
+                overflow: hidden; 
+            }
+
+            .bd-panel2 {
+                float: right; 
+                width: 300px; 
+                height: 300px;
+                margin-left: 40px; 
+                margin-bottom: 10px;
+                margin-top: 5px; 
+                border: 3px solid black; 
+                background-color: white; 
+                position: relative;
+                box-sizing: border-box;
+            }
+
+            .bd-illustration2 {
+                width: 100%;
+                height: 100%;
+                background-image: url('Images/Monet_Sentiment_shock.png');
+                background-size: cover;
+                background-position: center;
+            }
+
+            .speech-bubble2 {
+                position: absolute;
+                top: 15px;
+                left: 10px;
+                right: 30px; /* Increased to make room for the tail */
+                background: white;
+                border: 2px solid black;
+                border-radius: 12px;
+                padding: 10px;
+                font-family: sans-serif;
+                font-size: 13px;
+                font-weight: bold;
+                text-align: center;
+                z-index: 10;
+            }
+
+            .speech-bubble2::after {
+                content: '';
+                position: absolute;
+                bottom: -15px; 
+                right: 37px;    /* Changed from left to right */
+                width: 0;
+                height: 0;
+                border-top: 15px solid black;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                z-index: -1;
+            }
+
+            /* The white inside of the downward tail */
+            .speech-bubble2::before {
+                content: '';
+                position: absolute;
+                bottom: -11px; 
+                right: 38px;    /* Adjusted to align with the outline */
+                width: 0;
+                height: 0;
+                border-top: 13px solid white;
+                border-left: 9px solid transparent;
+                border-right: 9px solid transparent;
+                z-index: 11;
+            }
+
+            .bd-text-content2 {
+                font-family: inherit;
+                line-height: 1.6;
+                display: block;
+            }
+            
+            .bd-text-content2 p {
+                margin-top: 0;
+            }
+        </style>
+
+        <div class="bd-wrapper2">
+            <div class="bd-panel2">
+                <div class="bd-illustration2">
+                    <div class="speech-bubble2">
+                        "Monet, the sketch isn't good at all!"
+                    </div>
+                </div>
+            </div>
+
+            <div class="bd-text-content2">
+                <p>
+                    Like most social media platforms, Reddit can be a hostile place, and strongly polarized 
+                    interactions between communities are far from rare. Most of the time, these interactions 
+                    fade into the background noise of daily activity and have little lasting impact. 
+                    But occasionally, a link stands out, not just for its negativity, but sometimes for 
+                    being unusually positive praise, compared to what a subreddit typically receives. 
+                    This naturally raises the question of what comes next.
+                    We just introduced sentiment shocks: most links hover near neutral, but occasionally 
+                    a subreddit gets an incoming link that is unusually negative or unusually positive 
+                    compared with what it normally receives. Those rare outliers are the disruptions we 
+                    track and we call them shock events.
+                </p>
+                <p>
+                    So what does such an event actually look like in practice? To answer that, let’s zoom 
+                    in on the subreddit of one of the most famous game clash of clans.
+                </p>
+            </div>
+        </div>
+    `;
+
+    bdContainer.innerHTML = bdHTML;
 });
