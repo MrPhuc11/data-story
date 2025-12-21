@@ -534,6 +534,8 @@ Once we account for a subreddit’s prior sentiment level, most of the variation
 
 <h3>What about the repetitive shock events?</h3>
 <br>
+<div id="monet-bd-story3"></div>
+
 <div style="text-align: justify;">
 
 Subreddits frequently link to one another, sometimes repeatedly over short periods of time. But what happens when a community suddenly receives a surge of incoming links?

@@ -519,3 +519,140 @@ document.addEventListener("DOMContentLoaded", function () {
 
   bdContainer.innerHTML = bdHTML;
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const bdContainer = document.getElementById("monet-bd-story3");
+    if (!bdContainer) return;
+
+    const bdHTML = `
+        <style>
+            /* Reset container */
+            #monet-bd-story3, .bd-wrapper3 {
+                background-color: transparent !important;
+                background: none !important;
+                display: block; 
+                width: 100%;
+                overflow: hidden; 
+            }
+
+            .bd-panel3 {
+                float: right; 
+                width: 300px; 
+                height: 300px;
+                margin-left: 40px; 
+                margin-bottom: 10px;
+                margin-top: 5px; 
+                border: 3px solid black; 
+                background-color: white; 
+                position: relative;
+                box-sizing: border-box;
+            }
+
+            .bd-illustration3 {
+                width: 100%;
+                height: 100%;
+                background-image: url('Images/Monet_repetative shock.png');
+                background-size: cover;
+                background-position: center;
+            }
+
+            /* Updated styles for smaller, elongated bubbles */
+            .bubble-base {
+                position: absolute;
+                background: white;
+                border: 2px solid black;
+                border-radius: 20px; /* More rounded for an elongated look */
+                padding: 5px 15px;   /* Less vertical padding, more horizontal */
+                font-family: sans-serif;
+                font-size: 11px;     /* Slightly smaller font */
+                font-weight: bold;
+                text-align: center;
+                z-index: 10;
+                box-sizing: border-box;
+                width: auto;         /* Allow width to fit text */
+                min-width: 140px;
+                max-width: 220px;
+            }
+
+            /* Positioning Bubbles stacked at the top */
+            .bubble-top {
+                top: 15px;
+                left: 40px;
+            }
+
+            .bubble-second {
+                top: 65px; /* Positioned right after the first one */
+                right: 30px;
+            }
+
+            /* Common Tail Logic */
+            .bubble-base::after, .bubble-base::before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+            }
+
+            /* Tail for Top Bubble (Left-ish) */
+            .bubble-top::after {
+                bottom: -12px; 
+                left: 30px;   
+                border-top: 12px solid black;
+                z-index: -1;
+            }
+            .bubble-top::before {
+                bottom: -9px; 
+                left: 31px;  
+                border-top: 10px solid white;
+                z-index: 11;
+            }
+
+            /* Tail for Second Bubble (Right-ish) */
+            .bubble-second::after {
+                bottom: -12px; 
+                right: 40px;   
+                border-top: 12px solid black;
+                z-index: -1;
+            }
+            .bubble-second::before {
+                bottom: -9px; 
+                right: 41px;  
+                border-top: 10px solid white;
+                z-index: 11;
+            }
+
+            .bd-text-content3 {
+                font-family: inherit;
+                line-height: 1.6;
+                display: block;
+            }
+            
+            .bd-text-content3 p {
+                margin-top: 0;
+            }
+        </style>
+
+        <div class="bd-wrapper3">
+            <div class="bd-panel3">
+                <div class="bd-illustration3">
+                    <div class="bubble-base bubble-top">
+                        “Look at Monet’s painting!”
+                    </div>
+
+                    <div class="bubble-base bubble-second">
+                        "Oh! look at that painting!"
+                    </div>
+                </div>
+            </div>
+
+            <div class="bd-text-content3">
+                <p>
+                    Text Olatz
+                </p>
+            </div>
+        </div>
+    `;
+
+    bdContainer.innerHTML = bdHTML;
+});
