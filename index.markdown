@@ -582,8 +582,7 @@ By taking the maximum of these two values, we ensure that detected bursts are un
 
 <div style="text-align: justify;">
 <p>
-Once these repetitive shock events are detected, we apply the same logic as before:
-we compare a subreddit’s behavior <b>before</b> and <b>after</b> the burst by looking at these two main outcomes:
+Once these repetitive shock events are detected, we apply the same logic as before. We compare a subreddit’s behavior <b>before</b> and <b>after</b> the burst by looking at these two main outcomes:
 
 <ul>
   <li>Does the <b>sentiment</b> of outgoing links change?</li>
