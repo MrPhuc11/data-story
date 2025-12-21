@@ -453,9 +453,29 @@ Let's see what results we get...
   </div>
 </div>
 
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
+We also inspected whether a subreddit hyperlinks more or less than usual after one of those shock events.
+</div>
+<div style="border-left: 4px solid #A7C7E7; padding-left: 20px; margin-top: 2;">
+  <details close>
+    <summary style="font-size: 18px; cursor: pointer;"><b>Details</b></summary>
+    <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; align-items: stretch; margin: 24px 0 10px;">
+      <div style="flex: 1 1 320px; min-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div class="flourish-embed flourish-chart" data-src="visualisation/26925175" style="width: 100%;"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26925175/thumbnail" width="80%" alt="chart visualization" /></noscript></div>
+        <p style="font-size: 0.9em; color: #555; margin-top: 10px;">Outgoing count shifts after negative events</p>
+      </div>
+      <div style="flex: 1 1 320px; min-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div class="flourish-embed flourish-chart" data-src="visualisation/26925196" style="width: 100%;"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26925196/thumbnail" width="80%" alt="chart visualization" /></noscript></div>
+        <p style="font-size: 0.9em; color: #555; margin-top: 10px;">Outgoing count shifts after positive events</p>
+      </div>
+    </div>
+    Same reasoning as before, there is still not a snowball effect detectable here!
+  </details>
+</div>
+
 <h3 id="event analysis">What can we tell about these events?</h3>
 
-First, let's see how our deceted events are distributed withing the different topical clusters. Is the reaction conditioned on the type of subreddit? Do some subreddits react more positively or more negatively? Let's take a look.
+First, let's see how our detected events are distributed withing the different topical clusters. Is the reaction conditioned on the type of subreddit? Do some subreddits react more positively or more negatively? Let's take a look.
 <br>
 <br>
 
