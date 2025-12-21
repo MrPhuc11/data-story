@@ -786,19 +786,19 @@ If cascades exhibit a radius greater than one and a non-trivial reach, this prov
     <table style="width: 100%; border-collapse: collapse; font-size: 18px;">
       <tr style="background: #e7f1fb;">
         <th style="padding: 12px 16px; text-align: left;">Maximum reach</th>
-        <td style="padding: 12px 16px; text-align: right;">13</td>
+        <td style="padding: 12px 16px; text-align: right;">4</td>
       </tr>
       <tr>
         <th style="padding: 12px 16px; text-align: left;">Average reach</th>
-        <td style="padding: 12px 16px; text-align: right;">3.2</td>
+        <td style="padding: 12px 16px; text-align: right;">2.21</td>
       </tr>
       <tr style="background: #e7f1fb;">
         <th style="padding: 12px 16px; text-align: left;">Maximum radius of sentiment</th>
-        <td style="padding: 12px 16px; text-align: right;">3</td>
+        <td style="padding: 12px 16px; text-align: right;">2</td>
       </tr>
       <tr>
         <th style="padding: 12px 16px; text-align: left;">Average radius of sentiment</th>
-        <td style="padding: 12px 16px; text-align: right;">1.18</td>
+        <td style="padding: 12px 16px; text-align: right;">1.03</td>
       </tr>
     </table>
   </div>
