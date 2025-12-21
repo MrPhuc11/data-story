@@ -448,13 +448,13 @@ Let's see what results we get...
 
 <h3 style="margin-top: 5px;">Can we conclude something?</h3>
 <div class="image-container" style="text-align: center; margin: 20px 0;">
-  <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="max-width: 50%; height: auto;">
+  <img src="{{ site.baseurl }}/Images/monet_clueless.png" alt="Monet clueless" style="max-width: 30%; height: auto;">
   <p class="caption">Even Monet looks unsure here.</p>
 </div>
 
 In these waffle plots we are hunting for a snowball effect: we try to see if after a subreddit takes a hit (or a praise), there would be a change in the sentiment of its outgoing links. 
 
-These results don’t let us claim a causal effect. Incoming sentiment barely nudges what a subreddit sends out, and any link looks weak and mostly coincidental. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
+Something is sure from these plots, we cannot claim a causal effect. The incoming tone barely registers in what a subreddit sends back, and any apparent link feels like random drift rather than cause and effect. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
 
 </div>
 
