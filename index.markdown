@@ -452,6 +452,8 @@ Let's see what results we get...
   <p class="caption">Even Monet looks unsure here.</p>
 </div>
 
+In these waffle plots we are hunting for a snowball effect: we try to see if after a subreddit takes a hit (or a praise), there would be a change in the sentiment of its outgoing links. 
+
 These results don’t let us claim a causal effect. Incoming sentiment barely nudges what a subreddit sends out, and any link looks weak and mostly coincidental. When something does shift, it leans negative and hostile hits drag tone down, while positive ones mostly vanish. The rare positive bumps are small and mixed, which makes it feel like other factors are in charge. And without the full post text, we're missing the context that could reveal subtler influence.
 
 </div>
