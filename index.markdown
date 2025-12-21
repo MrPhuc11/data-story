@@ -553,6 +553,26 @@ To detect shock events, we identify days when a subreddit receives far more inco
 
 In simple terms, a day is labeled as a shock event when a subreddit receives a surge of incoming links that is rare compared to its past, much larger than its usual activity, and large enough in absolute size to be meaningful.
 
+<details open>
+  <summary style="font-size: 18px; cursor: pointer;">
+    <b>Formal Definition</b>
+  </summary>
+
+For each subreddit <i>s</i>, we define a threshold that determines when incoming links are unusually high:
+
+\[
+\text{threshold}_s = \max \left( \text{percentile}_{s,q},\ k_0 \right)
+\]
+
+A day is labeled as a <i>repetitive shock event</i> if the number of incoming links exceeds this threshold.
+
+  <ul style="margin-top: 8px; margin-bottom: 8px; padding-left: 18px;">
+    <li><b>percentileₛ,q:</b> captures rare events by focusing on the extreme tail of historical activity (we use q = 0.99).</li>
+    <li><b>k₀:</b> avoids triggering events for very small subreddits due to noise (we use k₀ = 5 links).</li>
+  </ul>
+
+By taking the maximum of these two values, we ensure that detected bursts are unusual, clearly elevated, and substantial.
+
   <details open>
     <summary style="font-size: 18px; cursor: pointer;">
       <b>Formal Definition</b>
@@ -582,6 +602,62 @@ By taking the **maximum** of these three values, we ensure that detected shock e
 <div class="image-container">
   <img src="{{ site.baseurl }}/Images/Images/WhatsApp Image 2025-12-20 at 22.32.39.jpeg" style=" width: 70%;">
 </div>
+
+<div style="text-align: justify;">
+<p>
+At first glance, the picture looks familiar.
+Most repetitive shock events are followed by <b>little to no measurable change</b> in outgoing sentiment. When shifts do occur, they remain small and inconsistent. Some subreddits become slightly more negative, others slightly more positive,
+but the overall distribution is tightly centered around zero.
+</p>
+
+<p>
+In other words, even sustained incoming attention rarely translates into a clear emotional reaction.
+</p>
+</div>
+
+<!-- SLOT: OUTGOING LINK COUNT AFTER REPETITIVE EVENTS -->
+<div style="max-width: 1000px; margin: 40px auto;">
+  <div class="image-container">
+    <!-- INSERT PLOT HERE -->
+    <img src="{{ site.baseurl }}/Images/PLACEHOLDER_repetitive_volume.png" alt="Outgoing link volume after repetitive shock events">
+    <p class="caption">
+      Changes in outgoing hyperlink volume following repetitive shock events.
+    </p>
+  </div>
+</div>
+
+<div style="text-align: justify;">
+<p>
+We also inspected whether repeated incoming links trigger more activity.
+If communities feel “under the spotlight”, they might respond by linking out more.
+</p>
+
+<p>
+Again, the evidence is weak.
+Outgoing activity shows no systematic increase or decrease after repetitive shock events.
+Most subreddits quickly revert to their usual rhythm.
+</p>
+</div>
+
+<div class="callout-option accent-callout" style="margin-top: 24px;">
+  <strong style="display:block; margin-bottom: 6px;">Takeaway</strong>
+  <span style="text-align: justify; display: block;">
+  Repeated attention does not seem to amplify reactions.
+  Even when a subreddit is hit by sustained incoming linking, its outgoing behavior remains remarkably stable.
+  If a snowball effect exists, it is subtle, rare, and easily drowned out by baseline dynamics.
+  </span>
+</div>
+
+<div style="text-align: justify; margin-top: 16px;">
+<p>
+This reinforces what we observed earlier:
+communities are far more constrained by their usual tone and activity level
+than by short-term external pressure. However, these analyses still focus on the <i>directly targeted</i> subreddit.
+What remains unanswered is whether emotional signals might travel further through the network.
+</p>
+</div>
+
+<h3>Emotional Influence Analysis Between Related Subreddits</h3>
 
 This analysis investigates whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that are topically or structurally related</b> to them. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
 <br>
@@ -692,6 +768,22 @@ By quantifying **reach, distance, and persistence**, the code operationalizes em
 </div>
 
 <h3>What have we learned?</h3>
+<h3>So, what have we learned?</h3>
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin: 12px 0 12px;">
+  <div class="image-container" style="flex: 0 0 180px; max-width: 190px; margin: 0; border: 1px solid #A7C7E7; border-radius: 12px; padding: 8px; background: #f7fbff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <img src="{{ site.baseurl }}/Images/monet_snowball.png" alt="Monet snowball" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  </div>
+  <div style="flex: 1 1 320px; text-align: justify;">
+    After many distribution plots, t-tests, and statistical detours, we <b>find little evidence of a snowball effect in hyperlinks between subreddits</b>.
+    <br>
+    <br>
+    Which might actually be good news!<span id="confetti-emoji" role="button" aria-label="celebrate" style="cursor: pointer;">🥳</span>
+  </div>
+</div>
+<div style="text-align: justify; margin-bottom: 20px;">
+  However, this does not mean that the snowball effect does not exist on Reddit. One important limitation is that hyperlinks capture only explicit references between subreddits, while many interactions happen without links and therefore remain invisible in this dataset. It could still appear in other forms, such as through comments, user activity, or coordinated behavior within and across subreddits. To push this analysis further and find out for sure, we would need richer data on post content and on users active in both the source and target communities.
+</div>
 
 <div class="callout-option accent-callout" style="margin-top: 20px;">
   <strong style="display:block; margin-bottom: 6px;">FIND OUT MORE 🤓</strong>
