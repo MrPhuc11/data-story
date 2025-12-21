@@ -599,10 +599,6 @@ By taking the **maximum** of these three values, we ensure that detected shock e
 
 <h3>How About the Emotional Influence Analysis Between Related Subreddits</h3>
 
-<div class="image-container">
-  <img src="{{ site.baseurl }}/Images/Images/WhatsApp Image 2025-12-20 at 22.32.39.jpeg" style=" width: 70%;">
-</div>
-
 <div style="text-align: justify;">
 <p>
 At first glance, the picture looks familiar.
@@ -693,7 +689,7 @@ From the detected cascades, we compute two key indicators of emotional diffusion
   </details>
 </div>
 
-### Building subreddit-level time series
+Building subreddit-level time series
 
 We first aggregate **incoming interactions** by subreddit and by day:
 
@@ -702,7 +698,7 @@ We first aggregate **incoming interactions** by subreddit and by day:
 
 This produces a daily **emotional time series** for each subreddit, which is the basis for event detection.
 
-### Detecting high-emotion events (Seeds)
+Detecting high-emotion events (Seeds)
 
 A **high-emotion event** is detected when the daily mean sentiment deviates strongly from the subreddit’s baseline, using a z-score threshold (`z_thresh = -2.0`) and a minimum activity constraint.
 
