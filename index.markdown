@@ -467,7 +467,7 @@ We also inspected whether a subreddit hyperlinks more or less than usual after o
         <p style="font-size: 0.9em; color: #555; margin-top: 10px;">Outgoing count shifts after positive events</p>
       </div>
     </div>
-    Still not a snowball effect!
+    Same reasoning as before, there is still not a snowball effect detectable here!
   </details>
 </div>
 
