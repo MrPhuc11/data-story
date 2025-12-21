@@ -623,12 +623,21 @@ You can see below our results ...
   </div>
 </div>
 
-From these plots, what we can conclude is that only a small slice show statistically significant effects. When significance does appear, it shows up more often in incoming metrics than outgoing ones, meaning subreddits are more likely to be affected in how others link to them than in how they link out. The “untested” wedges on the sentiment pies come from events with no observable links around the shock window, so there was no sentiment to measure.
-<br>
-<br>
+<div style="text-align: justify;">
+<p>
+Only a sliver of shocks show up as significant, and when they do it’s mostly in incoming metrics than outgoing ones. Note that “untested” wedges are just days with no usable links around the shock, so there was no sentiment to measure.
+</p>
+</div>
+
+<div style="text-align: justify; margin-top: 16px;">
+<p>
+Apparently Monet was seen losing his mind somewhere in France in the search for a snowball effect. Let’s not give up now; we still have one card left.
+</p>
+</div>
+
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
-<b> Want to know more about those small portions of the significant effects ? </b>
+Wanna know more about those small portions of the significant effects before moving to the next part?
 </div>
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
 
@@ -636,7 +645,7 @@ From these plots, what we can conclude is that only a small slice show statistic
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
   <details closed>
     If you wonder what happens for those significant effects detected you are at the right section!
-    Note that as they only represent a small portion of the overall events, their characteristics should not be generalized but we can still analyze them and see it they would look like to what we would expect.
+    Note that as they only represent a small portion of the overall events, their characteristics should not be generalized but it's still interesting to see it they would look like to what we would expect.
     <summary style = "font-size: 18px; cursor: pointer;"><b>Click here to see the details !</b></summary>
     <div style="text-align: justify;">
 
@@ -647,13 +656,6 @@ From these plots, what we can conclude is that only a small slice show statistic
     </div>
 
   </details>
-</div>
-
-<div style="text-align: justify; margin-top: 16px;">
-<p>
-Apparently Monet was seen losing is mind somewhere in France in the search of a Snowball Effect. 
-Let's not give up now, we still have one card left.
-</p>
 </div>
 
 <h3 id="spread">But does it spread?</h3>
