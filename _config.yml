@@ -48,11 +48,11 @@ navbar-links:
     - Dataset: "#dataset"
     - Clustering: "#clustering"
     - Sentiment: "#sentiment"
-    - Shock Events: "#shock-events"
+    - Shock definition: "#shock-events"
     - Sentiment Shock: "#sentiment-shock"
     - Event Analysis: "#event-analysis"
     - Repetitive Shock: "#repetitive-shock"
-    - Spread: "#spread"
+    - Spreading: "#spread"
     - Conclusion: "#conclusion"
   Resources:
     - Dataset: "https://snap.stanford.edu/data/soc-RedditHyperlinks.html"

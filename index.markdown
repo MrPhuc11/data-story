@@ -584,7 +584,7 @@ r/SubredditDrama is one of these reddits where people collect and retell the fun
 <div class="image-container" style="max-width: 1000px; margin: 40px auto; text-align: center;">
   <img src="{{ site.baseurl }}/Images/frequency_event_detection.png" alt="Frequency event detection" style="width: 75%; height: auto;">
 </div>
-Seems like a big drama was going on September 2015 ! 
+Seems like a big drama was going on September 2015 !
 
 <div style="text-align: justify;">
 <p>
@@ -613,6 +613,7 @@ You can see below our results ...
 From these plots, what we can conclude is that only a small slice show statistically significant effects. When significance does appear, it shows up more often in incoming metrics than outgoing ones, meaning subreddits are more likely to be affected in how others link to them than in how they link out. The “untested” wedges on the sentiment pies come from events with no observable links around the shock window, so there was no sentiment to measure.
 <br>
 <br>
+
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; background-color: #A7C7E7">
 <b> Want to know more about those small portions of the significant effects ? </b>
 </div>
@@ -629,8 +630,9 @@ From these plots, what we can conclude is that only a small slice show statistic
     <div class="image-container">
       <div class="flourish-embed flourish-chart" data-src="visualisation/26926702"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26926702/thumbnail" width="40%" alt="chart visualization" /></noscript></div>
     </div>
-    
+
     </div>
+
   </details>
 </div>
 
@@ -729,7 +731,7 @@ What remains unanswered is whether emotional signals might travel further throug
   }
 </style>
 
-<div style="display: flex; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin: 12px 0 16px;">
+<div style="display: flex; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin: 8px 0 8px;">
   <div style="flex: 1 1 320px; text-align: justify;">
     Now the aim would be to investigate whether a highly negative emotional interaction between two subreddits affects not only those two communities, but also <b>other subreddits that interact with them</b>. In other words, we ask whether emotional signals propagate through the subreddit network beyond their point of origin.
     <br>
@@ -743,7 +745,6 @@ What remains unanswered is whether emotional signals might travel further throug
     </div>
   </div>
 </div>
-<br>
 
 <div style="border-left: 4px solid #A7C7E7; padding-left: 20px; font-size: 18px; margin-top: 2;">
   <details open>
@@ -791,7 +792,7 @@ From the detected cascades, we compute two key indicators of emotional diffusion
 <br>
 <br>
 
-We consider all the subreddits which have been linked by the seed, in a short time window after the highly emotional event. Like earlier, we try and see if their average outgoing link sentiment has a significant change in
+We consider all the subreddits which have been linked by the seed, in a short time window after the highly emotional event. Like earlier, we try and see if their average outgoing link sentiment has a significant change in value.
 
 <div style="padding: 16px 20px; background-color: #f4f9ff; font-size: 18px; text-align: justify; margin: 12px 0;">
 If cascades exhibit a radius greater than one and a non-trivial reach, this provides evidence that emotions do not remain localized to a single interaction, but instead spread to related subreddits through the network.
